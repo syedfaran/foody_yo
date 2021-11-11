@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/presentation/pages/home_page.dart';
+import 'package:foody_yo/presentation/pages/location_walk_through/location_walk_through.dart';
+import 'package:foody_yo/presentation/pages/map_page/map_page.dart';
 
 import '../constants/route_string.dart';
 
@@ -10,15 +12,13 @@ class RouteGenerator {
 
     switch (settings.name) {
       case RouteString.initial:
-        return MaterialPageRoute(builder: (context)=>const HomePage());
-      case '/second':
+        return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
+      case RouteString.map:
       // Validation of correct data type
-        if (args is String) {
-          // return MaterialPageRoute(
-          //   builder: (_) => SecondPage(
-          //     data: args,
-          //   ),
-          // );
+        if (args is bool) {
+          return MaterialPageRoute(
+            builder: (_) => const MapPage(),
+          );
         }
         // If args is not of the correct type, return an error page.
         // You can also throw an exception while in development.

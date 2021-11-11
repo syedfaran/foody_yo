@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:foody_yo/presentation/route_generator.dart';
+import 'package:foody_yo/presentation/theme/app_theme.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       builder: (context, widget) => ResponsiveWrapper.builder(
         ClampingScrollWrapper.builder(context, widget!),
         maxWidth: 1200,
@@ -26,9 +28,7 @@ class MyApp extends StatelessWidget {
           ResponsiveBreakpoint.autoScale(2460, name: "4K"),
         ],
       ),
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: AppTheme.mainTheme,
       initialRoute: RouteString.initial,
       onGenerateRoute: RouteGenerator.generateRoute,
       // navigatorObservers: [
