@@ -19,7 +19,7 @@ class AppString {
   static const password = 'Password';
   static const login = 'Login';
   static const signUp = 'Sign-Up';
-  static const loginWith ='login With';
+  static const loginWith ='log in With';
   static const or = 'or';
   static const resendCode = 'resend Code';
   static const firstName ='First tName';

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/constants/image_string.dart';
 import 'package:foody_yo/constants/route_string.dart';
-import 'package:foody_yo/presentation/widgets/button_one.dart';
+import 'package:foody_yo/presentation/pages/enums.dart';
+import 'package:foody_yo/presentation/widgets/heading_button.dart';
+import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
 class LocationWalkThrough extends StatelessWidget {
   const LocationWalkThrough({Key? key}) : super(key: key);
@@ -17,29 +19,20 @@ class LocationWalkThrough extends StatelessWidget {
             height: 350,
             width: 300,
           ),
-          const Text(
-            AppString.findRestaurant,
-            textAlign: TextAlign.center,
-            style: TextStyle(fontWeight: FontWeight.w900, fontSize: 34),
-          ),
+          const SimpleText(AppString.findRestaurant,
+              fontSize: 34, enumText: EnumText.extraBold),
           const SizedBox(height: 20),
-          const Text(
-            AppString.locationDescription,
-            textAlign: TextAlign.center,
-            style: TextStyle(fontWeight: FontWeight.w400, fontSize: 20),
-          ),
+          const SimpleText(AppString.locationDescription,
+              fontSize: 20, enumText: EnumText.regular),
           const SizedBox(height: 100),
-          ButtonOne(
+          HeadingButton(
               text: AppString.allowAccessLocation,
               onPressed: () {
                 Navigator.pushNamed(context, RouteString.map, arguments: true);
               }),
           const SizedBox(height: 30),
-          const Text(
-            AppString.enterMyLocation,
-            textAlign: TextAlign.center,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
-          ),
+          const SimpleText(AppString.enterMyLocation,
+              fontSize: 28, enumText: EnumText.extraBold),
         ],
       ),
     );

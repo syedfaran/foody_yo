@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:foody_yo/presentation/pages/home_page.dart';
 import 'package:foody_yo/presentation/pages/location_walk_through/location_walk_through.dart';
+import 'package:foody_yo/presentation/pages/login_signup/login_signup.dart';
 import 'package:foody_yo/presentation/pages/map_page/map_page.dart';
+import 'package:foody_yo/presentation/pages/welcome/welcome_page.dart';
 
 import '../constants/route_string.dart';
 
@@ -12,7 +13,9 @@ class RouteGenerator {
 
     switch (settings.name) {
       case RouteString.initial:
+        return MaterialPageRoute(builder: (context)=>const LoginORSignup());
         return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
+
       case RouteString.map:
       // Validation of correct data type
         if (args is bool) {
@@ -23,6 +26,8 @@ class RouteGenerator {
         // If args is not of the correct type, return an error page.
         // You can also throw an exception while in development.
         return _errorRoute();
+      case RouteString.welcome:
+        return MaterialPageRoute(builder: (context)=>const WelcomePage());
       default:
       // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();

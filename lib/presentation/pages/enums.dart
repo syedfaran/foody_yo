@@ -1,0 +1,1 @@
+enum EnumText { light, regular, semiBold, bold, extraBold }

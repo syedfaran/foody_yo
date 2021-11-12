@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
-import 'package:foody_yo/presentation/widgets/button_one.dart';
+import 'package:foody_yo/constants/route_string.dart';
+import 'package:foody_yo/presentation/widgets/heading_button.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapPage extends StatefulWidget {
@@ -41,7 +42,9 @@ class MapPageState extends State<MapPage> {
           Align(
               alignment: Alignment.bottomCenter,
               heightFactor: 8.8,
-              child: ButtonOne(text: AppString.confirm, onPressed: () {})),
+              child: HeadingButton(text: AppString.confirm, onPressed: () {
+                Navigator.pushNamed(context, RouteString.welcome);
+              })),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(

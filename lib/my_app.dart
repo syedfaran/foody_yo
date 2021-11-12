@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:foody_yo/constants/image_string.dart';
 
 import 'package:foody_yo/presentation/route_generator.dart';
 import 'package:foody_yo/presentation/theme/app_theme.dart';
@@ -7,10 +10,17 @@ import 'package:responsive_framework/utils/scroll_behavior.dart';
 
 import 'constants/route_string.dart';
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,6 +44,20 @@ class MyApp extends StatelessWidget {
       // navigatorObservers: [
       //   RouteObservers.routeObserver,
       // ],
+
+
     );
+  }
+
+  @override
+  void initState() {
+    scheduleMicrotask((){
+      precacheImage(ImageString.takeFood, context);
+      precacheImage(ImageString.burger, context);
+      precacheImage(ImageString.facebook, context);
+      precacheImage(ImageString.google, context);
+
+    });
+    super.initState();
   }
 }

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
 
-class ButtonOne extends StatelessWidget {
+class HeadingButton extends StatelessWidget {
   final String text;
   final void Function() onPressed;
 
-  const ButtonOne({Key? key, required this.text, required this.onPressed})
+  const HeadingButton({Key? key, required this.text, required this.onPressed})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 90,
+      height: 80,
       width: 380,
       child: ElevatedButton(
         onPressed: onPressed,
