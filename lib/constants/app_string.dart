@@ -12,29 +12,32 @@ class AppString {
   static const welcome = 'welcome!';
   static const foodDelivery = 'Food delivery';
   static const pickUp = 'Pick-up';
-  static const deliciousFoodForYou ='Delicious\nfood for you';
+  static const deliciousFoodForYou = 'Delicious\nfood for you';
   static const pickUpAndSave = 'pick-Up and save';
   static const delivery = 'delivery';
   static const email = 'Email';
   static const password = 'Password';
   static const login = 'Login';
   static const signUp = 'Sign-Up';
-  static const loginWith ='log in With';
+  static const loginWith = 'log in With';
   static const or = 'or';
   static const resendCode = 'resend Code';
-  static const firstName ='First tName';
-  static const lastName ='Last tName';
-  static const confirmPassword ='Confirm Password';
-  static const guest ='Guest';
-  static const g ='G';
+  static const firstName = 'First tName';
+  static const lastName = 'Last tName';
+  static const confirmPassword = 'Confirm Password';
+  static const guest = 'Guest';
+  static const g = 'G';
   static const settings = 'Settings';
   static const termsAndCondition = 'Terms & Condition';
   static const creditAndPaymentMethod = 'credit and payment method';
-
-
-
-
-
-
+  static const foodyyo_pay = 'Foodyyo Pay';
+  static const favourites = 'Favourites';
+  static const order = 'Orders';
+  static const profile = 'Profile';
+  static const address ='Addresses';
+  static const reward = 'Challenge & Reward';
+  static const vouchers = 'Vouchers';
+  static const helpCenter ='help Center';
+  static const logOut ='Log out';
 
 }

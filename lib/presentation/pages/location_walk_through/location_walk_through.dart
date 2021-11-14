@@ -3,7 +3,7 @@ import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/constants/image_string.dart';
 import 'package:foody_yo/constants/route_string.dart';
 import 'package:foody_yo/presentation/pages/enums.dart';
-import 'package:foody_yo/presentation/widgets/heading_button.dart';
+import 'package:foody_yo/presentation/widgets/big_button.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
 class LocationWalkThrough extends StatelessWidget {
@@ -25,7 +25,7 @@ class LocationWalkThrough extends StatelessWidget {
           const SimpleText(AppString.locationDescription,
               fontSize: 20, enumText: EnumText.regular),
           const SizedBox(height: 100),
-          HeadingButton(
+          BigButton(
               text: AppString.allowAccessLocation,
               onPressed: () {
                 Navigator.pushNamed(context, RouteString.map, arguments: true);

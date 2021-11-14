@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/constants/image_string.dart';
+import 'package:foody_yo/constants/route_string.dart';
 import 'package:foody_yo/presentation/pages/enums.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:foody_yo/presentation/widgets/foody_appbar.dart';
@@ -15,70 +16,79 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const FoodyAppBar(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          _sizedBox,
-          const Align(
-            alignment: Alignment.centerLeft,
-            child: SimpleText(AppString.welcome,
+      body: Center(
+        child: Column(
+          children: [
+            _sizedBox,
+            const SimpleText(AppString.welcome,
                 enumText: EnumText.bold, fontSize: 34),
-          ),
-          _sizedBox,
-          const RoundedTextField(icon: Icons.search, hintText: AppString.search),
-          _sizedBox,
-          Container(
-            height: 150,
-            width: 350,
-            decoration: BoxDecoration(
-                color: AppColor.mainGreen,
-                borderRadius: BorderRadius.circular(24),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.black54,
-                    blurRadius: 5.0,
-                    offset: Offset(0, 3.0),
-                  )
-                ]),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                SimpleText(AppString.foodDelivery,
-                    color: AppColor.whiteColor,
-                    fontSize: 28,
-                    enumText: EnumText.bold),
-                Image(image: ImageString.burger,width: 120),
-              ],
+            _sizedBox,
+            const RoundedTextField(
+                icon: Icons.search, hintText: AppString.search),
+            _sizedBox,
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, RouteString.main);
+              },
+              child: Container(
+                height: 150,
+                width: 350,
+                decoration: BoxDecoration(
+                    color: AppColor.mainGreen,
+                    borderRadius: BorderRadius.circular(24),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black54,
+                        blurRadius: 5.0,
+                        offset: Offset(0, 3.0),
+                      )
+                    ]),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: const [
+                    SimpleText(AppString.foodDelivery,
+                        color: AppColor.whiteColor,
+                        fontSize: 28,
+                        enumText: EnumText.bold),
+                    Image(image: ImageString.burger, width: 120),
+                  ],
+                ),
+              ),
             ),
-          ),
-          _sizedBox,
-          Container(
-            margin: const EdgeInsets.only(right: 150),
-            width: 150,
-            height: 260,
-            padding: const EdgeInsets.symmetric(vertical: 12),
-            decoration: BoxDecoration(
-                color: AppColor.mainGreen,
-                borderRadius: BorderRadius.circular(24),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.black54,
-                    blurRadius: 5.0,
-                    offset: Offset(0, 3.0),
-                  )
-                ]),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                SimpleText(AppString.pickUp,
-                    color: AppColor.whiteColor,
-                    fontSize: 28,
-                    enumText: EnumText.bold),
-                Image(image: ImageString.takeFood),
-              ],
+            _sizedBox,
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, RouteString.main);
+              },
+              child: Container(
+                margin: const EdgeInsets.only(right: 150),
+                width: 150,
+                height: 260,
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                decoration: BoxDecoration(
+                    color: AppColor.mainGreen,
+                    borderRadius: BorderRadius.circular(24),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black54,
+                        blurRadius: 5.0,
+                        offset: Offset(0, 3.0),
+                      )
+                    ]),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: const [
+                    SimpleText(AppString.pickUp,
+                        color: AppColor.whiteColor,
+                        fontSize: 28,
+                        enumText: EnumText.bold),
+                    Image(image: ImageString.takeFood),
+                  ],
+                ),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
