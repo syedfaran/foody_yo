@@ -8,6 +8,7 @@ class AppTheme{
 }
 ThemeData _mainTheme = ThemeData(
   brightness: Brightness.light,
-  textTheme:  GoogleFonts.openSansTextTheme()
+  textTheme:  GoogleFonts.openSansTextTheme(),
+  appBarTheme: const AppBarTheme(color: AppColor.transparent)
 );
 

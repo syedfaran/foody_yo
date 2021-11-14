@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/presentation/pages/location_walk_through/location_walk_through.dart';
 import 'package:foody_yo/presentation/pages/login_signup/login_signup.dart';
+import 'package:foody_yo/presentation/pages/main_page/main_page.dart';
 import 'package:foody_yo/presentation/pages/map_page/map_page.dart';
 import 'package:foody_yo/presentation/pages/welcome/welcome_page.dart';
 
-import '../constants/route_string.dart';
+import 'constants/route_string.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -13,6 +14,7 @@ class RouteGenerator {
 
     switch (settings.name) {
       case RouteString.initial:
+      //return MaterialPageRoute(builder: (context)=>const WelcomePage());
         return MaterialPageRoute(builder: (context)=>const LoginORSignup());
         return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
 
@@ -28,6 +30,8 @@ class RouteGenerator {
         return _errorRoute();
       case RouteString.welcome:
         return MaterialPageRoute(builder: (context)=>const WelcomePage());
+      case RouteString.main:
+        return MaterialPageRoute(builder: (context)=>const MainPage());
       default:
       // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();

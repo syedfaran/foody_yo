@@ -4,7 +4,7 @@ class AppString {
   static const allowAccessLocation = 'Allow Access Location';
   static const enterMyLocation = 'Enter My Location';
   static const confirm = 'Confirm';
-  static const findRestaurant = 'Find restaurants and\n shops near you!';
+  static const findRestaurant = 'Find restaurants and\nshops near you!';
   static const locationDescription =
       'By allowing location access, you can search for restaurants and shops near you and receive more accurate and fasted delivery';
   static const searchLocation = 'Search location';
@@ -12,7 +12,7 @@ class AppString {
   static const welcome = 'welcome!';
   static const foodDelivery = 'Food delivery';
   static const pickUp = 'Pick-up';
-  static const deliciousFoodForYou ='Delicious\n food for you';
+  static const deliciousFoodForYou ='Delicious\nfood for you';
   static const pickUpAndSave = 'pick-Up and save';
   static const delivery = 'delivery';
   static const email = 'Email';

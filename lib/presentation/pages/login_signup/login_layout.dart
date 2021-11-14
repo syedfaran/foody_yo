@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/constants/image_string.dart';
 import 'package:foody_yo/presentation/pages/enums.dart';
-import 'package:foody_yo/presentation/widgets/foody_decorated_tab_box.dart';
+import 'package:foody_yo/presentation/widgets/foody_tab_appbar.dart';
 import 'package:foody_yo/presentation/widgets/heading_button.dart';
 import 'package:foody_yo/presentation/widgets/plain_textfield.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
@@ -16,7 +16,6 @@ class LoginLayout extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const FoodyDecoratedTabBox(),
         const Spacer(flex: 3,),
         const PlainTextField(hintText: AppString.email),
         _sizeBox,

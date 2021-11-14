@@ -24,13 +24,14 @@ class _PlainTextFieldState extends State<PlainTextField> {
     return SizedBox(
         width: 320,
         child: TextField(
-          controller: _controller,
+         // controller: _controller,
           keyboardType: widget.textInputType,
           onChanged: (value){
             //print(value.substring(1));
           },
           decoration: InputDecoration(
               hintText: widget.hintText,
+              contentPadding: const EdgeInsets.only(left: 15),
               hintStyle: const TextStyle(color: Colors.black)),
         ));
   }

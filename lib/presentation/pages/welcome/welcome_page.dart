@@ -3,7 +3,7 @@ import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/constants/image_string.dart';
 import 'package:foody_yo/presentation/pages/enums.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
-import 'package:foody_yo/presentation/widgets/foody_decorated_box.dart';
+import 'package:foody_yo/presentation/widgets/foody_appbar.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 import 'package:foody_yo/presentation/widgets/rounded_textfield.dart';
 
@@ -14,10 +14,10 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const FoodyAppBar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const FoodyDecoratedBox(),
           _sizedBox,
           const Align(
             alignment: Alignment.centerLeft,

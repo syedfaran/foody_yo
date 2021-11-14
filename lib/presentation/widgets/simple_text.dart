@@ -7,11 +7,13 @@ class SimpleText extends StatelessWidget {
   final EnumText? enumText;
   final double fontSize;
   final Color color;
+  final TextAlign textAlign;
 
   const SimpleText(this.text,
       {Key? key,
       this.enumText,
       this.fontSize = 20,
+      this.textAlign = TextAlign.center,
       this.color = AppColor.blackColor})
       : super(key: key);
 
@@ -19,9 +21,9 @@ class SimpleText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      textAlign: TextAlign.center,
+      textAlign: textAlign,
       style: Theme.of(context).textTheme.bodyText1!.copyWith(
-        color: color,
+          color: color,
           fontSize: fontSize,
           fontWeight: enumText == EnumText.light
               ? FontWeight.w300

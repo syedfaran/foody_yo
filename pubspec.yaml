@@ -43,6 +43,7 @@ dependencies:
   bloc: ^7.2.1
   flutter_bloc: ^7.3.3
   hydrated_bloc: ^7.1.0
+  pinput: ^1.2.2
 
 dev_dependencies:
   flutter_test:

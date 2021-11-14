@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/image_string.dart';
 
-import 'package:foody_yo/presentation/route_generator.dart';
+import 'package:foody_yo/route_generator.dart';
 import 'package:foody_yo/presentation/theme/app_theme.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
@@ -56,6 +56,10 @@ class _MyAppState extends State<MyApp> {
       precacheImage(ImageString.burger, context);
       precacheImage(ImageString.facebook, context);
       precacheImage(ImageString.google, context);
+      precacheImage(ImageString.cart, context);
+      precacheImage(ImageString.navigation, context);
+      precacheImage(ImageString.heart, context);
+      precacheImage(ImageString.appBarBackGround, context);
 
     });
     super.initState();
