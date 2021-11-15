@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/constants/image_string.dart';
+import 'package:foody_yo/constants/route_string.dart';
 import 'package:foody_yo/presentation/pages/enums.dart';
 import 'package:foody_yo/presentation/widgets/drawer_item.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
@@ -49,7 +50,7 @@ class DrawerScreen extends StatelessWidget {
               ],
             ),
           ),
-          const DrawerItem(text: AppString.favourites,image: ImageString.heart),
+          const DrawerItem(text: AppString.favourites,image: ImageString.heart,),
           const DrawerItem(text: AppString.order,image: ImageString.heart),
           const DrawerItem(text: AppString.profile,image: ImageString.profile),
           const DrawerItem(text: AppString.address,image: ImageString.address),
@@ -59,7 +60,9 @@ class DrawerScreen extends StatelessWidget {
           const Spacer(),
           const DrawerItem(text: AppString.settings),
           const DrawerItem(text: AppString.termsAndCondition),
-          const DrawerItem(text: AppString.logOut),
+           DrawerItem(text: AppString.logOut,onTap: (){
+            Navigator.pushNamed(context, RouteString.loginOrSignUp);
+           }),
           const Spacer(),
         ],
       ),

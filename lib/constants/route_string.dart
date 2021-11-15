@@ -4,4 +4,5 @@ class RouteString{
   static const String map = '/map';
   static const String welcome ='/welcome';
   static const String main ='/main';
+  static const String loginOrSignUp = '/LoginOrSignUp';
 }

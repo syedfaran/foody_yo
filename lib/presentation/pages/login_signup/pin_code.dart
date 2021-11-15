@@ -3,9 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:foody_yo/constants/app_string.dart';
+import 'package:foody_yo/presentation/blocs/signupbloc/sign_up_bloc.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 import 'package:pinput/pin_put/pin_put.dart';
+
+import '../../../dependency_injector.dart';
 
 class PinPutTest extends StatefulWidget {
   const PinPutTest({Key? key}) : super(key: key);
@@ -92,6 +95,7 @@ class PinPutTestState extends State<PinPutTest> {
   }
 
   void _showSnackBar(String pin, BuildContext context) {
+    sl<SignUpBloc>().add(const SignUpInFo());
     //SystemChannels.textInput.invokeMethod('TextInput.hide');
     //   final snackBar = SnackBar(
     //     duration: const Duration(seconds: 3),

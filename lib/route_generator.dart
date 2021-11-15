@@ -32,6 +32,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context)=>const WelcomePage());
       case RouteString.main:
         return MaterialPageRoute(builder: (context)=>const MainLayout());
+      case RouteString.loginOrSignUp:
+        return MaterialPageRoute(builder: (context)=>const LoginORSignup());
       default:
       // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();

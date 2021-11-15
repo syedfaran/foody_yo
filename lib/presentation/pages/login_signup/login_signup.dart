@@ -29,7 +29,7 @@ class LoginORSignup extends StatelessWidget {
         body: TabBarView(
           children: [
              LoginLayout(),
-             SignUpLayout(enumSignup: EnumSignup.infoField),
+             SignUpLayout(),
           ],
         ),
       ),

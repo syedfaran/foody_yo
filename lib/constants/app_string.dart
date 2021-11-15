@@ -39,5 +39,6 @@ class AppString {
   static const vouchers = 'Vouchers';
   static const helpCenter ='help Center';
   static const logOut ='Log out';
+  static const next ='next';
 
 }

@@ -7,15 +7,15 @@ import 'package:foody_yo/presentation/widgets/simple_text.dart';
 class DrawerItem extends StatelessWidget {
   final ImageProvider? image;
   final String text;
-  const DrawerItem({Key? key,required this.text,this.image}) : super(key: key);
+  final void Function()? onTap;
+  const DrawerItem({Key? key,required this.text,this.image,this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin:  EdgeInsets.symmetric(vertical: image==null?10:14),
       child: GestureDetector(
-        onTap: (){
-        },
+        onTap: onTap,
         child: Row(
           children: [
             image==null?const SizedBox.shrink():Image(image: image!,width: 32),
