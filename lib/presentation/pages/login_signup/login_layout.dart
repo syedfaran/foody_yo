@@ -14,7 +14,7 @@ class LoginLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+      //mainAxisAlignment: MainAxisAlignment.start,
       children: [
         const Spacer(flex: 3,),
         const PlainTextField(hintText: AppString.email),

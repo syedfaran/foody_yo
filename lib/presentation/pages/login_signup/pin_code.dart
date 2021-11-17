@@ -46,12 +46,14 @@ class PinPutTestState extends State<PinPutTest> {
       },
     );
   }
-
+  @override
+  void initState() {
+    super.initState();
+  }
   @override
   void dispose() {
     _pinPutController.dispose();
     _pinPutFocusNode.dispose();
-    _timer.cancel();
     super.dispose();
   }
 

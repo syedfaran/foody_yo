@@ -20,6 +20,7 @@ class LoginORSignup extends StatelessWidget {
     return const DefaultTabController(
       length: 2,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar:  FoodyTabAppBar(
           tabBar: [
             SimpleText(AppString.login, fontSize: 26),

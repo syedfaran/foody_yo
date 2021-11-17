@@ -51,19 +51,23 @@ class DrawerScreen extends StatelessWidget {
               ],
             ),
           ),
-          const DrawerItem(
-            text: AppString.favourites,
-            image: ImageString.heart,
-          ),
-          const DrawerItem(
+          DrawerItem(
+              text: AppString.favourites,
+              image: ImageString.heart,
+              onTap: () => Navigator.pushNamed(context, RouteString.favourite)),
+          DrawerItem(
             text: AppString.order,
             image: ImageString.heart,
+            onTap: () => Navigator.pushNamed(context, RouteString.orderHistory),
           ),
           const DrawerItem(text: AppString.profile, image: ImageString.profile),
           const DrawerItem(text: AppString.address, image: ImageString.address),
           const DrawerItem(text: AppString.reward, image: ImageString.reward),
-          const DrawerItem(
-              text: AppString.vouchers, image: ImageString.voucher),
+          DrawerItem(
+            text: AppString.vouchers,
+            image: ImageString.voucher,
+            onTap: () => Navigator.pushNamed(context, RouteString.voucher),
+          ),
           DrawerItem(
             text: AppString.helpCenter,
             image: ImageString.reward,

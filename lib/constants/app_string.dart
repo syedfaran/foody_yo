@@ -53,4 +53,16 @@ class AppString {
   static const optionThree = 'My vouch want not applied to my order';
   static const optionFour = 'I changed my mind';
   static const optionFive = 'This is a duplicate order';
+
+  static const orderHistory = 'Order History';
+  static const pastOrder = 'Past Orders';
+  static const noVoucher ='No Vouchers Yet';
+  static const current = 'Current';
+  static const past = 'Past';
+  static const restaurant = 'Restaurants';
+  static const shop = 'Shops';
+
+  static const noFavourite = 'No favourites saved';
+  static const noFavouriteDesc = 'You will see all your favourites here, tomake ordering\neven faster. Just look for the';
+  static const favouriteButtonText ='lets find some favorites';
 }

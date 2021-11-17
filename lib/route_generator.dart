@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/presentation/pages/location_walk_through/location_walk_through.dart';
 import 'package:foody_yo/presentation/pages/login_signup/login_signup.dart';
-import 'package:foody_yo/presentation/pages/main_page/drawer_item_page/help_center/cancel_order_page.dart';
-import 'package:foody_yo/presentation/pages/main_page/drawer_item_page/help_center/help_center_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer_item_page/favourite_page/favourite_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer_item_page/help_center_page/cancel_order_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer_item_page/help_center_page/help_center_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer_item_page/order_page/order_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer_item_page/voucher_page/voucher_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/main_layout.dart';
 import 'package:foody_yo/presentation/pages/map_page/map_page.dart';
 import 'package:foody_yo/presentation/pages/welcome/welcome_page.dart';
@@ -17,8 +20,8 @@ class RouteGenerator {
     switch (settings.name) {
       case RouteString.initial:
       //return MaterialPageRoute(builder: (context)=>const WelcomePage());
-        //return MaterialPageRoute(builder: (context)=>const HelpCenterPage());
-        return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
+       return MaterialPageRoute(builder: (context)=>const LoginORSignup());
+       // return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
 
       case RouteString.map:
       // Validation of correct data type
@@ -40,6 +43,13 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context)=>const HelpCenterPage());
       case RouteString.cancelOrder:
         return MaterialPageRoute(builder: (context)=>const CancelOrderPage());
+      case RouteString.orderHistory:
+        return MaterialPageRoute(builder: (context)=>const OrderPage());
+      case RouteString.voucher:
+        return MaterialPageRoute(builder: (context)=>const VoucherPage());
+      case RouteString.favourite:
+        return MaterialPageRoute(builder: (context)=>const FavouritePage());
+
       default:
       // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();

@@ -7,4 +7,7 @@ class RouteString{
   static const String loginOrSignUp = '/LoginOrSignUp';
   static const String cancelOrder = '/cancelOrder';
   static const String helpCenter = '/helpCenter';
+  static const String orderHistory = '/orderHistory';
+  static const String voucher = '/voucher';
+  static const String favourite = '/favourite';
 }

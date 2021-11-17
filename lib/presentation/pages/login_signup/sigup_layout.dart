@@ -32,7 +32,6 @@ class _SignUpLayoutState extends State<SignUpLayout> {
         bloc: signUpBloc,
         builder: (context, state) {
           if (state is SignUpPhonePage) {
-            print('someting');
             return const PhoneNumber();
           } else if (state is SignUpOTPPage) {
             return const PinPutTest();
