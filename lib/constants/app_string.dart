@@ -34,11 +34,23 @@ class AppString {
   static const favourites = 'Favourites';
   static const order = 'Orders';
   static const profile = 'Profile';
-  static const address ='Addresses';
+  static const address = 'Addresses';
   static const reward = 'Challenge & Reward';
   static const vouchers = 'Vouchers';
-  static const helpCenter ='help Center';
-  static const logOut ='Log out';
-  static const next ='next';
+  static const helpCenter = 'help Center';
+  static const logOut = 'Log out';
+  static const next = 'next';
+  static const howCanWeHelp = 'How can we help?';
+  static const canICancelMyOrder = 'Can I Cancel My Order?';
+  static const cancelOrderDescription =
+      'The restaurant may already have started preparing your order. If that is the case, you wont be able be cancel.';
 
+  static const whyDoYouWantToCancelYourOrder =
+      'Why do you want to cancel your order';
+
+  static const optionOne = 'My Order is taking longer than expected';
+  static const optionTwo = 'I accidentally placed a pre-order';
+  static const optionThree = 'My vouch want not applied to my order';
+  static const optionFour = 'I changed my mind';
+  static const optionFive = 'This is a duplicate order';
 }

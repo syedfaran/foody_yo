@@ -16,7 +16,7 @@ class _MainPageState extends State<MainPage>
   @override
   void initState() {
     animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300))..forward();
+        vsync: this, duration: const Duration(milliseconds: 300));
     animation = Tween(begin: 1.0, end: 0.7).animate(animationController);
     super.initState();
   }
@@ -30,18 +30,19 @@ class _MainPageState extends State<MainPage>
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-        animation: animation,
-        builder: (context, child) {
-          return Transform(
-            transform: Matrix4.translationValues(
-                (1 - animation.value) * 1000, (1 - animation.value) * 500, 0)
-              ..scale(animation.value),
-            // transform: Matrix4.translationValues(300, 150, 0)..scale(0.7),
-            child: child,
-          );
-        },
-        child: const Scaffold(
-          appBar: MainAppBar(),
-        ));
+      animation: animation,
+      builder: (context, child) {
+        return Transform(
+          transform: Matrix4.translationValues(
+              (1 - animation.value) * 1000, (1 - animation.value) * 500, 0)
+            ..scale(animation.value),
+          // transform: Matrix4.translationValues(300, 150, 0)..scale(0.7),
+          child: child,
+        );
+      },
+      child: Scaffold(
+        appBar: MainAppBar(controller: animationController),
+      ),
+    );
   }
 }

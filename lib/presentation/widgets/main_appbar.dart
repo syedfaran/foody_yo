@@ -7,7 +7,9 @@ import 'package:foody_yo/presentation/widgets/rounded_textfield.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MainAppBar({Key? key}) : super(key: key);
+  final AnimationController? controller;
+
+  const MainAppBar({Key? key,this.controller}) : super(key: key);
   final _sizedBox = const SizedBox(width: 10);
 
   @override
@@ -15,7 +17,9 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       automaticallyImplyLeading: false,
       elevation: 0.0,
-      leading: IconButton(icon: const Icon(Icons.menu), onPressed: () {}),
+      leading: IconButton(icon: const Icon(Icons.menu), onPressed: () {
+        controller!.forward();
+      }),
       actions: const [
         Spacer(flex: 3),
         Image(image: ImageString.navigation, width: 30),

@@ -10,6 +10,7 @@ import 'package:foody_yo/presentation/widgets/simple_text.dart';
 class DrawerScreen extends StatelessWidget {
   const DrawerScreen({Key? key}) : super(key: key);
   final SizedBox _sizedBox = const SizedBox(height: 20);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,19 +51,32 @@ class DrawerScreen extends StatelessWidget {
               ],
             ),
           ),
-          const DrawerItem(text: AppString.favourites,image: ImageString.heart,),
-          const DrawerItem(text: AppString.order,image: ImageString.heart),
-          const DrawerItem(text: AppString.profile,image: ImageString.profile),
-          const DrawerItem(text: AppString.address,image: ImageString.address),
-          const DrawerItem(text: AppString.reward,image: ImageString.reward),
-          const DrawerItem(text: AppString.vouchers,image: ImageString.voucher),
-          const DrawerItem(text: AppString.helpCenter,image: ImageString.reward),
+          const DrawerItem(
+            text: AppString.favourites,
+            image: ImageString.heart,
+          ),
+          const DrawerItem(
+            text: AppString.order,
+            image: ImageString.heart,
+          ),
+          const DrawerItem(text: AppString.profile, image: ImageString.profile),
+          const DrawerItem(text: AppString.address, image: ImageString.address),
+          const DrawerItem(text: AppString.reward, image: ImageString.reward),
+          const DrawerItem(
+              text: AppString.vouchers, image: ImageString.voucher),
+          DrawerItem(
+            text: AppString.helpCenter,
+            image: ImageString.reward,
+            onTap: () => Navigator.pushNamed(context, RouteString.helpCenter),
+          ),
           const Spacer(),
           const DrawerItem(text: AppString.settings),
           const DrawerItem(text: AppString.termsAndCondition),
-           DrawerItem(text: AppString.logOut,onTap: (){
-            Navigator.pushNamed(context, RouteString.loginOrSignUp);
-           }),
+          DrawerItem(
+            text: AppString.logOut,
+            onTap: () =>
+                Navigator.pushNamed(context, RouteString.loginOrSignUp),
+          ),
           const Spacer(),
         ],
       ),

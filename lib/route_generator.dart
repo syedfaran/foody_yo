@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/presentation/pages/location_walk_through/location_walk_through.dart';
 import 'package:foody_yo/presentation/pages/login_signup/login_signup.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer_item_page/help_center/cancel_order_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer_item_page/help_center/help_center_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/main_layout.dart';
 import 'package:foody_yo/presentation/pages/map_page/map_page.dart';
 import 'package:foody_yo/presentation/pages/welcome/welcome_page.dart';
@@ -15,7 +17,7 @@ class RouteGenerator {
     switch (settings.name) {
       case RouteString.initial:
       //return MaterialPageRoute(builder: (context)=>const WelcomePage());
-        //return MaterialPageRoute(builder: (context)=>const LoginORSignup());
+        //return MaterialPageRoute(builder: (context)=>const HelpCenterPage());
         return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
 
       case RouteString.map:
@@ -34,6 +36,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context)=>const MainLayout());
       case RouteString.loginOrSignUp:
         return MaterialPageRoute(builder: (context)=>const LoginORSignup());
+      case RouteString.helpCenter:
+        return MaterialPageRoute(builder: (context)=>const HelpCenterPage());
+      case RouteString.cancelOrder:
+        return MaterialPageRoute(builder: (context)=>const CancelOrderPage());
       default:
       // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();
