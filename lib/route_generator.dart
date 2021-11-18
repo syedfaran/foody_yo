@@ -20,8 +20,8 @@ class RouteGenerator {
     switch (settings.name) {
       case RouteString.initial:
       //return MaterialPageRoute(builder: (context)=>const WelcomePage());
-       return MaterialPageRoute(builder: (context)=>const LoginORSignup());
-       // return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
+       //return MaterialPageRoute(builder: (context)=>const LoginORSignup());
+        return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
 
       case RouteString.map:
       // Validation of correct data type

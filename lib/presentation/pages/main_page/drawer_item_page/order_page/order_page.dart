@@ -18,8 +18,11 @@ class OrderPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 30),
-          const SimpleText(AppString.pastOrder,
-              enumText: EnumText.extraBold, fontSize: 32),
+          const Padding(
+            padding: EdgeInsets.only(left: 24),
+            child: SimpleText(AppString.pastOrder,
+                enumText: EnumText.extraBold, fontSize: 32),
+          ),
           const SizedBox(height: 50),
           Expanded(
               child: ListView.builder(
@@ -38,8 +41,6 @@ class OrderPage extends StatelessWidget {
     );
   }
 }
-
-
 
 class OrderHistory {
   final String restaurantName;

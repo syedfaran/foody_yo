@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/presentation/blocs/signupbloc/sign_up_bloc.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
@@ -64,10 +63,11 @@ class PinPutTestState extends State<PinPutTest> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            color: Colors.white,
+            color: AppColor.whiteColor,
             margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
             padding: const EdgeInsets.all(20.0),
             child: PinPut(
+              obscureText: '*',
                 fieldsCount: 4,
                 onSubmit: (String pin) => _showSnackBar(pin, context),
                 focusNode: _pinPutFocusNode,

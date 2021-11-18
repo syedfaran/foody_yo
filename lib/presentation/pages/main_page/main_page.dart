@@ -42,6 +42,7 @@ class _MainPageState extends State<MainPage>
       },
       child: Scaffold(
         appBar: MainAppBar(controller: animationController),
+        body: const SizedBox.shrink(),
       ),
     );
   }

@@ -17,8 +17,15 @@ class DrawerScreen extends StatelessWidget {
       color: AppColor.lightGreen,
       padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 24),
       child: Column(
+
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          _sizedBox,
+          GestureDetector(
+            child: const Icon(Icons.arrow_back,color: AppColor.whiteColor),
+            onTap: (){Navigator.pop(context);},
+          ),
+          _sizedBox,
           Container(
             height: 60,
             width: 60,
