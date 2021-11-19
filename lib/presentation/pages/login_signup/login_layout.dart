@@ -3,7 +3,7 @@ import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/constants/image_string.dart';
 import 'package:foody_yo/presentation/pages/enums.dart';
 import 'package:foody_yo/presentation/widgets/foody_tab_appbar.dart';
-import 'package:foody_yo/presentation/widgets/heading_button.dart';
+import 'package:foody_yo/presentation/widgets/big_button.dart';
 import 'package:foody_yo/presentation/widgets/plain_textfield.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
@@ -14,7 +14,7 @@ class LoginLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+      //mainAxisAlignment: MainAxisAlignment.start,
       children: [
         const Spacer(flex: 3,),
         const PlainTextField(hintText: AppString.email),
@@ -37,7 +37,7 @@ class LoginLayout extends StatelessWidget {
           ],
         ),
         const Spacer(flex: 1),
-        HeadingButton(text: AppString.login, onPressed: () {}),
+        BigButton(text: AppString.login, onPressed: () {}),
         const Spacer(flex: 2),
       ],
     );

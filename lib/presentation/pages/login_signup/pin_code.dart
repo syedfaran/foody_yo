@@ -1,11 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:foody_yo/constants/app_string.dart';
+import 'package:foody_yo/presentation/blocs/signupbloc/sign_up_bloc.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 import 'package:pinput/pin_put/pin_put.dart';
+
+import '../../../dependency_injector.dart';
 
 class PinPutTest extends StatefulWidget {
   const PinPutTest({Key? key}) : super(key: key);
@@ -43,12 +45,14 @@ class PinPutTestState extends State<PinPutTest> {
       },
     );
   }
-
+  @override
+  void initState() {
+    super.initState();
+  }
   @override
   void dispose() {
     _pinPutController.dispose();
     _pinPutFocusNode.dispose();
-    _timer.cancel();
     super.dispose();
   }
 
@@ -59,10 +63,11 @@ class PinPutTestState extends State<PinPutTest> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            color: Colors.white,
+            color: AppColor.whiteColor,
             margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
             padding: const EdgeInsets.all(20.0),
             child: PinPut(
+              obscureText: '*',
                 fieldsCount: 4,
                 onSubmit: (String pin) => _showSnackBar(pin, context),
                 focusNode: _pinPutFocusNode,
@@ -92,6 +97,7 @@ class PinPutTestState extends State<PinPutTest> {
   }
 
   void _showSnackBar(String pin, BuildContext context) {
+    sl<SignUpBloc>().add(const SignUpInFo());
     //SystemChannels.textInput.invokeMethod('TextInput.hide');
     //   final snackBar = SnackBar(
     //     duration: const Duration(seconds: 3),

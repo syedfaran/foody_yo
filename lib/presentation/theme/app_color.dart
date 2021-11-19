@@ -9,4 +9,14 @@ class AppColor{
   static const Color whiteColor = Color(0xffFFFFFF);
   static const Color blackColor = Color(0xff000000);
   static const Color transparent = Colors.transparent;
+  static const Color lightGreen = Color(0xff72885c);
+  static const Color ss = Color.fromARGB(89, 26, 92, 13);
+  static const Color gg = Color.fromARGB(85, 13, 94, 2);
+
 }
+
+
+// C     M    Y    K
+// 100  50   100   50
+// 89  26    92   13
+// 85  13    94    2
