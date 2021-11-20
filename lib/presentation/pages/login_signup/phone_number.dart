@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/presentation/blocs/signupbloc/sign_up_bloc.dart';
 import 'package:foody_yo/presentation/widgets/big_button.dart';
-import 'package:foody_yo/presentation/widgets/no_textfied.dart';
+import 'package:foody_yo/presentation/widgets/number_textfied.dart';
 
 import '../../../dependency_injector.dart';
 

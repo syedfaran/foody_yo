@@ -10,5 +10,6 @@ ThemeData _mainTheme = ThemeData(
   brightness: Brightness.light,
   textTheme:  GoogleFonts.openSansTextTheme(),
   appBarTheme: const AppBarTheme(color: AppColor.transparent),
+  scaffoldBackgroundColor: AppColor.whiteColor
 );
 

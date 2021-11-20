@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
+import 'package:foody_yo/constants/image_string.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
@@ -20,7 +21,7 @@ class Shop extends StatelessWidget {
           height: 200,
           width: 200,
           decoration: BoxDecoration(
-            color: AppColor.mainGreen,
+            image: const DecorationImage(image: ImageString.favoriteLogo),
             borderRadius: BorderRadius.circular(20.0),
           ),
         ),

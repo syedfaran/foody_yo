@@ -10,4 +10,5 @@ class RouteString{
   static const String orderHistory = '/orderHistory';
   static const String voucher = '/voucher';
   static const String favourite = '/favourite';
+  static const String walkThrough = '/walkThrough';
 }

@@ -13,19 +13,21 @@ class FavouritePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const DefaultTabController(
       length: 2,
-      child: Scaffold(
-        appBar:  FoodyTabAppBar(
-          title: AppString.favourites,
-          tabBar: [
-            SimpleText(AppString.restaurant, fontSize: 26),
-            SimpleText(AppString.shop, fontSize: 26)
-          ],
-        ),
-        body: TabBarView(
-          children: [
-            Restaurant(),
-            Shop(),
-          ],
+      child: SafeArea(
+        child: Scaffold(
+          appBar:  FoodyTabAppBar(
+            title: AppString.favourites,
+            tabBar: [
+              SimpleText(AppString.restaurant, fontSize: 26),
+              SimpleText(AppString.shop, fontSize: 26)
+            ],
+          ),
+          body: TabBarView(
+            children: [
+              Restaurant(),
+              Shop(),
+            ],
+          ),
         ),
       ),
     );

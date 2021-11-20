@@ -13,27 +13,29 @@ class HelpCenterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const SimpleAppBar(title: AppString.howCanWeHelp),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 40.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children:  [
-            const ReceivedCard(),
-            const SizedBox(height: 100),
-            GestureDetector(
-              onTap: ()=>Navigator.pushNamed(context, RouteString.cancelOrder),
-              child: Row(
-                children: const [
-                  SimpleText(AppString.canICancelMyOrder,enumText: EnumText.extraBold,fontSize: 22),
-                  Spacer(),
-                  Icon(Icons.arrow_forward_ios),
-                ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: const SimpleAppBar(title: AppString.howCanWeHelp),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 40.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children:  [
+              const ReceivedCard(),
+              const SizedBox(height: 100),
+              GestureDetector(
+                onTap: ()=>Navigator.pushNamed(context, RouteString.cancelOrder),
+                child: Row(
+                  children: const [
+                    SimpleText(AppString.canICancelMyOrder,enumText: EnumText.extraBold,fontSize: 22),
+                    Spacer(),
+                    Icon(Icons.arrow_forward_ios),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

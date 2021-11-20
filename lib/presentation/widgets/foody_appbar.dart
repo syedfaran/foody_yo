@@ -10,11 +10,20 @@ class FoodyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       elevation: 10,
       flexibleSpace: Container(
         alignment: Alignment.center,
+        child: Container(
+          height: 180,
+          width: 180,
+          margin: EdgeInsets.only(bottom: 35),
+          foregroundDecoration:const BoxDecoration(
+            image:  DecorationImage(image: ImageString.splashCenter),
+          ),
+        ),
         decoration: BoxDecoration(
-          image: const DecorationImage(image: ImageString.burger),
+          image: const DecorationImage(image: ImageString.tabAppBarBackground,fit: BoxFit.cover),
           color: AppColor.whiteColor,
           border: Border.all(color: Colors.black45, width: .1),
           borderRadius: const BorderRadius.only(

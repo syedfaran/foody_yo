@@ -29,28 +29,31 @@ class MapPageState extends State<MapPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          GoogleMap(
-            mapType: MapType.normal,
-            initialCameraPosition: _kGooglePlex,
-            onMapCreated: (GoogleMapController controller) {
-              _controller.complete(controller);
-            },
-          ),
-          Align(
-              alignment: Alignment.bottomCenter,
-              heightFactor: 9.8,
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+           alignment: Alignment.bottomCenter,
+          children: [
+            GoogleMap(zoomControlsEnabled: false,
+              mapType: MapType.normal,
+              initialCameraPosition: _kGooglePlex,
+              onMapCreated: (GoogleMapController controller) {
+                _controller.complete(controller);
+              },
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 80),
               child: BigButton(text: AppString.confirm, onPressed: () {
                 Navigator.pushNamed(context, RouteString.welcome);
-              })),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: _goToTheLake,
-        label: const Text('To the lake!'),
-        icon: const Icon(Icons.directions_boat),
+              }),
+            ),
+          ],
+        ),
+        // floatingActionButton: FloatingActionButton.extended(
+        //   onPressed: _goToTheLake,
+        //   label: const Text('To the lake!'),
+        //   icon: const Icon(Icons.directions_boat),
+        // ),
       ),
     );
   }

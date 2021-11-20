@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
+import 'package:foody_yo/constants/image_string.dart';
 import 'package:foody_yo/presentation/pages/enums.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:foody_yo/presentation/widgets/big_button.dart';
@@ -77,9 +78,10 @@ class DeliveryBody extends StatelessWidget {
         Container(
           height: 200,
           width: 200,
-          decoration: BoxDecoration(
-            color: AppColor.mainGreen,
+          foregroundDecoration: BoxDecoration(
+          //  color: AppColor.mainGreen,
             borderRadius: BorderRadius.circular(20.0),
+            image: const DecorationImage(image: ImageString.favoriteLogo),
           ),
         ),
 
@@ -121,8 +123,8 @@ class PickUpBody extends StatelessWidget {
           height: 200,
           width: 200,
           decoration: BoxDecoration(
-            color: AppColor.mainGreen,
             borderRadius: BorderRadius.circular(20.0),
+            image: const DecorationImage(image: ImageString.favoriteLogo),
           ),
         ),
 

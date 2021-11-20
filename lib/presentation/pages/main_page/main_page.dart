@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:foody_yo/presentation/widgets/main_appbar.dart';
 
 class MainPage extends StatefulWidget {
@@ -41,8 +42,9 @@ class _MainPageState extends State<MainPage>
         );
       },
       child: Scaffold(
+        backgroundColor: AppColor.whiteColor,
         appBar: MainAppBar(controller: animationController),
-        body: const SizedBox.shrink(),
+
       ),
     );
   }

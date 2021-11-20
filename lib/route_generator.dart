@@ -11,6 +11,7 @@ import 'package:foody_yo/presentation/pages/map_page/map_page.dart';
 import 'package:foody_yo/presentation/pages/welcome/welcome_page.dart';
 
 import 'constants/route_string.dart';
+import 'presentation/pages/splash/splash_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -19,10 +20,11 @@ class RouteGenerator {
 
     switch (settings.name) {
       case RouteString.initial:
-      //return MaterialPageRoute(builder: (context)=>const WelcomePage());
+      return MaterialPageRoute(builder: (context)=>const SplashScreen());
        //return MaterialPageRoute(builder: (context)=>const LoginORSignup());
         return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
-
+      case RouteString.walkThrough:
+        return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
       case RouteString.map:
       // Validation of correct data type
         if (args is bool) {

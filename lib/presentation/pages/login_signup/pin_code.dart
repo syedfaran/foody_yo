@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/presentation/blocs/signupbloc/sign_up_bloc.dart';
+import 'package:foody_yo/presentation/pages/enums.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 import 'package:pinput/pin_put/pin_put.dart';
@@ -62,12 +63,15 @@ class PinPutTestState extends State<PinPutTest> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          const SizedBox(height: 100),
           Container(
             color: AppColor.whiteColor,
             margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
             padding: const EdgeInsets.all(20.0),
             child: PinPut(
-              obscureText: '*',
+              eachFieldPadding: const EdgeInsets.symmetric(horizontal: 18,vertical: 14),
+              obscureText: 'X',
+                textStyle: const TextStyle(fontSize: 24),
                 fieldsCount: 4,
                 onSubmit: (String pin) => _showSnackBar(pin, context),
                 focusNode: _pinPutFocusNode,
@@ -81,13 +85,8 @@ class PinPutTestState extends State<PinPutTest> {
             padding: const EdgeInsets.only(left: 40),
             child: Column(
               children: [
-                TextButton(
-                  onPressed: () {
-                    startTimer();
-                  },
-                  child: const SimpleText(AppString.resendCode, fontSize: 14),
-                ),
-                SimpleText("00:$_start", fontSize: 14),
+                TextButton(onPressed: () {startTimer();}, child: const SimpleText(AppString.resendCode, fontSize: 14,enumText: EnumText.bold),),
+                SimpleText("00:$_start", fontSize: 16,enumText: EnumText.regular),
               ],
             ),
           ),

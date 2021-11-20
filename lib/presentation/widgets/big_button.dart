@@ -11,7 +11,7 @@ class BigButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 80,
+      height: 75,
       width: 380,
       child: ElevatedButton(
         onPressed: onPressed,

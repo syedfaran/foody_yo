@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foody_yo/presentation/theme/app_color.dart';
 
 class PlainTextField extends StatefulWidget {
   final String? hintText;
@@ -30,9 +31,15 @@ class _PlainTextFieldState extends State<PlainTextField> {
             //print(value.substring(1));
           },
           decoration: InputDecoration(
+              enabledBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(color: AppColor.mainGreen,width: 1.75),
+              ),
+              focusedBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(color: AppColor.mainGreen,width: 1.75),
+              ),
               hintText: widget.hintText,
               contentPadding: const EdgeInsets.only(left: 15),
-              hintStyle: const TextStyle(color: Colors.black)),
+              hintStyle: const TextStyle(color: Colors.black,fontSize: 24)),
         ));
   }
 }

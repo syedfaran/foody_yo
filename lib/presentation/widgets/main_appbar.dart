@@ -21,14 +21,14 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       flexibleSpace: Container(
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 18.0),
         decoration: const BoxDecoration(
-          color: AppColor.mainGreen,
-          //image: DecorationImage(image: ImageString.appBarBackGround),
+          //color: AppColor.mainGreen,
+          image: DecorationImage(
+              image: ImageString.appBarBackGround, fit: BoxFit.fill),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            const Spacer(flex: 3),
             Row(
               children: [
                 Center(
@@ -49,8 +49,11 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                 const Padding(
                   padding: EdgeInsets.only(top: 4.0),
                   child: RoundedTextField(
+                    verticalPadding: 0,
                     width: 250,
                     hintText: 'Al haj Akhtar',
+                    fontColor: AppColor.blackColor,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 const Spacer(),
@@ -65,8 +68,8 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                 enumText: EnumText.extraBold,
                 fontSize: 28,
                 color: AppColor.whiteTextColor),
-            const Spacer(),
-            const RoundedTextField(
+            const Spacer(flex: 3),
+            const ShadowTextField(
                 width: 330, hintText: AppString.search, icon: Icons.search),
             const Spacer(flex: 2),
           ],
@@ -74,6 +77,43 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
+
   @override
-  Size get preferredSize => const Size(double.infinity, 300);
+  Size get preferredSize => const Size(double.infinity, 330);
+}
+
+class ShadowTextField extends StatelessWidget {
+  final String? hintText;
+  final IconData? icon;
+  final double width;
+
+  const ShadowTextField({Key? key, this.icon, this.hintText, this.width = 330})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width,
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+      decoration: const BoxDecoration(
+          color: AppColor.whiteColor,
+          // border: Border.all(color: AppColor.mainGreen,width: 1.5),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.black45, offset: Offset(0, 3), blurRadius: 3,)
+          ],
+          borderRadius: BorderRadius.all(Radius.circular(20))),
+      child: TextField(
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          suffixIcon: Icon(
+            icon,
+            size: 30
+          ),
+          hintText: hintText,
+            hintStyle:const TextStyle(fontSize: 20),
+        ),
+      ),
+    );
+  }
 }

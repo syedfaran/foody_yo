@@ -64,6 +64,8 @@ class _MyAppState extends State<MyApp> {
       precacheImage(ImageString.address, context);
       precacheImage(ImageString.reward, context);
       precacheImage(ImageString.voucher, context);
+      precacheImage(ImageString.splash, context);
+
 
     });
     super.initState();

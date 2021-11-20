@@ -12,19 +12,21 @@ class VoucherPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const DefaultTabController(
       length: 2,
-      child: Scaffold(
-        appBar:  FoodyTabAppBar(
-          title: AppString.vouchers,
-          tabBar: [
-            SimpleText(AppString.current, fontSize: 26),
-            SimpleText(AppString.past, fontSize: 26)
-          ],
-        ),
-        body: TabBarView(
-          children: [
-            Current(),
-            Past(),
-          ],
+      child: SafeArea(
+        child: Scaffold(
+          appBar:  FoodyTabAppBar(
+            title: AppString.vouchers,
+            tabBar: [
+              SimpleText(AppString.current, fontSize: 26),
+              SimpleText(AppString.past, fontSize: 26)
+            ],
+          ),
+          body: TabBarView(
+            children: [
+              Current(),
+              Past(),
+            ],
+          ),
         ),
       ),
     );

@@ -12,31 +12,33 @@ class OrderPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const SimpleAppBar(title: AppString.orderHistory),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 30),
-          const Padding(
-            padding: EdgeInsets.only(left: 24),
-            child: SimpleText(AppString.pastOrder,
-                enumText: EnumText.extraBold, fontSize: 32),
-          ),
-          const SizedBox(height: 50),
-          Expanded(
-              child: ListView.builder(
-                  itemCount: OrderHistory.orderHistoryList.length,
-                  itemBuilder: (context, index) {
-                    final history = OrderHistory.orderHistoryList[index];
-                    return OrderHistoryCard(
-                        history.restaurantName,
-                        history.itemName,
-                        history.itemPrice,
-                        history.quantity,
-                        history.dateTime);
-                  })),
-        ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: const SimpleAppBar(title: AppString.orderHistory),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 30),
+            const Padding(
+              padding: EdgeInsets.only(left: 24),
+              child: SimpleText(AppString.pastOrder,
+                  enumText: EnumText.extraBold, fontSize: 32),
+            ),
+            const SizedBox(height: 50),
+            Expanded(
+                child: ListView.builder(
+                    itemCount: OrderHistory.orderHistoryList.length,
+                    itemBuilder: (context, index) {
+                      final history = OrderHistory.orderHistoryList[index];
+                      return OrderHistoryCard(
+                          history.restaurantName,
+                          history.itemName,
+                          history.itemPrice,
+                          history.quantity,
+                          history.dateTime);
+                    })),
+          ],
+        ),
       ),
     );
   }

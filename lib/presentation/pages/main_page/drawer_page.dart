@@ -17,7 +17,6 @@ class DrawerScreen extends StatelessWidget {
       color: AppColor.lightGreen,
       padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 24),
       child: Column(
-
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _sizedBox,

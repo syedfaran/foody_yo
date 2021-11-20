@@ -14,80 +14,88 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const FoodyAppBar(),
-      body: Center(
-        child: Column(
-          children: [
-            _sizedBox,
-            const SimpleText(AppString.welcome,
-                enumText: EnumText.bold, fontSize: 34),
-            _sizedBox,
-            const RoundedTextField(
-                icon: Icons.search, hintText: AppString.search),
-            _sizedBox,
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, RouteString.main);
-              },
-              child: Container(
-                height: 150,
-                width: 350,
-                decoration: BoxDecoration(
-                    color: AppColor.mainGreen,
-                    borderRadius: BorderRadius.circular(24),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.black54,
-                        blurRadius: 5.0,
-                        offset: Offset(0, 3.0),
-                      )
-                    ]),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [
-                    SimpleText(AppString.foodDelivery,
-                        color: AppColor.whiteColor,
-                        fontSize: 28,
-                        enumText: EnumText.bold),
-                    Image(image: ImageString.burger, width: 120),
-                  ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: const FoodyAppBar(),
+        body: Center(
+          child: Column(
+            children: [
+              _sizedBox,
+              const Padding(
+                padding:  EdgeInsets.only(left: 50),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child:  SimpleText(AppString.welcome,
+                      enumText: EnumText.bold, fontSize: 34),
                 ),
               ),
-            ),
-            _sizedBox,
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, RouteString.main);
-              },
-              child: Container(
-                margin: const EdgeInsets.only(right: 150),
-                width: 150,
-                height: 260,
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                decoration: BoxDecoration(
-                    color: AppColor.mainGreen,
-                    borderRadius: BorderRadius.circular(24),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.black54,
-                        blurRadius: 5.0,
-                        offset: Offset(0, 3.0),
-                      )
-                    ]),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [
-                    SimpleText(AppString.pickUp,
-                        color: AppColor.whiteColor,
-                        fontSize: 28,
-                        enumText: EnumText.bold),
-                    Image(image: ImageString.takeFood),
-                  ],
+              _sizedBox,
+              const RoundedTextField(
+                  icon: Icons.search, hintText: AppString.search,fontColor: AppColor.mainGreen),
+              _sizedBox,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, RouteString.main);
+                },
+                child: Container(
+                  height: 150,
+                  width: 350,
+                  decoration: BoxDecoration(
+                      color: AppColor.mainGreen,
+                      borderRadius: BorderRadius.circular(24),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black54,
+                          blurRadius: 5.0,
+                          offset: Offset(0, 3.0),
+                        )
+                      ]),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: const [
+                      SimpleText(AppString.foodDelivery,
+                          color: AppColor.whiteColor,
+                          fontSize: 28,
+                          enumText: EnumText.bold),
+                      Image(image: ImageString.burger, width: 120),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+              _sizedBox,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, RouteString.main);
+                },
+                child: Container(
+                  margin: const EdgeInsets.only(right: 150),
+                  width: 150,
+                  height: 260,
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  decoration: BoxDecoration(
+                      color: AppColor.mainGreen,
+                      borderRadius: BorderRadius.circular(24),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black54,
+                          blurRadius: 5.0,
+                          offset: Offset(0, 3.0),
+                        )
+                      ]),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: const [
+                      SimpleText(AppString.pickUp,
+                          color: AppColor.whiteColor,
+                          fontSize: 28,
+                          enumText: EnumText.bold),
+                      Image(image: ImageString.takeFood),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

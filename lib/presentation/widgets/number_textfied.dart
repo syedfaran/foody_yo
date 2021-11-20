@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foody_yo/presentation/theme/app_color.dart';
 
 class NumberTextField extends StatefulWidget {
   final String? hintText;
@@ -29,10 +30,20 @@ class _NumberTextFieldState extends State<NumberTextField> {
           onChanged: (value){
             //print(value.substring(1));
           },
+          // decoration: InputDecoration(
+          //     hintText: widget.hintText,
+          //     contentPadding: const EdgeInsets.only(left: 15),
+          //     hintStyle: const TextStyle(color: Colors.black)),
           decoration: InputDecoration(
+              enabledBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(color: AppColor.blackColor,width: 1.75),
+              ),
+              focusedBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(color: AppColor.blackColor,width: 1.75),
+              ),
               hintText: widget.hintText,
-              contentPadding: const EdgeInsets.only(left: 15),
-              hintStyle: const TextStyle(color: Colors.black)),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 15),
+              hintStyle: const TextStyle(color: Colors.black,fontSize: 38)),
         ));
   }
 }

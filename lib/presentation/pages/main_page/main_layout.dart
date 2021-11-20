@@ -11,11 +11,13 @@ class MainLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: const [
-        DrawerScreen(),
-        MainPage(),
-      ],
+    return SafeArea(
+      child: Stack(
+        children: const [
+          DrawerScreen(),
+          MainPage(),
+        ],
+      ),
     );
   }
 }

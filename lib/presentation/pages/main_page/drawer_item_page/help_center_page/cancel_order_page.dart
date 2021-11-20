@@ -27,72 +27,74 @@ class _CancelOrderPageState extends State<CancelOrderPage> {
   @override
   Widget build(BuildContext context) {
     EnumCancelOrderOption _character = EnumCancelOrderOption.optionOne;
-    return Scaffold(
-      appBar: const SimpleAppBar(title: AppString.canICancelMyOrder),
-      body: Column(
-        children: [
-          _sizedBox,
-          const SimpleText(AppString.cancelOrderDescription,
-              enumText: EnumText.extraBold, fontSize: 24),
-          _sizedBox,
-          const SimpleText(AppString.whyDoYouWantToCancelYourOrder),
-          _sizedBox,
-          ValueListenableBuilder<EnumCancelOrderOption>(
-            valueListenable: valueNotifier,
-            builder: (context, selectedOption, child) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                child: Column(
-                  children: [
-                    FoodyRadioButton<EnumCancelOrderOption>(
-                      text: AppString.optionOne,
-                      value: EnumCancelOrderOption.optionOne,
-                      groupValue: selectedOption,
-                      onChanged: (value) {
-                        valueNotifier.value = value!;
-                      },
-                    ),
-                    FoodyRadioButton<EnumCancelOrderOption>(
-                      text: AppString.optionTwo,
-                      value: EnumCancelOrderOption.optionTwo,
-                      groupValue: selectedOption,
-                      onChanged: (value) {
-                        valueNotifier.value = value!;
-                      },
-                    ),
-                    FoodyRadioButton<EnumCancelOrderOption>(
-                      text: AppString.optionThree,
-                      value: EnumCancelOrderOption.optionThree,
-                      groupValue: selectedOption,
-                      onChanged: (value) {
-                        valueNotifier.value = value!;
-                      },
-                    ),
-                    FoodyRadioButton<EnumCancelOrderOption>(
-                      text: AppString.optionFour,
-                      value: EnumCancelOrderOption.optionFour,
-                      groupValue: selectedOption,
-                      onChanged: (value) {
-                        valueNotifier.value = value!;
-                      },
-                    ),
-                    FoodyRadioButton<EnumCancelOrderOption>(
-                      text: AppString.optionFive,
-                      value: EnumCancelOrderOption.optionFive,
-                      groupValue: selectedOption,
-                      onChanged: (value) {
-                        valueNotifier.value = value!;
-                      },
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-          const Spacer(),
-          BigButton(text: AppString.confirm, onPressed: () {}),
-          const Spacer(flex: 2),
-        ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: const SimpleAppBar(title: AppString.canICancelMyOrder),
+        body: Column(
+          children: [
+            _sizedBox,
+            const SimpleText(AppString.cancelOrderDescription,
+                enumText: EnumText.extraBold, fontSize: 24),
+            _sizedBox,
+            const SimpleText(AppString.whyDoYouWantToCancelYourOrder),
+            _sizedBox,
+            ValueListenableBuilder<EnumCancelOrderOption>(
+              valueListenable: valueNotifier,
+              builder: (context, selectedOption, child) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  child: Column(
+                    children: [
+                      FoodyRadioButton<EnumCancelOrderOption>(
+                        text: AppString.optionOne,
+                        value: EnumCancelOrderOption.optionOne,
+                        groupValue: selectedOption,
+                        onChanged: (value) {
+                          valueNotifier.value = value!;
+                        },
+                      ),
+                      FoodyRadioButton<EnumCancelOrderOption>(
+                        text: AppString.optionTwo,
+                        value: EnumCancelOrderOption.optionTwo,
+                        groupValue: selectedOption,
+                        onChanged: (value) {
+                          valueNotifier.value = value!;
+                        },
+                      ),
+                      FoodyRadioButton<EnumCancelOrderOption>(
+                        text: AppString.optionThree,
+                        value: EnumCancelOrderOption.optionThree,
+                        groupValue: selectedOption,
+                        onChanged: (value) {
+                          valueNotifier.value = value!;
+                        },
+                      ),
+                      FoodyRadioButton<EnumCancelOrderOption>(
+                        text: AppString.optionFour,
+                        value: EnumCancelOrderOption.optionFour,
+                        groupValue: selectedOption,
+                        onChanged: (value) {
+                          valueNotifier.value = value!;
+                        },
+                      ),
+                      FoodyRadioButton<EnumCancelOrderOption>(
+                        text: AppString.optionFive,
+                        value: EnumCancelOrderOption.optionFive,
+                        groupValue: selectedOption,
+                        onChanged: (value) {
+                          valueNotifier.value = value!;
+                        },
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+            const Spacer(),
+            BigButton(text: AppString.confirm, onPressed: () {}),
+            const Spacer(flex: 2),
+          ],
+        ),
       ),
     );
   }
