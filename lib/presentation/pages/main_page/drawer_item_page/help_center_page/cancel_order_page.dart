@@ -23,10 +23,10 @@ class _CancelOrderPageState extends State<CancelOrderPage> {
     valueNotifier.dispose();
     super.dispose();
   }
-
+  final divider = const Divider(color: AppColor.mainGreen,thickness: 1,indent: 20,endIndent: 20);
   @override
   Widget build(BuildContext context) {
-    EnumCancelOrderOption _character = EnumCancelOrderOption.optionOne;
+
     return SafeArea(
       child: Scaffold(
         appBar: const SimpleAppBar(title: AppString.canICancelMyOrder),
@@ -53,6 +53,7 @@ class _CancelOrderPageState extends State<CancelOrderPage> {
                           valueNotifier.value = value!;
                         },
                       ),
+                      divider,
                       FoodyRadioButton<EnumCancelOrderOption>(
                         text: AppString.optionTwo,
                         value: EnumCancelOrderOption.optionTwo,
@@ -61,6 +62,7 @@ class _CancelOrderPageState extends State<CancelOrderPage> {
                           valueNotifier.value = value!;
                         },
                       ),
+                      divider,
                       FoodyRadioButton<EnumCancelOrderOption>(
                         text: AppString.optionThree,
                         value: EnumCancelOrderOption.optionThree,
@@ -69,6 +71,7 @@ class _CancelOrderPageState extends State<CancelOrderPage> {
                           valueNotifier.value = value!;
                         },
                       ),
+                      divider,
                       FoodyRadioButton<EnumCancelOrderOption>(
                         text: AppString.optionFour,
                         value: EnumCancelOrderOption.optionFour,
@@ -77,6 +80,7 @@ class _CancelOrderPageState extends State<CancelOrderPage> {
                           valueNotifier.value = value!;
                         },
                       ),
+                      divider,
                       FoodyRadioButton<EnumCancelOrderOption>(
                         text: AppString.optionFive,
                         value: EnumCancelOrderOption.optionFive,
@@ -85,6 +89,7 @@ class _CancelOrderPageState extends State<CancelOrderPage> {
                           valueNotifier.value = value!;
                         },
                       ),
+                      divider,
                     ],
                   ),
                 );

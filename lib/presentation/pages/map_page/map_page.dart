@@ -2,8 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
+import 'package:foody_yo/constants/image_string.dart';
 import 'package:foody_yo/constants/route_string.dart';
+import 'package:foody_yo/presentation/theme/app_color.dart';
+import 'package:foody_yo/presentation/widgets/back_arrow.dart';
 import 'package:foody_yo/presentation/widgets/big_button.dart';
+import 'package:foody_yo/presentation/widgets/rounded_textfield.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapPage extends StatefulWidget {
@@ -32,20 +36,46 @@ class MapPageState extends State<MapPage> {
     return SafeArea(
       child: Scaffold(
         body: Stack(
-           alignment: Alignment.bottomCenter,
           children: [
-            GoogleMap(zoomControlsEnabled: false,
+            GoogleMap(
+              zoomControlsEnabled: false,
               mapType: MapType.normal,
               initialCameraPosition: _kGooglePlex,
               onMapCreated: (GoogleMapController controller) {
                 _controller.complete(controller);
               },
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 80),
-              child: BigButton(text: AppString.confirm, onPressed: () {
-                Navigator.pushNamed(context, RouteString.welcome);
-              }),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                height: 120,
+                width: double.infinity,
+                color: AppColor.whiteColor,
+                child: Row(
+                  children: [
+                    const ArrowBack(),
+                    RoundedTextField(
+                      enableBorder: false,
+                      backColor: Colors.grey[200]!,
+                      width: 380,
+                      borderRadius: 30,
+                      leading: const Image(
+                          image: ImageString.locationActive,
+                          width: 5,
+                          height: 5),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              heightFactor: 11,
+              child: BigButton(
+                  text: AppString.confirm,
+                  onPressed: () {
+                    Navigator.pushNamed(context, RouteString.welcome);
+                  }),
             ),
           ],
         ),

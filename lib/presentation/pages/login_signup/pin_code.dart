@@ -46,10 +46,12 @@ class PinPutTestState extends State<PinPutTest> {
       },
     );
   }
+
   @override
   void initState() {
     super.initState();
   }
+
   @override
   void dispose() {
     _pinPutController.dispose();
@@ -69,8 +71,9 @@ class PinPutTestState extends State<PinPutTest> {
             margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
             padding: const EdgeInsets.all(20.0),
             child: PinPut(
-              eachFieldPadding: const EdgeInsets.symmetric(horizontal: 18,vertical: 14),
-              obscureText: 'X',
+                eachFieldPadding:
+                    const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+                obscureText: 'X',
                 textStyle: const TextStyle(fontSize: 24),
                 fieldsCount: 4,
                 onSubmit: (String pin) => _showSnackBar(pin, context),
@@ -85,8 +88,15 @@ class PinPutTestState extends State<PinPutTest> {
             padding: const EdgeInsets.only(left: 40),
             child: Column(
               children: [
-                TextButton(onPressed: () {startTimer();}, child: const SimpleText(AppString.resendCode, fontSize: 14,enumText: EnumText.bold),),
-                SimpleText("00:$_start", fontSize: 16,enumText: EnumText.regular),
+                TextButton(
+                  onPressed: () {
+                    startTimer();
+                  },
+                  child: const SimpleText(AppString.resendCode,
+                      fontSize: 14, enumText: EnumText.bold),
+                ),
+                SimpleText("00:$_start",
+                    fontSize: 16, enumText: EnumText.regular),
               ],
             ),
           ),

@@ -108,6 +108,7 @@ class ShadowTextField extends StatelessWidget {
           border: InputBorder.none,
           suffixIcon: Icon(
             icon,
+            color: Colors.grey,
             size: 30
           ),
           hintText: hintText,

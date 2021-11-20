@@ -16,22 +16,27 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: const FoodyAppBar(),
         body: Center(
           child: Column(
             children: [
               _sizedBox,
               const Padding(
-                padding:  EdgeInsets.only(left: 50),
+                padding: EdgeInsets.only(left: 50),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child:  SimpleText(AppString.welcome,
+                  child: SimpleText(AppString.welcome,
                       enumText: EnumText.bold, fontSize: 34),
                 ),
               ),
               _sizedBox,
               const RoundedTextField(
-                  icon: Icons.search, hintText: AppString.search,fontColor: AppColor.mainGreen),
+                leading: Icon(Icons.search, color: AppColor.mainGreen),
+                hintText: AppString.search,
+                fontColor: AppColor.mainGreen,
+                enableShadow: true,
+              ),
               _sizedBox,
               GestureDetector(
                 onTap: () {

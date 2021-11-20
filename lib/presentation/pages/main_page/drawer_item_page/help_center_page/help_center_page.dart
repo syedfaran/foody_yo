@@ -28,7 +28,7 @@ class HelpCenterPage extends StatelessWidget {
                 onTap: ()=>Navigator.pushNamed(context, RouteString.cancelOrder),
                 child: Row(
                   children: const [
-                    SimpleText(AppString.canICancelMyOrder,enumText: EnumText.extraBold,fontSize: 22),
+                    SimpleText(AppString.canICancelMyOrder,enumText: EnumText.extraBold,fontSize: 20),
                     Spacer(),
                     Icon(Icons.arrow_forward_ios),
                   ],

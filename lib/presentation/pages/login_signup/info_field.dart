@@ -25,7 +25,7 @@ class InFoField extends StatelessWidget {
         _sizedBox,
         const PlainTextField(hintText: AppString.password),
         _sizedBox,
-        const PlainTextField(hintText: AppString.confirm),
+         const PlainTextField(hintText: AppString.confirmPassword),
         const Spacer(),
         BigButton(text: AppString.signUp, onPressed: (){
           Navigator.pushNamed(context, RouteString.main);
