@@ -24,6 +24,9 @@ class ImageString{
   static const ImageProvider tabAppBarBackgroundLong = AssetImage('assets/images/tabappbar_background_long.jpg');
   static const ImageProvider locationActive = AssetImage('assets/images/Location_active.png');
 
+  static const ImageProvider splashGif = AssetImage('assets/images/splashGif.gif');
+
+
   // static const ImageProvider helpCenter = AssetImage('assets/images/heart.png');
   // static const ImageProvider order = AssetImage('assets/images/heart.png');
 }

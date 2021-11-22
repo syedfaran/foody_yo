@@ -51,7 +51,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                   child: RoundedTextField(
                     verticalPadding: 0,
                     width: 250,
-                    hintText: 'Al haj Akhtar',
+                    hintText: 'North Karachir',
                     fontColor: AppColor.blackColor,
                     fontWeight: FontWeight.bold,
                   ),
@@ -104,6 +104,7 @@ class ShadowTextField extends StatelessWidget {
           ],
           borderRadius: BorderRadius.all(Radius.circular(20))),
       child: TextField(
+        enabled: false,
         decoration: InputDecoration(
           border: InputBorder.none,
           suffixIcon: Icon(

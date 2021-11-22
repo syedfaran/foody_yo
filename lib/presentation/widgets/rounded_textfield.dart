@@ -45,6 +45,7 @@ class RoundedTextField extends StatelessWidget {
           border: enableBorder?Border.all(color: AppColor.mainGreen, width: 1.5):null,
           borderRadius:  BorderRadius.all(Radius.circular(borderRadius))),
       child: TextField(
+        enabled: false,
         decoration: InputDecoration(
           border: InputBorder.none,
           suffixIcon: leading,

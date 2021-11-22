@@ -2,31 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:foody_yo/presentation/widgets/main_appbar.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
-
-  @override
-  State<MainPage> createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController animationController;
-  late final Animation<double> animation;
-
-  @override
-  void initState() {
-    animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300));
-    animation = Tween(begin: 1.0, end: 0.7).animate(animationController);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    animationController.dispose();
-    super.dispose();
-  }
+class MainPage extends StatelessWidget {
+  final Animation animation;
+  final AnimationController animationController;
+  const MainPage(this.animation,this.animationController,{Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

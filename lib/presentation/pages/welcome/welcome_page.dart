@@ -40,7 +40,7 @@ class WelcomePage extends StatelessWidget {
               _sizedBox,
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, RouteString.main);
+                  Navigator.pushNamed(context, RouteString.main,arguments: false);
                 },
                 child: Container(
                   height: 150,
@@ -70,7 +70,7 @@ class WelcomePage extends StatelessWidget {
               _sizedBox,
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, RouteString.main);
+                  Navigator.pushNamed(context, RouteString.main,arguments: false);
                 },
                 child: Container(
                   margin: const EdgeInsets.only(right: 150),

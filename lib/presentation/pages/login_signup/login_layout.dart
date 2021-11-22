@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/constants/image_string.dart';
+import 'package:foody_yo/constants/route_string.dart';
 import 'package:foody_yo/presentation/pages/enums.dart';
 import 'package:foody_yo/presentation/widgets/foody_tab_appbar.dart';
 import 'package:foody_yo/presentation/widgets/big_button.dart';
@@ -37,7 +38,9 @@ class LoginLayout extends StatelessWidget {
           ],
         ),
         const Spacer(flex: 1),
-        BigButton(text: AppString.login, onPressed: () {}),
+        BigButton(text: AppString.login, onPressed: () {
+          Navigator.pushNamed(context, RouteString.main,arguments: true);
+        }),
         const Spacer(flex: 2),
       ],
     );

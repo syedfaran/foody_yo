@@ -55,6 +55,7 @@ class MapPageState extends State<MapPage> {
                   children: [
                     const ArrowBack(),
                     RoundedTextField(
+                      hintText: AppString.searchLocation,
                       enableBorder: false,
                       backColor: Colors.grey[200]!,
                       width: 380,

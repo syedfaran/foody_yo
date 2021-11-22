@@ -12,7 +12,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
     Timer(
@@ -25,22 +24,23 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        height: double.infinity,
+        width: double.infinity,
         decoration: const BoxDecoration(
           image:
-          DecorationImage(image: ImageString.splash, fit: BoxFit.fitHeight),
+              DecorationImage(image: ImageString.splash, fit: BoxFit.fitHeight),
         ),
-
-        child: TweenAnimationBuilder<double>(
-          tween: Tween(begin: 0.0,end: 1.0),
-          curve: Curves.bounceOut,
-          builder: (context,value,child){
-            return Transform.scale(scale: value,child: child);
-          },
-          duration: const Duration(milliseconds: 500),
-          child: Container(
-            foregroundDecoration: const BoxDecoration(
-              image:
-              DecorationImage(image: ImageString.splashCenter),
+        // foregroundDecoration: const BoxDecoration(
+        //   image:
+        //   DecorationImage(image: ImageString.splashGif,fit: F),
+        // ),
+        child:  Center(
+          child: Transform.scale(
+            scale: 1.3,
+            child: const SizedBox(
+              child: Image(
+                image: ImageString.splashGif,
+              ),
             ),
           ),
         ),

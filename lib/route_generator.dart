@@ -38,7 +38,8 @@ class RouteGenerator {
       case RouteString.welcome:
         return MaterialPageRoute(builder: (context)=>const WelcomePage());
       case RouteString.main:
-        return MaterialPageRoute(builder: (context)=>const MainLayout());
+        args is bool;
+        return MaterialPageRoute(builder: (context)=> MainLayout(args as bool));
       case RouteString.loginOrSignUp:
         return MaterialPageRoute(builder: (context)=>const LoginORSignup());
       case RouteString.helpCenter:
