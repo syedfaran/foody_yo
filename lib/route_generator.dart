@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/presentation/pages/location_walk_through/location_walk_through.dart';
 import 'package:foody_yo/presentation/pages/login_signup/login_signup.dart';
-import 'package:foody_yo/presentation/pages/main_page/drawer_item_page/favourite_page/favourite_page.dart';
-import 'package:foody_yo/presentation/pages/main_page/drawer_item_page/help_center_page/cancel_order_page.dart';
-import 'package:foody_yo/presentation/pages/main_page/drawer_item_page/help_center_page/help_center_page.dart';
-import 'package:foody_yo/presentation/pages/main_page/drawer_item_page/order_page/order_page.dart';
-import 'package:foody_yo/presentation/pages/main_page/drawer_item_page/voucher_page/voucher_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/favourite_page/favourite_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/help_center_page/cancel_order_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/help_center_page/help_center_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/order_page/order_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/voucher_page/voucher_page.dart';
+
 import 'package:foody_yo/presentation/pages/main_page/main_layout.dart';
 import 'package:foody_yo/presentation/pages/map_page/map_page.dart';
 import 'package:foody_yo/presentation/pages/welcome/welcome_page.dart';

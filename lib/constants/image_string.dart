@@ -25,6 +25,9 @@ class ImageString{
   static const ImageProvider locationActive = AssetImage('assets/images/Location_active.png');
 
   static const ImageProvider splashGif = AssetImage('assets/images/splashGif.gif');
+  static const ImageProvider bike = AssetImage('assets/images/bike.png');
+  static const ImageProvider prepare = AssetImage('assets/images/prepareFood.png');
+  static const ImageProvider pitaRoll = AssetImage('assets/images/pitaRoll.jpg');
 
 
   // static const ImageProvider helpCenter = AssetImage('assets/images/heart.png');

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
-import 'package:foody_yo/presentation/pages/main_page/drawer_item_page/voucher_page/current.dart';
-import 'package:foody_yo/presentation/pages/main_page/drawer_item_page/voucher_page/past.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/voucher_page/current.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/voucher_page/past.dart';
+
 import 'package:foody_yo/presentation/widgets/foody_tab_appbar.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 

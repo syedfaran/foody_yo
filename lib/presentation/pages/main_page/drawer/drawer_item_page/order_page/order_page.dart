@@ -5,7 +5,8 @@ import 'package:foody_yo/presentation/widgets/order_card.dart';
 import 'package:foody_yo/presentation/widgets/simple_appbar.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
-import '../../../enums.dart';
+import '../../../../enums.dart';
+
 
 class OrderPage extends StatelessWidget {
   const OrderPage({Key? key}) : super(key: key);

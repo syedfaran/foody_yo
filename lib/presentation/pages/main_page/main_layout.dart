@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart ';
 import 'package:foody_yo/presentation/theme/app_color.dart';
-import 'drawer_page.dart';
+import 'drawer/drawer_item_page/drawer_page.dart';
 import 'main_page.dart';
 
 class MainLayout extends StatefulWidget {

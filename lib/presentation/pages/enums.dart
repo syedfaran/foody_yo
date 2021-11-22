@@ -9,3 +9,5 @@ enum EnumCancelOrderOption {
   optionFour,
   optionFive
 }
+
+enum EnumCraving { pickUp, delivery }

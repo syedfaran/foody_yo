@@ -4,7 +4,7 @@ import 'package:foody_yo/constants/image_string.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
-import '../../../enums.dart';
+import '../../../../enums.dart';
 class Shop extends StatelessWidget {
   const Shop({Key? key}) : super(key: key);
 
