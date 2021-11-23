@@ -4,15 +4,16 @@ import 'package:foody_yo/presentation/theme/app_color.dart';
 class BigButton extends StatelessWidget {
   final String text;
   final void Function() onPressed;
-
-  const BigButton({Key? key, required this.text, required this.onPressed})
+  final double height;
+  final double width;
+  const BigButton({Key? key, required this.text, required this.onPressed,this.width=380,this.height=75})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 75,
-      width: 380,
+      height: height,
+      width: width,
       child: ElevatedButton(
         onPressed: onPressed,
         child: Text(text,

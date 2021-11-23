@@ -7,14 +7,15 @@ import 'package:foody_yo/presentation/widgets/rounded_textfield.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final AnimationController? controller;
+  final AnimationController animationController;
 
-  const MainAppBar({Key? key, this.controller}) : super(key: key);
+  const MainAppBar({Key? key, required this.animationController})
+      : super(key: key);
   final _sizedBox = const SizedBox(width: 10);
 
   @override
   Widget build(BuildContext context) {
-    bool tog = true;
+    // bool tog = true;
     return AppBar(
       automaticallyImplyLeading: false,
       elevation: 0.0,
@@ -32,16 +33,13 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
             Row(
               children: [
                 Center(
-                  child: GestureDetector(
-                      onTap: () {
-                        tog = !tog;
-                        tog ? controller!.forward() : controller!.reverse();
-                      },
-                      child: AnimatedIcon(
-                          color: AppColor.whiteColor,
-                          size: 32,
-                          icon: AnimatedIcons.menu_close,
-                          progress: controller!)),
+                  child: IconButton(
+                    icon: const Icon(Icons.menu,
+                        color: AppColor.whiteColor, size: 32),
+                    onPressed: () {
+                      animationController.forward();
+                    },
+                  ),
                 ),
                 const Spacer(),
                 const Image(image: ImageString.navigation, width: 30),
@@ -100,20 +98,19 @@ class ShadowTextField extends StatelessWidget {
           // border: Border.all(color: AppColor.mainGreen,width: 1.5),
           boxShadow: [
             BoxShadow(
-                color: Colors.black45, offset: Offset(0, 3), blurRadius: 3,)
+              color: Colors.black45,
+              offset: Offset(0, 3),
+              blurRadius: 3,
+            )
           ],
           borderRadius: BorderRadius.all(Radius.circular(20))),
       child: TextField(
         enabled: false,
         decoration: InputDecoration(
           border: InputBorder.none,
-          suffixIcon: Icon(
-            icon,
-            color: Colors.grey,
-            size: 30
-          ),
+          suffixIcon: Icon(icon, color: Colors.grey, size: 30),
           hintText: hintText,
-            hintStyle:const TextStyle(fontSize: 20),
+          hintStyle: const TextStyle(fontSize: 20),
         ),
       ),
     );

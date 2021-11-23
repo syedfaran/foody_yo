@@ -65,4 +65,8 @@ class AppString {
   static const noFavourite = 'No favourites saved';
   static const noFavouriteDesc = 'You will see all your favourites here, tomake ordering\neven faster. Just look for the';
   static const favouriteButtonText ='lets find some favorites';
+  static const addToString = 'Add to card';
+  static const specialInstruction = '+ add special instruction';
+  static const viewYourCart = 'View your cart';
+  static const cart = 'Cart';
 }

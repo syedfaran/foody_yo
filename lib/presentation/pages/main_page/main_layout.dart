@@ -34,7 +34,7 @@ class _MainLayoutState extends State<MainLayout>
     return SafeArea(
       child: Stack(
         children: [
-          DrawerScreen(widget.guest),
+          DrawerScreen(widget.guest,animationController),
            AnimatedBuilder(
              animation: animation,
              builder: (context,child){
@@ -47,10 +47,7 @@ class _MainLayoutState extends State<MainLayout>
                );
              },
              child: Container(
-               decoration:  BoxDecoration(
-                   color: AppColor.whiteColor.withOpacity(0.35),
-                 borderRadius: BorderRadius.circular(20)
-               ),
+               color: AppColor.whiteColor.withOpacity(0.35),
              ),
            ),
            MainPage(animation,animationController),

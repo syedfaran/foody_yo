@@ -29,6 +29,8 @@ class ImageString{
   static const ImageProvider prepare = AssetImage('assets/images/prepareFood.png');
   static const ImageProvider pitaRoll = AssetImage('assets/images/pitaRoll.jpg');
 
+  static const ImageProvider bottomModal = AssetImage('assets/images/bottommodal.jpg');
+
 
   // static const ImageProvider helpCenter = AssetImage('assets/images/heart.png');
   // static const ImageProvider order = AssetImage('assets/images/heart.png');

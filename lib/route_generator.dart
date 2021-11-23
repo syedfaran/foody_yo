@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foody_yo/presentation/pages/cart_page/cart_page.dart';
 import 'package:foody_yo/presentation/pages/location_walk_through/location_walk_through.dart';
 import 'package:foody_yo/presentation/pages/login_signup/login_signup.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/favourite_page/favourite_page.dart';
@@ -21,8 +22,8 @@ class RouteGenerator {
 
     switch (settings.name) {
       case RouteString.initial:
-      return MaterialPageRoute(builder: (context)=>const SplashScreen());
-       //return MaterialPageRoute(builder: (context)=>const LoginORSignup());
+      //return MaterialPageRoute(builder: (context)=>const SplashScreen());
+       return MaterialPageRoute(builder: (context)=>const CardPage());
         return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
       case RouteString.walkThrough:
         return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());

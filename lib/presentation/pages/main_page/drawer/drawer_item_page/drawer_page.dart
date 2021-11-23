@@ -9,7 +9,10 @@ import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
 class DrawerScreen extends StatelessWidget {
   final bool guest;
-  const DrawerScreen(this.guest,{Key? key}) : super(key: key);
+  final AnimationController animationController;
+
+  const DrawerScreen(this.guest, this.animationController, {Key? key})
+      : super(key: key);
   final SizedBox _sizedBox = const SizedBox(height: 20);
 
   @override
@@ -22,8 +25,11 @@ class DrawerScreen extends StatelessWidget {
         children: [
           _sizedBox,
           GestureDetector(
-            child: const Icon(Icons.arrow_back,color: AppColor.whiteColor),
-            onTap: (){Navigator.pop(context);},
+            child: const Icon(Icons.arrow_back, color: AppColor.whiteColor),
+            onTap: () {
+             // Navigator.pop(context);
+              animationController.reverse();
+            },
           ),
           _sizedBox,
           Container(
@@ -34,7 +40,10 @@ class DrawerScreen extends StatelessWidget {
               shape: BoxShape.circle,
               color: AppColor.whiteColor,
             ),
-            child: SimpleText(guest?'H':'G',color: AppColor.mainGreen,enumText: EnumText.extraBold,fontSize: 38),
+            child: SimpleText(guest ? 'H' : 'G',
+                color: AppColor.mainGreen,
+                enumText: EnumText.extraBold,
+                fontSize: 38),
           ),
           _sizedBox,
           const SimpleText('Hafiz Haider',
@@ -60,37 +69,59 @@ class DrawerScreen extends StatelessWidget {
               ],
             ),
           ),
-          guest?DrawerItem(
-              text: AppString.favourites,
-              image: ImageString.heart,
-              onTap: () => Navigator.pushNamed(context, RouteString.favourite)):const SizedBox.shrink(),
-          guest?DrawerItem(
-            text: AppString.order,
-            image: ImageString.heart,
-            onTap: () => Navigator.pushNamed(context, RouteString.orderHistory),
-          ):const SizedBox.shrink(),
-          guest?const DrawerItem(text: AppString.profile, image: ImageString.profile):const SizedBox.shrink(),
-          guest?const DrawerItem(text: AppString.address, image: ImageString.address):const SizedBox.shrink(),
-          guest?const DrawerItem(text: AppString.reward, image: ImageString.reward):const SizedBox.shrink(),
-          guest?DrawerItem(
-            text: AppString.vouchers,
-            image: ImageString.voucher,
-            onTap: () => Navigator.pushNamed(context, RouteString.voucher),
-          ):const SizedBox.shrink(),
-          guest?DrawerItem(
-            text: AppString.helpCenter,
-            image: ImageString.reward,
-            onTap: () => Navigator.pushNamed(context, RouteString.helpCenter),
-          ):const SizedBox.shrink(),
+          guest
+              ? DrawerItem(
+                  text: AppString.favourites,
+                  image: ImageString.heart,
+                  onTap: () =>
+                      Navigator.pushNamed(context, RouteString.favourite))
+              : const SizedBox.shrink(),
+          guest
+              ? DrawerItem(
+                  text: AppString.order,
+                  image: ImageString.heart,
+                  onTap: () =>
+                      Navigator.pushNamed(context, RouteString.orderHistory),
+                )
+              : const SizedBox.shrink(),
+          guest
+              ? const DrawerItem(
+                  text: AppString.profile, image: ImageString.profile)
+              : const SizedBox.shrink(),
+          guest
+              ? const DrawerItem(
+                  text: AppString.address, image: ImageString.address)
+              : const SizedBox.shrink(),
+          guest
+              ? const DrawerItem(
+                  text: AppString.reward, image: ImageString.reward)
+              : const SizedBox.shrink(),
+          guest
+              ? DrawerItem(
+                  text: AppString.vouchers,
+                  image: ImageString.voucher,
+                  onTap: () =>
+                      Navigator.pushNamed(context, RouteString.voucher),
+                )
+              : const SizedBox.shrink(),
+          guest
+              ? DrawerItem(
+                  text: AppString.helpCenter,
+                  image: ImageString.reward,
+                  onTap: () =>
+                      Navigator.pushNamed(context, RouteString.helpCenter),
+                )
+              : const SizedBox.shrink(),
           const Spacer(),
           const DrawerItem(text: AppString.settings),
           const DrawerItem(text: AppString.termsAndCondition),
           DrawerItem(
-            text: !guest?AppString.login:AppString.logOut,
-            onTap: () =>
-            !guest?Navigator.pushNamed(context, RouteString.loginOrSignUp):Navigator.pop(context),
+            text: !guest ? AppString.login : AppString.logOut,
+            onTap: () => !guest
+                ? Navigator.pushNamed(context, RouteString.loginOrSignUp)
+                : Navigator.pop(context),
           ),
-          Spacer(flex: guest?1:7),
+          Spacer(flex: guest ? 1 : 7),
         ],
       ),
     );
