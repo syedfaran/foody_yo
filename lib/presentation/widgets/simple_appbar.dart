@@ -6,17 +6,18 @@ import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
 class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
+  final String? subtitle;
 
-  const SimpleAppBar({Key? key, required this.title}) : super(key: key);
+  const SimpleAppBar({Key? key, required this.title, this.subtitle})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
       elevation: 10,
-      centerTitle: true,
       flexibleSpace: Container(
-        alignment: Alignment.center,
+       alignment: subtitle == null?Alignment.center:null,
         decoration: BoxDecoration(
           color: AppColor.whiteColor,
           border: Border.all(color: Colors.black45, width: .1),
@@ -24,19 +25,39 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
               bottomLeft: Radius.circular(20),
               bottomRight: Radius.circular(20)),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-
-          children: [
-            const ArrowBack(),
-            const Spacer(),
-            SimpleText(title,
-                color: AppColor.mainGreen,
-                fontSize: 24,
-                enumText: EnumText.extraBold),
-            const Spacer(flex: 2),
-          ],
-        ),
+        child: subtitle == null
+            ? Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const ArrowBack(),
+                  const Spacer(),
+                  SimpleText(title,
+                      color: AppColor.mainGreen,
+                      fontSize: 24,
+                      enumText: EnumText.extraBold),
+                  const Spacer(flex: 2),
+                ],
+              )
+            : Row(
+              children: [
+                IconButton(onPressed: (){
+                  Navigator.pop(context);
+                }, icon: const Icon(Icons.close)),
+                Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SimpleText(title,
+                          color: AppColor.mainGreen,
+                          fontSize: 24,
+                          enumText: EnumText.extraBold),
+                      SimpleText(subtitle!,
+                          fontSize: 19.5,
+                          enumText: EnumText.light),
+                    ],
+                  ),
+              ],
+            ),
       ),
     );
   }

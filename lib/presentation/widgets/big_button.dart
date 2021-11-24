@@ -6,7 +6,15 @@ class BigButton extends StatelessWidget {
   final void Function() onPressed;
   final double height;
   final double width;
-  const BigButton({Key? key, required this.text, required this.onPressed,this.width=380,this.height=75})
+  final double fontSize;
+
+  const BigButton(
+      {Key? key,
+      required this.text,
+      required this.onPressed,
+      this.width = 380,
+      this.height = 75,
+      this.fontSize = 24})
       : super(key: key);
 
   @override
@@ -17,15 +25,15 @@ class BigButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         child: Text(text,
-            style: Theme.of(context)
-                .textTheme
-                .bodyText1!
-                .copyWith(color: AppColor.whiteTextColor, fontSize: 26,fontWeight: FontWeight.w900)),
+            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                color: AppColor.whiteTextColor,
+                fontSize: fontSize,
+                fontWeight: FontWeight.w900)),
         style: ElevatedButton.styleFrom(
             elevation: 0.0,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
-           // padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
+            // padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
             primary: AppColor.mainGreen),
       ),
     );

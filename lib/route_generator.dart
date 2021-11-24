@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foody_yo/presentation/pages/cart_page/cart_page.dart';
 import 'package:foody_yo/presentation/pages/location_walk_through/location_walk_through.dart';
 import 'package:foody_yo/presentation/pages/login_signup/login_signup.dart';
+import 'package:foody_yo/presentation/pages/main_page/apply_a_voucher.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/favourite_page/favourite_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/help_center_page/cancel_order_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/help_center_page/help_center_page.dart';
@@ -54,6 +55,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context)=>const VoucherPage());
       case RouteString.favourite:
         return MaterialPageRoute(builder: (context)=>const FavouritePage());
+      case RouteString.applyAVoucher:
+        return MaterialPageRoute(builder: (context)=>const ApplyAVoucher());
 
       default:
       // If there is no such named route in the switch statement, e.g. /third

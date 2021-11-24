@@ -11,4 +11,5 @@ class RouteString{
   static const String voucher = '/voucher';
   static const String favourite = '/favourite';
   static const String walkThrough = '/walkThrough';
+  static const String applyAVoucher = '/applyAVoucher';
 }

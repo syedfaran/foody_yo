@@ -69,4 +69,12 @@ class AppString {
   static const specialInstruction = '+ add special instruction';
   static const viewYourCart = 'View your cart';
   static const cart = 'Cart';
+  static const subtotal = 'Subtotal';
+  static const deliveryFee = 'Delivery Fee';
+  static const applyAVoucher = 'Apply a voucher';
+  static const total = 'Total';
+  static const inclVAT ='(Incl.VAT)';
+  static const reviewPaymentAndAddress = 'Review payment and address';
+  static const alHajAkhtar = 'Al-Haj Akhtar';
+  static const estimatedDelivery = 'Estimated Delivery';
 }
