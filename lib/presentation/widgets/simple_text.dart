@@ -8,10 +8,13 @@ class SimpleText extends StatelessWidget {
   final double fontSize;
   final Color color;
   final TextAlign textAlign;
-
+  final double horizontal;
+  final double vertical;
   const SimpleText(this.text,
       {Key? key,
       this.enumText,
+        this.horizontal=0.0,
+        this.vertical =0.0,
       this.fontSize = 20,
       this.textAlign = TextAlign.center,
       this.color = AppColor.blackColor})
@@ -19,23 +22,26 @@ class SimpleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      textAlign: textAlign,
-      style: Theme.of(context).textTheme.bodyText1!.copyWith(
-          color: color,
-          fontSize: fontSize,
-          fontWeight: enumText == EnumText.light
-              ? FontWeight.w300
-              : enumText == EnumText.regular
-                  ? FontWeight.w400
-                  : enumText == EnumText.semiBold
-                      ? FontWeight.w600
-                      : enumText == EnumText.bold
-                          ? FontWeight.w700
-                          : enumText == EnumText.extraBold
-                              ? FontWeight.w800
-                              : FontWeight.w300),
+    return Padding(
+      padding:  EdgeInsets.symmetric(horizontal:horizontal ,vertical: vertical),
+      child: Text(
+        text,
+        textAlign: textAlign,
+        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+            color: color,
+            fontSize: fontSize,
+            fontWeight: enumText == EnumText.light
+                ? FontWeight.w300
+                : enumText == EnumText.regular
+                    ? FontWeight.w400
+                    : enumText == EnumText.semiBold
+                        ? FontWeight.w600
+                        : enumText == EnumText.bold
+                            ? FontWeight.w700
+                            : enumText == EnumText.extraBold
+                                ? FontWeight.w800
+                                : FontWeight.w300),
+      ),
     );
   }
 }

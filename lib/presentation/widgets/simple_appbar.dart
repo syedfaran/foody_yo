@@ -7,8 +7,9 @@ import 'package:foody_yo/presentation/widgets/simple_text.dart';
 class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final String? subtitle;
-
-  const SimpleAppBar({Key? key, required this.title, this.subtitle})
+  final bool isBackArrow;
+  final bool isSpacer;
+  const SimpleAppBar({Key? key, required this.title, this.subtitle,this.isBackArrow=true,this.isSpacer=true})
       : super(key: key);
 
   @override
@@ -17,7 +18,7 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       elevation: 10,
       flexibleSpace: Container(
-       alignment: subtitle == null?Alignment.center:null,
+       alignment: Alignment.center,
         decoration: BoxDecoration(
           color: AppColor.whiteColor,
           border: Border.all(color: Colors.black45, width: .1),
@@ -29,8 +30,8 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const ArrowBack(),
-                  const Spacer(),
+                  isBackArrow?const ArrowBack():const CancelButton(),
+                  isSpacer?const Spacer():const SizedBox.shrink(),
                   SimpleText(title,
                       color: AppColor.mainGreen,
                       fontSize: 24,
@@ -40,9 +41,7 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
               )
             : Row(
               children: [
-                IconButton(onPressed: (){
-                  Navigator.pop(context);
-                }, icon: const Icon(Icons.close)),
+                const CancelButton(),
                 Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -64,5 +63,17 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => const Size(double.infinity, 120);
+  Size get preferredSize => const Size(double.infinity, 100);
+}
+
+
+class CancelButton extends StatelessWidget {
+  const CancelButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(onPressed: (){
+      Navigator.pop(context);
+    }, icon: const Icon(Icons.close));
+  }
 }

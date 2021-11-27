@@ -30,6 +30,11 @@ class ImageString{
   static const ImageProvider pitaRoll = AssetImage('assets/images/pitaRoll.jpg');
 
   static const ImageProvider bottomModal = AssetImage('assets/images/bottommodal.jpg');
+  static const ImageProvider cash = AssetImage('assets/images/cash.png');
+  static const ImageProvider wallet = AssetImage('assets/images/wallet.png');
+  static const ImageProvider pen = AssetImage('assets/images/pen.png');
+  static const ImageProvider orderCheck = AssetImage('assets/images/order_check.png');
+
 
 
   // static const ImageProvider helpCenter = AssetImage('assets/images/heart.png');

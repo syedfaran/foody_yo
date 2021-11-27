@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:foody_yo/presentation/pages/cart_page/cart_page.dart';
 import 'package:foody_yo/presentation/pages/location_walk_through/location_walk_through.dart';
 import 'package:foody_yo/presentation/pages/login_signup/login_signup.dart';
-import 'package:foody_yo/presentation/pages/main_page/apply_a_voucher.dart';
+import 'package:foody_yo/presentation/pages/main_page/apply_a_voucher_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/favourite_page/favourite_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/help_center_page/cancel_order_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/help_center_page/help_center_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/order_page/order_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/voucher_page/voucher_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/check_out_page.dart';
 
 import 'package:foody_yo/presentation/pages/main_page/main_layout.dart';
+import 'package:foody_yo/presentation/pages/main_page/payment_method_page.dart';
 import 'package:foody_yo/presentation/pages/map_page/map_page.dart';
 import 'package:foody_yo/presentation/pages/welcome/welcome_page.dart';
 
@@ -23,8 +25,8 @@ class RouteGenerator {
 
     switch (settings.name) {
       case RouteString.initial:
-      //return MaterialPageRoute(builder: (context)=>const SplashScreen());
-       return MaterialPageRoute(builder: (context)=>const CardPage());
+      return MaterialPageRoute(builder: (context)=>const SplashScreen());
+       return MaterialPageRoute(builder: (context)=>const PaymentMethodPage());
         return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
       case RouteString.walkThrough:
         return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
@@ -57,6 +59,13 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context)=>const FavouritePage());
       case RouteString.applyAVoucher:
         return MaterialPageRoute(builder: (context)=>const ApplyAVoucher());
+      case RouteString.cart:
+        return MaterialPageRoute(builder: (context)=>const CardPage());
+      case RouteString.checkOut:
+        return MaterialPageRoute(builder: (context)=>const  CheckOutPage());
+
+      case RouteString.paymentMethod:
+        return MaterialPageRoute(builder: (context)=>const  PaymentMethodPage());
 
       default:
       // If there is no such named route in the switch statement, e.g. /third

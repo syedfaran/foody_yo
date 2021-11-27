@@ -58,7 +58,7 @@ class DrawerScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: const [
-                SimpleText(AppString.foodyyo_pay,
+                SimpleText(AppString.foodyYo_pay,
                     enumText: EnumText.extraBold,
                     color: AppColor.whiteTextColor,
                     fontSize: 24),

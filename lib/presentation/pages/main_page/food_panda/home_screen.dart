@@ -104,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           const Align(
             heightFactor: 15,
             alignment: Alignment.bottomCenter,
-            child: AddToCardBar(),
+            child: ViewYourCartButton(),
           ),
         ],
       ),

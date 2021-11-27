@@ -30,7 +30,7 @@ class AppString {
   static const settings = 'Settings';
   static const termsAndCondition = 'Terms & Condition';
   static const creditAndPaymentMethod = 'credit and payment method';
-  static const foodyyo_pay = 'Foodyyo Pay';
+  static const foodyYo_pay = 'Foodyyo Pay';
   static const favourites = 'Favourites';
   static const order = 'Orders';
   static const profile = 'Profile';
@@ -77,4 +77,23 @@ class AppString {
   static const reviewPaymentAndAddress = 'Review payment and address';
   static const alHajAkhtar = 'Al-Haj Akhtar';
   static const estimatedDelivery = 'Estimated Delivery';
+  static const voucherCode = 'Voucher code';
+  static const apply = 'Apply';
+  static const checkOut ='Checkout';
+  static const deliveryAddress = 'Delivery Address';
+  static const paymentMethod = 'Payment Method';
+  static const cashOnDelivery ='Cash On Delivery';
+  static const orderSummery = 'Order Summery';
+  static const orderTermCon = 'By completing this order, I agree to all Terms and Conditions';
+  static const placeOrder = 'Place Order';
+  static const creditOrDebitCard = 'Credit Or Debit Card';
+  static const primary = 'Primary';
+  static const cardNumber = 'Card Number';
+  static const mmyy = 'MM/YY';
+  static const saveMyCard = 'Save My Card';
+  static const done = 'Done';
+  static const cvc = 'CVC';
+  static const wellKeepYourPaymentDetailsSafe = 'we ll Keep Your Payment Details Safe';
+  static const cash = 'Cash';
+
 }

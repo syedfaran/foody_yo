@@ -92,10 +92,12 @@ class CardPage extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            const CartPaymentInfoVouch(value: 'Rs. 250.00'),
+            const CartPaymentInfoVouch(value: 'Rs. 250.00',option: AppString.subtotal),
             BigButton(
                 text: AppString.reviewPaymentAndAddress,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, RouteString.checkOut);
+                },
                 fontSize: 19.5,
                 height: 65),
             const Spacer(),

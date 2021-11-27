@@ -185,91 +185,97 @@ class _CategorySectionState extends State<CategorySection> {
 
   Future<void> _showModal(BuildContext context) async {
     return showModalBottomSheet(
-        backgroundColor: AppColor.whiteColor,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        backgroundColor: AppColor.transparent,
+        //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         context: context,
         builder: (context) => BackdropFilter(
               filter: ImageFilter.blur(sigmaY: 5, sigmaX: 5),
-              child: Column(
-                children: [
-                  ClipPath(
-                    clipper: CustomShape(),
-                    child: Container(
-                      height: 200,
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                            image: ImageString.bottomModal, fit: BoxFit.fill),
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20)),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppColor.whiteColor,
+                      borderRadius: BorderRadius.circular(20.0),
+                ),
+                child: Column(
+                  children: [
+                    ClipPath(
+                      clipper: CustomShape(),
+                      child: Container(
+                        height: 200,
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: ImageString.bottomModal, fit: BoxFit.fill),
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20)),
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: const [
-                            SimpleText(
-                              'Zinger Burger',
-                              enumText: EnumText.extraBold,
-                              fontSize: 34,
-                            ),
-                            Spacer(),
-                            SimpleText('Rs.250.00',
-                                enumText: EnumText.extraBold)
-                          ],
-                        ),
-                        _sizeBox,
-                        const SimpleText('Serve 1'),
-                        _sizeBox,
-                        const SimpleText(
-                          AppString.specialInstruction,
-                          enumText: EnumText.extraBold,
-                        ),
-                        _sizeBox,
-                        _sizeBox,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: const [
+                              SimpleText(
+                                'Zinger Burger',
+                                enumText: EnumText.extraBold,
+                                fontSize: 34,
+                              ),
+                              Spacer(),
+                              SimpleText('Rs.250.00',
+                                  enumText: EnumText.extraBold)
+                            ],
+                          ),
+                          _sizeBox,
+                          const SimpleText('Serve 1'),
+                          _sizeBox,
+                          const SimpleText(
+                            AppString.specialInstruction,
+                            enumText: EnumText.extraBold,
+                          ),
+                          _sizeBox,
+                          _sizeBox,
 
-                        ValueListenableBuilder<int>(
-                            valueListenable: valueNotifier,
-                            builder: (context, value, child) {
-                              return  Row(
-                                children: [
-                                  CircularButton(
-                                    color: AppColor.mainGreen.withOpacity(0.3),
-                                    onPressed: () {
-                                      valueNotifier.value--;
-                                    },
-                                    iconData: Icons.remove,
-                                  ),
-                                   SimpleText(valueNotifier.value.toString()),
-                                  CircularButton(
-                                    color: AppColor.mainGreen,
-                                    onPressed: () {valueNotifier.value++;},
-                                    iconData: Icons.add,
-                                  ),
-                                  const Spacer(),
-                                  BigButton(
-                                    text: AppString.addToString,
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    width: 200,
-                                    height: 60,
-                                  ),
-                                  const Spacer(),
-                                ],
-                              );
-                            }),
-                      ],
+                          ValueListenableBuilder<int>(
+                              valueListenable: valueNotifier,
+                              builder: (context, value, child) {
+                                return  Row(
+                                  children: [
+                                    CircularButton(
+                                      color: AppColor.mainGreen.withOpacity(0.3),
+                                      onPressed: () {
+                                        valueNotifier.value--;
+                                      },
+                                      iconData: Icons.remove,
+                                    ),
+                                     SimpleText(valueNotifier.value.toString()),
+                                    CircularButton(
+                                      color: AppColor.mainGreen,
+                                      onPressed: () {valueNotifier.value++;},
+                                      iconData: Icons.add,
+                                    ),
+                                    const Spacer(),
+                                    BigButton(
+                                      text: AppString.addToString,
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      width: 200,
+                                      height: 60,
+                                    ),
+                                    const Spacer(),
+                                  ],
+                                );
+                              }),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ));
   }

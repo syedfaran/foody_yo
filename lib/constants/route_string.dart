@@ -11,5 +11,8 @@ class RouteString{
   static const String voucher = '/voucher';
   static const String favourite = '/favourite';
   static const String walkThrough = '/walkThrough';
+  static const String cart = '/cart';
   static const String applyAVoucher = '/applyAVoucher';
+  static const String checkOut ='/checkOut';
+  static const String paymentMethod ='/paymentMethod';
 }
