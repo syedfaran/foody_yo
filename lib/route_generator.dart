@@ -12,6 +12,7 @@ import 'package:foody_yo/presentation/pages/main_page/check_out_page.dart';
 
 import 'package:foody_yo/presentation/pages/main_page/main_layout.dart';
 import 'package:foody_yo/presentation/pages/main_page/payment_method_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/your_order/your_order_page.dart';
 import 'package:foody_yo/presentation/pages/map_page/map_page.dart';
 import 'package:foody_yo/presentation/pages/welcome/welcome_page.dart';
 
@@ -26,7 +27,7 @@ class RouteGenerator {
     switch (settings.name) {
       case RouteString.initial:
       return MaterialPageRoute(builder: (context)=>const SplashScreen());
-       return MaterialPageRoute(builder: (context)=>const PaymentMethodPage());
+       return MaterialPageRoute(builder: (context)=>const YourOrderPage());
         return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
       case RouteString.walkThrough:
         return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
@@ -66,6 +67,9 @@ class RouteGenerator {
 
       case RouteString.paymentMethod:
         return MaterialPageRoute(builder: (context)=>const  PaymentMethodPage());
+      case RouteString.yourOrder:
+        return MaterialPageRoute(builder: (context)=>const  YourOrderPage());
+
 
       default:
       // If there is no such named route in the switch statement, e.g. /third

@@ -5,16 +5,21 @@ import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
 class CartPaymentInfo extends StatelessWidget {
   final String option;
-  final String value;
-  final EnumText? enumText;
-  final double? fontSize;
-
+  final String? value;
+  final EnumText enumText;
+  final double fontSize;
+  final Widget? widget;
+  final EnumText valueEnum;
+  final double valueSize;
   const CartPaymentInfo(
       {Key? key,
         required this.option,
-        required this.value,
+         this.value,
+        this.widget,
+        this.valueSize = 22.0,
+        this.valueEnum =EnumText.bold,
         this.enumText = EnumText.bold,
-        this.fontSize = 22})
+        this.fontSize = 22.0})
       : super(key: key);
 
   @override
@@ -25,15 +30,16 @@ class CartPaymentInfo extends StatelessWidget {
         children: [
           SimpleText(
             option,
-            fontSize: fontSize!,
+            fontSize: fontSize,
             enumText: enumText,
           ),
           const Spacer(),
-          SimpleText(
-            value,
-            fontSize: fontSize!,
-            enumText: enumText,
-          )
+          value!=null?SimpleText(
+            value!,
+            fontSize: valueSize,
+            enumText: valueEnum,
+          ):const SizedBox.shrink(),
+          widget!=null?widget!:const SizedBox.shrink(),
         ],
       ),
     );

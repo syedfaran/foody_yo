@@ -31,7 +31,7 @@ class CartPaymentInfoVouch extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodyText1!
-                    .copyWith(fontSize: 24, fontWeight: FontWeight.bold),
+                    .copyWith(fontSize: 24, fontWeight: FontWeight.w900),
                 children: [
                   TextSpan(
                       text: AppString.inclVAT,

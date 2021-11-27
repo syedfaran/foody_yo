@@ -34,7 +34,9 @@ class ImageString{
   static const ImageProvider wallet = AssetImage('assets/images/wallet.png');
   static const ImageProvider pen = AssetImage('assets/images/pen.png');
   static const ImageProvider orderCheck = AssetImage('assets/images/order_check.png');
+  static const ImageProvider takeFoodBlack = AssetImage('assets/images/take_food_black.png');
 
+  static const ImageProvider messageWhite = AssetImage('assets/images/mess.png');
 
 
   // static const ImageProvider helpCenter = AssetImage('assets/images/heart.png');

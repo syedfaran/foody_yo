@@ -19,78 +19,85 @@ class PaymentMethodPage extends StatefulWidget {
 class _PaymentMethodPageState extends State<PaymentMethodPage> {
   final ValueNotifier<bool> valueNotifier = ValueNotifier(false);
   @override
+  void dispose() {
+    valueNotifier.dispose();
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const SimpleAppBar(
-          title: AppString.paymentMethod, isSpacer: false, isBackArrow: false),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-        child: Column(
-          children: [
-            GestureDetector(
-              onTap: () {
-                _showModal(context);
-              },
-              child: Row(
-                children: const [
-                  Image(image: ImageString.cash, width: 30, height: 30),
-                  SizedBox(width: 10),
-                  SimpleText(
-                    AppString.creditOrDebitCard,
-                    fontSize: 22,
-                    enumText: EnumText.extraBold,
-                  ),
-                  Spacer(),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    color: AppColor.mainGreen,
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 50),
-            GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Row(
-                children: [
-                  const Image(image: ImageString.cash, width: 30, height: 30),
-                  const SizedBox(width: 10),
-                  const SimpleText(
-                    AppString.cash,
-                    fontSize: 22,
-                    enumText: EnumText.extraBold,
-                  ),
-                  const Spacer(),
-                  Container(
-                    padding:
-                    const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-                    decoration: BoxDecoration(
-                        color: AppColor.mainGreen,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: const SimpleText(
-                      AppString.primary,
-                      color: AppColor.whiteTextColor,
-                      fontSize: 14,
+    return SafeArea(
+      child: Scaffold(
+        appBar: const SimpleAppBar(
+            title: AppString.paymentMethod, isSpacer: false, isBackArrow: false),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          child: Column(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  _showModal(context);
+                },
+                child: Row(
+                  children: const [
+                    Image(image: ImageString.cash, width: 30, height: 30),
+                    SizedBox(width: 10),
+                    SimpleText(
+                      AppString.creditOrDebitCard,
+                      fontSize: 22,
+                      enumText: EnumText.extraBold,
                     ),
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    height: 30,
-                    width: 30,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        width: 8,
-                        color: AppColor.mainGreen.withOpacity(0.3),
+                    Spacer(),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: AppColor.mainGreen,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 50),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Row(
+                  children: [
+                    const Image(image: ImageString.cash, width: 30, height: 30),
+                    const SizedBox(width: 10),
+                    const SimpleText(
+                      AppString.cash,
+                      fontSize: 22,
+                      enumText: EnumText.extraBold,
+                    ),
+                    const Spacer(),
+                    Container(
+                      padding:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                      decoration: BoxDecoration(
+                          color: AppColor.mainGreen,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: const SimpleText(
+                        AppString.primary,
+                        color: AppColor.whiteTextColor,
+                        fontSize: 14,
                       ),
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 10),
+                    Container(
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          width: 8,
+                          color: AppColor.mainGreen.withOpacity(0.3),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

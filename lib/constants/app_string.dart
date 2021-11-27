@@ -93,7 +93,16 @@ class AppString {
   static const saveMyCard = 'Save My Card';
   static const done = 'Done';
   static const cvc = 'CVC';
-  static const wellKeepYourPaymentDetailsSafe = 'we ll Keep Your Payment Details Safe';
+  static const wellKeepYourPaymentDetailsSafe = 'we\'ll Keep Your Payment Details Safe';
   static const cash = 'Cash';
+  static const yourOrder='Your order';
+  static const help = 'help';
+  static const estimatedDeliveryTime ='Estimated Delivery Time';
+  static const preparingYourFood='Preparing your food.  Your riderwill pick it\n up once it\'s ready';
+  static const orderDetail = 'Order Details';
+  static const yourOrderNumber = 'Your order number';
+  static const yourOrderFrom = 'Your order from';
+  static const gotYourOrder = 'Got your order Hafiz';
+  static const messageToRider = 'Message to rider';
 
 }

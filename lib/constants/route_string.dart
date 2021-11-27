@@ -15,4 +15,5 @@ class RouteString{
   static const String applyAVoucher = '/applyAVoucher';
   static const String checkOut ='/checkOut';
   static const String paymentMethod ='/paymentMethod';
+  static const String yourOrder ='/yourOrder';
 }
