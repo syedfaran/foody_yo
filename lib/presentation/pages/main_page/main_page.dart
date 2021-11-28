@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/constants/image_string.dart';
 import 'package:foody_yo/presentation/pages/enums.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
@@ -31,15 +33,49 @@ class MainPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColor.whiteColor,
         appBar: MainAppBar(animationController: animationController),
-        body: ListView.builder(
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return MainCard(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
-                },
-              );
-            }),
+        body: CustomScrollView(
+          slivers: [
+            SliverList(
+                delegate: SliverChildListDelegate([
+               true?Padding(
+                 padding: const EdgeInsets.only(left: 40),
+                 child: Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: const [
+
+                     SimpleText(
+                       AppString.pickUpAndSave,
+                       enumText: EnumText.extraBold,
+                       fontSize: 24,
+                     ),
+                     SimpleText(
+                       AppString.selfCollect,
+                       enumText: EnumText.light,
+                     ),
+                     SimpleText(
+                       AppString.discount,
+
+                       enumText: EnumText.light,
+
+                     ),
+                   ],
+                 ),
+               ):const SizedBox.shrink(),
+            ])),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) => MainCard(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomeScreen()));
+                  },
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foody_yo/presentation/theme/app_color.dart';
 
 import '../colors.dart';
 
@@ -26,16 +27,16 @@ Widget build(BuildContext context) {
       vertical: 20,
     ),
     decoration: BoxDecoration(
-      color: scheme.primary,
+      color: AppColor.mainGreen,
       borderRadius: BorderRadius.circular(10.0),
-      image: DecorationImage(
-        fit: BoxFit.cover,
-        colorFilter: ColorFilter.mode(
-          scheme.primary.withOpacity(0.08),
-          BlendMode.dstATop,
-        ),
-        image: AssetImage('assets/images/pattern.png'),
-      ),
+      // image: DecorationImage(
+      //   fit: BoxFit.cover,
+      //   colorFilter: ColorFilter.mode(
+      //     scheme.primary.withOpacity(0.08),
+      //     BlendMode.dstATop,
+      //   ),
+      //   image: AssetImage('assets/images/pattern.png'),
+      // ),
     ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,

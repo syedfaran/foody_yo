@@ -28,8 +28,6 @@ class _YourOrderPageState extends State<YourOrderPage> {
   void initState() {
     Timer.periodic(const Duration(seconds: 3), (Timer t) {
       progress.value = progress.value + 0.05;
-
-
       if (progress.value >= 1.0) {
 
         t.cancel();

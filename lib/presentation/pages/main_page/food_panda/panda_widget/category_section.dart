@@ -14,10 +14,10 @@ import '../example_data.dart';
 import 'custom_shape.dart';
 
 class CategorySection extends StatefulWidget {
-  const CategorySection({
-    Key? key,
-    required this.category,
-  }) : super(key: key);
+  final void Function(int)? callback;
+
+  const CategorySection({Key? key, required this.category, this.callback})
+      : super(key: key);
 
   final Category category;
 
@@ -28,7 +28,13 @@ class CategorySection extends StatefulWidget {
 class _CategorySectionState extends State<CategorySection> {
   final _sizeBox = const SizedBox(height: 25);
   ValueNotifier<int> valueNotifier = ValueNotifier(0);
-
+  @override
+  void initState() {
+    valueNotifier.addListener(() {
+      widget.callback!(valueNotifier.value);
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -142,7 +148,7 @@ class _CategorySectionState extends State<CategorySection> {
         Row(
           children: [
             Text(
-              "មកពី" + food.price + " ",
+              "From" + food.price + " ",
               style: _textTheme(context).caption,
               strutStyle: Helper.buildStrutStyle(_textTheme(context).caption),
             ),
@@ -164,9 +170,9 @@ class _CategorySectionState extends State<CategorySection> {
   Widget _buildSectionHoteSaleIcon() {
     return Container(
       margin: const EdgeInsets.only(right: 4.0),
-      child: Icon(
+      child: const Icon(
         Icons.whatshot,
-        color: scheme.primary,
+        color: AppColor.mainGreen,
         size: 20.0,
       ),
     );
@@ -174,10 +180,10 @@ class _CategorySectionState extends State<CategorySection> {
 
   Widget _buildFoodHotSaleIcon() {
     return Container(
-      child: Icon(Icons.whatshot, color: scheme.primary, size: 16.0),
+      child: Icon(Icons.whatshot, color: AppColor.mainGreen, size: 16.0),
       padding: const EdgeInsets.all(4.0),
       decoration: BoxDecoration(
-        color: scheme.primary.withOpacity(0.1),
+        color: AppColor.mainGreen.withOpacity(0.1),
         borderRadius: BorderRadius.circular(16.0),
       ),
     );
@@ -193,7 +199,7 @@ class _CategorySectionState extends State<CategorySection> {
               child: Container(
                 decoration: BoxDecoration(
                   color: AppColor.whiteColor,
-                      borderRadius: BorderRadius.circular(20.0),
+                  borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Column(
                   children: [
@@ -239,23 +245,29 @@ class _CategorySectionState extends State<CategorySection> {
                           ),
                           _sizeBox,
                           _sizeBox,
-
                           ValueListenableBuilder<int>(
                               valueListenable: valueNotifier,
                               builder: (context, value, child) {
-                                return  Row(
+
+                                return Row(
                                   children: [
                                     CircularButton(
-                                      color: AppColor.mainGreen.withOpacity(0.3),
+                                      color:
+                                          AppColor.mainGreen.withOpacity(0.3),
                                       onPressed: () {
                                         valueNotifier.value--;
+
                                       },
                                       iconData: Icons.remove,
                                     ),
-                                     SimpleText(valueNotifier.value.toString()),
+                                    SimpleText(valueNotifier.value.toString()),
                                     CircularButton(
                                       color: AppColor.mainGreen,
-                                      onPressed: () {valueNotifier.value++;},
+                                      onPressed: () {
+                                    valueNotifier.value++;
+
+
+                                      },
                                       iconData: Icons.add,
                                     ),
                                     const Spacer(),

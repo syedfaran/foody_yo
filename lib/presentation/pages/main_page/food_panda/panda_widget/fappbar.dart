@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foody_yo/presentation/pages/main_page/food_panda/panda_helper/panda_helper.dart';
 import 'package:foody_yo/presentation/pages/main_page/food_panda/panda_widget/panda_head.dart';
 import 'package:foody_yo/presentation/pages/main_page/food_panda/panda_widget/promo_text.dart';
+import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../colors.dart';
@@ -38,7 +39,7 @@ class FAppBar extends SliverAppBar {
 
   @override
   Widget? get leading {
-    return FIconButton(iconData: Icons.arrow_back, onPressed: () {});
+    return FIconButton(iconData: Icons.arrow_back, onPressed: () {Navigator.pop(context);});
   }
 
   @override
@@ -59,14 +60,14 @@ class FAppBar extends SliverAppBar {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "ដឹកជញ្ជូន",
+            "Delivery",
             style: textTheme.subtitle1?.copyWith(color: scheme.onSurface),
             strutStyle: Helper.buildStrutStyle(textTheme.subtitle1),
           ),
           const SizedBox(height: 4.0),
           Text(
-            data.deliverTime,
-            style: textTheme.caption?.copyWith(color: scheme.primary),
+            '20 min',
+            style: textTheme.caption?.copyWith(color: AppColor.mainGreen),
             strutStyle: Helper.buildStrutStyle(textTheme.caption),
           ),
         ],
@@ -84,8 +85,8 @@ class FAppBar extends SliverAppBar {
           isScrollable: true,
           controller: tabController,
           indicatorPadding: const EdgeInsets.symmetric(horizontal: 16.0),
-          indicatorColor: scheme.primary,
-          labelColor: scheme.primary,
+          indicatorColor: AppColor.mainGreen,
+          labelColor: AppColor.mainGreen,
           unselectedLabelColor: scheme.onSurface,
           indicatorWeight: 3.0,
           tabs: data.categories.map((e) {
@@ -117,7 +118,7 @@ class FAppBar extends SliverAppBar {
               Stack(
                 children: [
                   PromoText(title: data.bannerText),
-                  const PandaHead(),
+                  //const PandaHead(),
                   Column(
                     children: [
                       HeaderClip(data: data, context: context),
@@ -154,14 +155,14 @@ class FIconButton extends StatelessWidget {
     return Center(
       child: IconButton(
         splashColor: Colors.transparent,
-        onPressed: () {},
+        onPressed: onPressed,
         icon: Container(
           height: 48,
           width: 48,
           decoration: buildBoxDecoration(),
           child: Icon(
             iconData,
-            color: scheme.primary,
+            color: AppColor.blackColor,
             size: 20,
           ),
         ),

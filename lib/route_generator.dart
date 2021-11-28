@@ -7,6 +7,7 @@ import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/fa
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/help_center_page/cancel_order_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/help_center_page/help_center_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/order_page/order_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/profile_page/profile_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/voucher_page/voucher_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/check_out_page.dart';
 
@@ -27,7 +28,7 @@ class RouteGenerator {
     switch (settings.name) {
       case RouteString.initial:
       return MaterialPageRoute(builder: (context)=>const SplashScreen());
-       return MaterialPageRoute(builder: (context)=>const YourOrderPage());
+       return MaterialPageRoute(builder: (context)=>const ProfilePage());
         return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
       case RouteString.walkThrough:
         return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
@@ -44,7 +45,7 @@ class RouteGenerator {
       case RouteString.welcome:
         return MaterialPageRoute(builder: (context)=>const WelcomePage());
       case RouteString.main:
-        args is bool;
+
         return MaterialPageRoute(builder: (context)=> MainLayout(args as bool));
       case RouteString.loginOrSignUp:
         return MaterialPageRoute(builder: (context)=>const LoginORSignup());
@@ -58,6 +59,9 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context)=>const VoucherPage());
       case RouteString.favourite:
         return MaterialPageRoute(builder: (context)=>const FavouritePage());
+
+      case RouteString.profile:
+        return MaterialPageRoute(builder: (context)=>const ProfilePage());
       case RouteString.applyAVoucher:
         return MaterialPageRoute(builder: (context)=>const ApplyAVoucher());
       case RouteString.cart:

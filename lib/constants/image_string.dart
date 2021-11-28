@@ -38,6 +38,7 @@ class ImageString{
 
   static const ImageProvider messageWhite = AssetImage('assets/images/mess.png');
 
+  static const ImageProvider avatar = AssetImage('assets/images/avatar.png');
 
   // static const ImageProvider helpCenter = AssetImage('assets/images/heart.png');
   // static const ImageProvider order = AssetImage('assets/images/heart.png');

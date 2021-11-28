@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foody_yo/presentation/theme/app_color.dart';
 
 import '../colors.dart';
 
@@ -22,10 +23,10 @@ class PromoText extends StatelessWidget {
           vertical: 48,
         ),
         width: double.infinity,
-        color: scheme.primary.withOpacity(0.1),
+        color: AppColor.mainGreen.withOpacity(0.1),
         child: Text(
           title,
-          style: textTheme.bodyText1?.copyWith(color: scheme.primary),
+          style: textTheme.bodyText1?.copyWith(color: AppColor.mainGreen),
         ),
       ),
     );

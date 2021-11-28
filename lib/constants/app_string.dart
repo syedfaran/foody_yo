@@ -104,5 +104,17 @@ class AppString {
   static const yourOrderFrom = 'Your order from';
   static const gotYourOrder = 'Got your order Hafiz';
   static const messageToRider = 'Message to rider';
+  static const account = 'Account';
+  static const history = 'History';
+  static const card = 'CARD';
+  static const addNewCard = 'Add New Card';
+  static const myCards = 'MY Cards';
+  static const name = 'Name';
+  static const mobileNumber = 'Mobile number';
+  static const verified = 'Verified';
+  static const addNow = 'Add Now';
+  static const discount = 'discount';
+  static const selfCollect = 'Self-collect for guaranteed';
+
 
 }

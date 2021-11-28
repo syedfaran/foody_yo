@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     tabController.dispose();
     super.dispose();
   }
-
+  int cartItem =0;
   List<int> getVisibleItemsIndex() {
     Rect? rect = RectGetter.getRectFromKey(listViewKey);
     List<int> items = [];
@@ -91,7 +91,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: scheme.background,
       body: Stack(
         children: [
           RectGetter(
@@ -101,11 +100,11 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               onNotification: onScrollNotification,
             ),
           ),
-          const Align(
+          cartItem>=1?const Align(
             heightFactor: 15,
             alignment: Alignment.bottomCenter,
             child: ViewYourCartButton(),
-          ),
+          ):const SizedBox.shrink(),
         ],
       ),
     );
@@ -156,7 +155,11 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         key: ValueKey(index),
         index: index,
         controller: scrollController,
-        child: CategorySection(category: category),
+        child: CategorySection(category: category,callback: (value){
+          setState(() {
+            cartItem=value;
+          });
+        },),
       ),
     );
   }

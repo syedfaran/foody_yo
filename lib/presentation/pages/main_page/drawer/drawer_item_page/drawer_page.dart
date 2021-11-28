@@ -85,8 +85,10 @@ class DrawerScreen extends StatelessWidget {
                 )
               : const SizedBox.shrink(),
           guest
-              ? const DrawerItem(
-                  text: AppString.profile, image: ImageString.profile)
+              ?  DrawerItem(
+                  text: AppString.profile, image: ImageString.profile,onTap: (){
+                    Navigator.pushNamed(context, RouteString.profile);
+          },)
               : const SizedBox.shrink(),
           guest
               ? const DrawerItem(

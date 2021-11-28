@@ -18,11 +18,10 @@ class _OrderProgressLoadingAnimationState extends State<OrderProgressLoadingAnim
 
     animationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 1500))
-      ..repeat(reverse: false,min: widget.progress)
+      ..repeat(reverse: false)
       ..addListener(() {
 
         if (widget.progress >= 1.0) {
-          animationController.value= animationController.upperBound;
           animationController.stop();
           animationController.dispose();
         }
