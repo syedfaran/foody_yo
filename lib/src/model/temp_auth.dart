@@ -1,4 +1,4 @@
-class TempAuth{
-  final bool _guest;
-  final boo
-}
+// class TempAuth{
+//   final bool _guest;
+//   final boo
+// }
