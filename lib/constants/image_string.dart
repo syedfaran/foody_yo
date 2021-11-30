@@ -39,7 +39,12 @@ class ImageString{
   static const ImageProvider messageWhite = AssetImage('assets/images/mess.png');
 
   static const ImageProvider avatar = AssetImage('assets/images/avatar.png');
+  static const ImageProvider filter = AssetImage('assets/images/filter.png');
 
+  static const ImageProvider menu = AssetImage('assets/images/menu.png');
+  static const ImageProvider card = AssetImage('assets/images/card.png');
+
+  static const ImageProvider cvc = AssetImage('assets/images/cvc.png');
   // static const ImageProvider helpCenter = AssetImage('assets/images/heart.png');
   // static const ImageProvider order = AssetImage('assets/images/heart.png');
 }

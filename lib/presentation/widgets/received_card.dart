@@ -11,10 +11,10 @@ class ReceivedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 270,
       decoration: BoxDecoration(
-        // color: AppColor.whiteColor,
-          color: Colors.white,
+        color: AppColor.whiteColor,
+         // color: Colors.white,
           border: Border.all(color: Colors.black45, width: .1),
           borderRadius: BorderRadius.circular(20.0),
           boxShadow: const [
@@ -36,8 +36,9 @@ class ReceivedCard extends StatelessWidget {
                 ),
               ),
               child: Container(
-                height: 25,
+                height: 28,
                 width: 90,
+                alignment: Alignment.center,
                 margin: const EdgeInsets.only(top: 20),
                 decoration: const BoxDecoration(
                     color: AppColor.mainGreen,
@@ -62,12 +63,12 @@ class ReceivedCard extends StatelessWidget {
                   Spacer(),
                   SimpleText('Al-Haj Akhtar',
                       enumText: EnumText.extraBold, fontSize: 26),
-                  Spacer(),
+                  Spacer(flex: 3,),
                   SimpleText('Created: Today, 1:33am',
                       enumText: EnumText.regular, fontSize: 18),
                   SimpleText('Order Status: Received',
                       enumText: EnumText.regular, fontSize: 18),
-                  Spacer(),
+                  Spacer(flex: 3,),
                   SimpleText('1 Item',
                       enumText: EnumText.extraBold, fontSize: 22),
                   Spacer(),

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:foody_yo/presentation/theme/app_color.dart';
 
 class CreditCard extends StatefulWidget {
   @override
@@ -13,12 +14,12 @@ class _CreditCardState extends State<CreditCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onHorizontalDragUpdate: (horizontal) {
-        setState(() {
-          horizontalDrag += horizontal.delta.dx;
-          horizontalDrag %= 360;
-        });
-      },
+      // onHorizontalDragUpdate: (horizontal) {
+      //   setState(() {
+      //     horizontalDrag += horizontal.delta.dx;
+      //     horizontalDrag %= 360;
+      //   });
+      // },
       child: Transform(
         transform: Matrix4.identity()
           ..setEntry(3, 2, 0.001)
@@ -30,7 +31,7 @@ class _CreditCardState extends State<CreditCard> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             gradient: const LinearGradient(
-              colors: [Color(0xff323232), Color(0xff000000)],
+              colors: [Color(0xff323232), AppColor.mainGreen],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),

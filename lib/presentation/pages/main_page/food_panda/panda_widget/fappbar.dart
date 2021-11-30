@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:foody_yo/presentation/pages/enums.dart';
 import 'package:foody_yo/presentation/pages/main_page/food_panda/panda_helper/panda_helper.dart';
 import 'package:foody_yo/presentation/pages/main_page/food_panda/panda_widget/panda_head.dart';
 import 'package:foody_yo/presentation/pages/main_page/food_panda/panda_widget/promo_text.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
+import 'package:foody_yo/presentation/widgets/simple_text.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../colors.dart';
@@ -45,8 +47,9 @@ class FAppBar extends SliverAppBar {
   @override
   List<Widget>? get actions {
     return [
-      FIconButton(iconData: Icons.share_outlined, onPressed: () {}),
       FIconButton(iconData: Icons.info_outline, onPressed: () {}),
+      FIconButton(iconData: Icons.share_outlined, onPressed: () {}),
+
     ];
   }
 
@@ -90,7 +93,7 @@ class FAppBar extends SliverAppBar {
           unselectedLabelColor: scheme.onSurface,
           indicatorWeight: 3.0,
           tabs: data.categories.map((e) {
-            return Tab(text: e.title);
+            return Tab(child: SimpleText(e.title,fontSize: 20,enumText: EnumText.regular));
           }).toList(),
           onTap: onTap,
         ),

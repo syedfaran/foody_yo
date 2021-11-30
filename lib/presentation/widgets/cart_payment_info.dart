@@ -11,11 +11,13 @@ class CartPaymentInfo extends StatelessWidget {
   final Widget? widget;
   final EnumText valueEnum;
   final double valueSize;
+  final double vertical;
   const CartPaymentInfo(
       {Key? key,
         required this.option,
          this.value,
         this.widget,
+        this.vertical=8,
         this.valueSize = 22.0,
         this.valueEnum =EnumText.bold,
         this.enumText = EnumText.bold,
@@ -25,7 +27,7 @@ class CartPaymentInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+      padding:  EdgeInsets.symmetric(horizontal: 20, vertical: vertical),
       child: Row(
         children: [
           SimpleText(

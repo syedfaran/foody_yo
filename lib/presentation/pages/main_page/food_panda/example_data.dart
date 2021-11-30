@@ -11,7 +11,7 @@ class ExampleData {
 
   static PageData data = PageData(
     title: "AL-Haj Akhtr\nNorth Karachi",
-    deliverTime: "20 នាទី",
+    deliverTime: "20 min",
     bannerText:
     "Use code HELLOPANDA Discount 50% For the first order from 4.5\$ Up to",
     backgroundUrl:

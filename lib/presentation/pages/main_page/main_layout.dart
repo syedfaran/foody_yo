@@ -50,7 +50,7 @@ class _MainLayoutState extends State<MainLayout>
                color: AppColor.whiteColor.withOpacity(0.35),
              ),
            ),
-           MainPage(animation,animationController),
+           MainPage(animation,animationController,widget.guest),
         ],
       ),
     );

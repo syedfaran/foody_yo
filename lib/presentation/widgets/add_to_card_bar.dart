@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/constants/route_string.dart';
+import 'package:foody_yo/presentation/pages/enums.dart';
 import 'package:foody_yo/presentation/pages/main_page/food_panda/panda_widget/category_section.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
 class ViewYourCartButton extends StatelessWidget {
-  const ViewYourCartButton({Key? key}) : super(key: key);
-
+  final void Function()? onTap;
+  const ViewYourCartButton({Key? key,this.onTap}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.pushNamed(context, RouteString.cart);
-      },
+      onTap: onTap,
       child: Container(
         height: 60,
         width: 390,
@@ -25,9 +24,9 @@ class ViewYourCartButton extends StatelessWidget {
               alignment: Alignment.center,
               height: 40,
               width: 40,
-              child: const SimpleText('1',color: AppColor.whiteTextColor,),
+              child: const SimpleText('1',color: AppColor.whiteTextColor,enumText: EnumText.bold,fontSize: 24,),
               decoration:  BoxDecoration(
-                color: Colors.green[200]!,
+                color: Colors.lightGreen[200]!.withOpacity(0.7),
                 shape: BoxShape.circle,
               ),
             ),

@@ -32,32 +32,28 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             Row(
               children: [
-                Center(
-                  child: IconButton(
-                    icon: const Icon(Icons.menu,
-                        color: AppColor.whiteColor, size: 32),
-                    onPressed: () {
+                GestureDetector(
+                    onTap: () {
                       animationController.forward();
                     },
-                  ),
-                ),
+                    child: const Image(image: ImageString.menu, width: 26)),
                 const Spacer(),
-                const Image(image: ImageString.navigation, width: 30),
+                const Image(image: ImageString.navigation, width: 26),
                 const Spacer(),
                 const Padding(
                   padding: EdgeInsets.only(top: 4.0),
                   child: RoundedTextField(
                     verticalPadding: 0,
                     width: 250,
-                    hintText: 'North Karachir',
+                    hintText: 'North Karachi',
                     fontColor: AppColor.blackColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const Spacer(),
-                const Image(image: ImageString.heart, width: 30),
+                const Image(image: ImageString.heart, width: 26),
                 const Spacer(),
-                const Image(image: ImageString.cart, width: 30),
+                const Image(image: ImageString.cart, width: 26),
               ],
             ),
             const Spacer(flex: 3),
@@ -92,6 +88,8 @@ class ShadowTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
+      height: 60,
+      alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
       decoration: const BoxDecoration(
           color: AppColor.whiteColor,
@@ -108,9 +106,9 @@ class ShadowTextField extends StatelessWidget {
         enabled: false,
         decoration: InputDecoration(
           border: InputBorder.none,
-          suffixIcon: Icon(icon, color: Colors.grey, size: 30),
+          suffixIcon: Icon(icon, color: AppColor.blackColor, size: 30),
           hintText: hintText,
-          hintStyle: const TextStyle(fontSize: 20),
+          hintStyle: const TextStyle(fontSize: 22),
         ),
       ),
     );

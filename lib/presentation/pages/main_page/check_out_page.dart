@@ -91,7 +91,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                       const SimpleText('Karachi',
                           fontSize: 12,
                           color: AppColor.mainGreen,
-                          enumText: EnumText.bold,
+                          enumText: EnumText.light,
                           horizontal: 20),
                       const Divider(thickness: 1, color: AppColor.blackColor),
                       GestureDetector(
@@ -122,7 +122,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                           image: ImageString.orderCheck,
                           text: AppString.orderSummery),
                       CartPaymentInfo(
-                        option: '1xZinger Burger',
+                        option: 'Zinger Burger x 1',
                         value: 'Rs 250.00',
                         enumText: EnumText.light,
                         fontSize: 14,
@@ -138,6 +138,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                         valueSize: 14,
                         valueEnum: EnumText.light,
                       ),
+                      SizedBox(height: 10,),
                       CartPaymentInfo(
                         option: AppString.deliveryFee,
                         value: 'Rs 250.00',
@@ -149,24 +150,26 @@ class _CheckOutPageState extends State<CheckOutPage> {
                     ],
                   ),
                 ),
+                const SizedBox(height: 10),
                 const Align(
                     alignment: Alignment.centerLeft,
                     child: SimpleText(
                       AppString.orderTermCon,
                       fontSize: 12,
                     )),
+                const SizedBox(height: 10),
                 const CartPaymentInfoVouch(
                     value: 'Rs. 300.0',
                     horizontal: 0.0,
                     vertical: 0.0,
                     option: AppString.total),
-                const SizedBox(height: 10),
+                const SizedBox(height: 20),
                 BigButton(
+                  height: 65,
                     text: AppString.placeOrder,
                     onPressed: () {
                       Navigator.pushNamed(context, RouteString.yourOrder);
                     }),
-                const SizedBox(height: 10),
               ],
             )),
       ),
@@ -198,7 +201,7 @@ class CheckOutRow extends StatelessWidget {
                   width: 10,
                 )
               : const SizedBox.shrink(),
-          SimpleText(text, enumText: EnumText.bold),
+          SimpleText(text, enumText: EnumText.extraBold,fontSize: 18.5,),
           const Spacer(),
           imageTwo != null
               ? Image(image: imageTwo!, height: 30, width: 30)

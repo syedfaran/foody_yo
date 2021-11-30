@@ -46,8 +46,8 @@ class DrawerScreen extends StatelessWidget {
                 fontSize: 38),
           ),
           _sizedBox,
-          const SimpleText('Hafiz Haider',
-              enumText: EnumText.extraBold, color: AppColor.whiteTextColor),
+           SimpleText(guest?'Hafiz Haider':AppString.guest,
+              enumText: EnumText.extraBold, color: AppColor.whiteTextColor,),
           _sizedBox,
           Container(
             height: 80,

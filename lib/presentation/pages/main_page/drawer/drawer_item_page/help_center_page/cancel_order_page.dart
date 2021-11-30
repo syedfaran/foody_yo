@@ -30,20 +30,20 @@ class _CancelOrderPageState extends State<CancelOrderPage> {
     return SafeArea(
       child: Scaffold(
         appBar: const SimpleAppBar(title: AppString.canICancelMyOrder),
-        body: Column(
-          children: [
-            _sizedBox,
-            const SimpleText(AppString.cancelOrderDescription,
-                enumText: EnumText.extraBold, fontSize: 24),
-            _sizedBox,
-            const SimpleText(AppString.whyDoYouWantToCancelYourOrder),
-            _sizedBox,
-            ValueListenableBuilder<EnumCancelOrderOption>(
-              valueListenable: valueNotifier,
-              builder: (context, selectedOption, child) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                  child: Column(
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 18),
+          child: Column(
+            children: [
+              _sizedBox,
+              const SimpleText(AppString.cancelOrderDescription,
+                  enumText: EnumText.extraBold, fontSize: 20,textAlign: TextAlign.start,),
+              _sizedBox,
+              const SimpleText(AppString.whyDoYouWantToCancelYourOrder,enumText: EnumText.extraBold,),
+              _sizedBox,
+              ValueListenableBuilder<EnumCancelOrderOption>(
+                valueListenable: valueNotifier,
+                builder: (context, selectedOption, child) {
+                  return Column(
                     children: [
                       FoodyRadioButton<EnumCancelOrderOption>(
                         text: AppString.optionOne,
@@ -91,14 +91,14 @@ class _CancelOrderPageState extends State<CancelOrderPage> {
                       ),
                       divider,
                     ],
-                  ),
-                );
-              },
-            ),
-            const Spacer(),
-            BigButton(text: AppString.confirm, onPressed: () {}),
-            const Spacer(flex: 2),
-          ],
+                  );
+                },
+              ),
+              const Spacer(),
+              BigButton(text: AppString.confirm, onPressed: () {}),
+              const Spacer(flex: 2),
+            ],
+          ),
         ),
       ),
     );

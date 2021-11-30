@@ -39,7 +39,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                 },
                 child: Row(
                   children: const [
-                    Image(image: ImageString.cash, width: 30, height: 30),
+                    Image(image: ImageString.card, width: 30, height: 30),
                     SizedBox(width: 10),
                     SimpleText(
                       AppString.creditOrDebitCard,
@@ -112,14 +112,15 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
             BackdropFilter(
               filter: ImageFilter.blur(sigmaY: 5, sigmaX: 5),
               child: Container(
+                height: 410,
                 padding: const EdgeInsets.symmetric(
-                    horizontal: 20, vertical: 40),
-                decoration: BoxDecoration(
+                    horizontal: 20, vertical: 20),
+                decoration: const BoxDecoration(
                     color: AppColor.whiteColor,
-                    borderRadius: BorderRadius.circular(20)),
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight:  Radius.circular(20))),
                 child: Column(
                   children: [
-                    const PaymentTextField(hintText: AppString.cardNumber),
+                    const PaymentTextField(hintText: AppString.cardNumber,vertical: 20,horizontal: 20,),
                     const SizedBox(height: 25.0),
                     Row(
                       children:const [
@@ -157,9 +158,9 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                         const SizedBox(height: 25.0),
                       ],
                     ),
-                    const SizedBox(height: 25.0),
-                    BigButton(text: AppString.done, onPressed: (){}),
-                    const SizedBox(height: 25.0),
+
+                    const Spacer(flex: 3),
+                    BigButton(text: AppString.done, onPressed: (){Navigator.pop(context);}),
                     const SimpleText(AppString.wellKeepYourPaymentDetailsSafe,enumText: EnumText.bold,),
                   ],
                 ),
@@ -171,9 +172,10 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
 class PaymentTextField extends StatelessWidget {
   final String? hintText;
   final TextAlign textAlign;
-
+  final double vertical;
+  final double horizontal;
   const PaymentTextField(
-      {Key? key, this.hintText, this.textAlign = TextAlign.start})
+      {Key? key, this.hintText, this.textAlign = TextAlign.start,this.horizontal=0,this.vertical=12})
       : super(key: key);
 
   @override
@@ -186,10 +188,17 @@ class PaymentTextField extends StatelessWidget {
           .bodyText1!
           .copyWith(fontSize: 28,),
       decoration: InputDecoration(
+        //suffix: const Image(image: ImageString.card,height: 30,width: 30),
+        contentPadding: EdgeInsets.only(top: vertical,bottom: vertical,left: horizontal),
         hintText: hintText,
+        hintStyle:  Theme
+            .of(context)
+            .textTheme
+            .bodyText1!
+            .copyWith(color: AppColor.blackColor,fontSize: 28,fontWeight: FontWeight.w100),
         border: OutlineInputBorder(
-            borderSide: const BorderSide(color: AppColor.mainGreen),
-            borderRadius: BorderRadius.circular(20.0)),
+            borderSide: const BorderSide(color: AppColor.mainGreen,width: 3),
+            borderRadius: BorderRadius.circular(10.0)),
       ),
     );
   }

@@ -9,7 +9,8 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? subtitle;
   final bool isBackArrow;
   final bool isSpacer;
-  const SimpleAppBar({Key? key, required this.title, this.subtitle,this.isBackArrow=true,this.isSpacer=true})
+  final Widget? action;
+  const SimpleAppBar({Key? key, required this.title, this.subtitle,this.isBackArrow=true,this.isSpacer=true,this.action})
       : super(key: key);
 
   @override
@@ -55,6 +56,8 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
                           enumText: EnumText.light),
                     ],
                   ),
+                const Spacer(),
+                action==null?const SizedBox.shrink():action!
               ],
             ),
       ),

@@ -13,7 +13,7 @@ class AppString {
   static const foodDelivery = 'Food delivery';
   static const pickUp = 'Pick-up';
   static const deliciousFoodForYou = 'Delicious\nfood for you';
-  static const pickUpAndSave = 'pick-Up and save';
+  static const pickUpAndSave = 'Pick-Up and save';
   static const delivery = 'delivery';
   static const email = 'Email';
   static const password = 'Password';
@@ -66,7 +66,7 @@ class AppString {
   static const noFavouriteDesc = 'You will see all your favourites here, tomake ordering\neven faster. Just look for the';
   static const favouriteButtonText ='lets find some favorites';
   static const addToString = 'Add to card';
-  static const specialInstruction = '+ add special instruction';
+  static const specialInstruction = '+ Add special instruction';
   static const viewYourCart = 'View your cart';
   static const cart = 'Cart';
   static const subtotal = 'Subtotal';
@@ -80,7 +80,7 @@ class AppString {
   static const voucherCode = 'Voucher code';
   static const apply = 'Apply';
   static const checkOut ='Checkout';
-  static const deliveryAddress = 'Delivery Address';
+  static const deliveryAddress = 'Delivery address';
   static const paymentMethod = 'Payment Method';
   static const cashOnDelivery ='Cash On Delivery';
   static const orderSummery = 'Order Summery';
@@ -96,7 +96,7 @@ class AppString {
   static const wellKeepYourPaymentDetailsSafe = 'we\'ll Keep Your Payment Details Safe';
   static const cash = 'Cash';
   static const yourOrder='Your order';
-  static const help = 'help';
+  static const help = 'Help';
   static const estimatedDeliveryTime ='Estimated Delivery Time';
   static const preparingYourFood='Preparing your food.  Your riderwill pick it\n up once it\'s ready';
   static const orderDetail = 'Order Details';

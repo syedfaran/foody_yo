@@ -28,6 +28,7 @@ class CategorySection extends StatefulWidget {
 class _CategorySectionState extends State<CategorySection> {
   final _sizeBox = const SizedBox(height: 25);
   ValueNotifier<int> valueNotifier = ValueNotifier(0);
+
   @override
   void initState() {
     valueNotifier.addListener(() {
@@ -35,6 +36,7 @@ class _CategorySectionState extends State<CategorySection> {
     });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -87,10 +89,9 @@ class _CategorySectionState extends State<CategorySection> {
     return Row(
       children: [
         if (widget.category.isHotSale) _buildSectionHoteSaleIcon(),
-        Text(
+        SimpleText(
           widget.category.title,
-          style: _textTheme(context).headline6,
-          strutStyle: Helper.buildStrutStyle(_textTheme(context).headline6),
+          enumText: EnumText.extraBold,
         )
       ],
     );
@@ -143,21 +144,24 @@ class _CategorySectionState extends State<CategorySection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(food.name, style: _textTheme(context).subtitle1),
+        SimpleText(
+          food.name,
+          fontSize: 18,
+          enumText: EnumText.bold,
+        ),
         const SizedBox(height: 16),
         Row(
           children: [
-            Text(
+            SimpleText(
               "From" + food.price + " ",
-              style: _textTheme(context).caption,
-              strutStyle: Helper.buildStrutStyle(_textTheme(context).caption),
+              fontSize: 14,
+              color: Colors.grey[700]!,
             ),
             Text(
-              food.comparePrice,
+              ' ' + food.comparePrice,
               strutStyle: Helper.buildStrutStyle(_textTheme(context).caption),
-              style: _textTheme(context)
-                  .caption
-                  ?.copyWith(decoration: TextDecoration.lineThrough),
+              style: _textTheme(context).caption?.copyWith(
+                  decoration: TextDecoration.lineThrough, fontSize: 14),
             ),
             const SizedBox(width: 8.0),
             if (food.isHotSale) _buildFoodHotSaleIcon(),
@@ -197,16 +201,18 @@ class _CategorySectionState extends State<CategorySection> {
         builder: (context) => BackdropFilter(
               filter: ImageFilter.blur(sigmaY: 5, sigmaX: 5),
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: AppColor.whiteColor,
-                  borderRadius: BorderRadius.circular(20.0),
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(20.0),
+                      topLeft: Radius.circular(20.0)),
                 ),
                 child: Column(
                   children: [
                     ClipPath(
                       clipper: CustomShape(),
                       child: Container(
-                        height: 200,
+                        height: 230,
                         width: double.infinity,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
@@ -248,7 +254,6 @@ class _CategorySectionState extends State<CategorySection> {
                           ValueListenableBuilder<int>(
                               valueListenable: valueNotifier,
                               builder: (context, value, child) {
-
                                 return Row(
                                   children: [
                                     CircularButton(
@@ -256,22 +261,21 @@ class _CategorySectionState extends State<CategorySection> {
                                           AppColor.mainGreen.withOpacity(0.3),
                                       onPressed: () {
                                         valueNotifier.value--;
-
                                       },
                                       iconData: Icons.remove,
                                     ),
-                                    SimpleText(valueNotifier.value.toString()),
+                                    SimpleText(valueNotifier.value.toString(),
+                                        enumText: EnumText.bold, fontSize: 24),
                                     CircularButton(
                                       color: AppColor.mainGreen,
                                       onPressed: () {
-                                    valueNotifier.value++;
-
-
+                                        valueNotifier.value++;
                                       },
                                       iconData: Icons.add,
                                     ),
                                     const Spacer(),
                                     BigButton(
+                                      fontWeight: FontWeight.w100,
                                       text: AppString.addToString,
                                       onPressed: () {
                                         Navigator.pop(context);
@@ -311,13 +315,15 @@ class CircularButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      height: 40,
-      width: 40,
+      height: 38,
+      width: 38,
       margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(color: color, shape: BoxShape.circle),
       child: IconButton(
+        padding:  EdgeInsets.zero,
         icon: Icon(
           iconData,
+          size: 28,
           color: AppColor.whiteColor,
         ),
         onPressed: onPressed,

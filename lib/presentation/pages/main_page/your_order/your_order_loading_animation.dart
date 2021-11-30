@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foody_yo/presentation/theme/app_color.dart';
 
 class OrderProgressLoadingAnimation extends StatefulWidget {
   final double progress;
@@ -44,7 +45,7 @@ class _OrderProgressLoadingAnimationState extends State<OrderProgressLoadingAnim
           shaderCallback: (rect) => LinearGradient(
             // tileMode: TileMode.mirror,
               stops: [animation.value * widget.progress, widget.progress],
-              colors: const [Colors.teal, Colors.white]).createShader(rect),
+              colors: const [AppColor.mainGreen, Colors.white]).createShader(rect),
           child: child,
         );
       },

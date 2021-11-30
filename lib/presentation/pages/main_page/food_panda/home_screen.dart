@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foody_yo/constants/route_string.dart';
 import 'package:foody_yo/presentation/pages/main_page/food_panda/panda_widget/category_section.dart';
 import 'package:foody_yo/presentation/pages/main_page/food_panda/panda_widget/fappbar.dart';
 import 'package:foody_yo/presentation/widgets/add_to_card_bar.dart';
@@ -9,13 +10,16 @@ import 'package:scroll_to_index/scroll_to_index.dart';
 import 'colors.dart';
 import 'example_data.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}):super(key: key);
+class PandaScreen extends StatefulWidget {
+  final bool guest;
+  const PandaScreen(this.guest, {Key? key}) : super(key: key);
+
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _PandaScreenState createState() => _PandaScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+class _PandaScreenState extends State<PandaScreen>
+    with SingleTickerProviderStateMixin {
   bool isCollapsed = false;
   late AutoScrollController scrollController;
   late TabController tabController;
@@ -43,7 +47,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     tabController.dispose();
     super.dispose();
   }
-  int cartItem =0;
+
+  int cartItem = 0;
+
   List<int> getVisibleItemsIndex() {
     Rect? rect = RectGetter.getRectFromKey(listViewKey);
     List<int> items = [];
@@ -68,13 +74,16 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     int lastTabIndex = tabController.length - 1;
     List<int> visibleItems = getVisibleItemsIndex();
 
-    bool reachLastTabIndex = visibleItems.isNotEmpty && visibleItems.length <= 2 && visibleItems.last == lastTabIndex;
+    bool reachLastTabIndex = visibleItems.isNotEmpty &&
+        visibleItems.length <= 2 &&
+        visibleItems.last == lastTabIndex;
     if (reachLastTabIndex) {
       tabController.animateTo(lastTabIndex);
     } else {
       int sumIndex = visibleItems.reduce((value, element) => value + element);
       int middleIndex = sumIndex ~/ visibleItems.length;
-      if (tabController.index != middleIndex) tabController.animateTo(middleIndex);
+      if (tabController.index != middleIndex)
+        tabController.animateTo(middleIndex);
     }
     return false;
   }
@@ -100,11 +109,21 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               onNotification: onScrollNotification,
             ),
           ),
-          cartItem>=1?const Align(
-            heightFactor: 15,
-            alignment: Alignment.bottomCenter,
-            child: ViewYourCartButton(),
-          ):const SizedBox.shrink(),
+          cartItem >= 1
+              ? Align(
+                  heightFactor: 15,
+                  alignment: Alignment.bottomCenter,
+                  child: ViewYourCartButton(
+                    onTap: () {
+                      Navigator.pushNamed(
+                          context,
+                          !widget.guest
+                              ? RouteString.loginOrSignUp
+                              : RouteString.cart);
+                    },
+                  ),
+                )
+              : const SizedBox.shrink(),
         ],
       ),
     );
@@ -116,7 +135,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       slivers: [
         buildAppBar(),
         buildBody(),
-
       ],
     );
   }
@@ -139,7 +157,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     return SliverList(
       delegate: SliverChildListDelegate(List.generate(
         data.categories.length,
-            (index) {
+        (index) {
           itemKeys[index] = RectGetter.createGlobalKey();
           return buildCategoryItem(index);
         },
@@ -155,11 +173,14 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         key: ValueKey(index),
         index: index,
         controller: scrollController,
-        child: CategorySection(category: category,callback: (value){
-          setState(() {
-            cartItem=value;
-          });
-        },),
+        child: CategorySection(
+          category: category,
+          callback: (value) {
+            setState(() {
+              cartItem = value;
+            });
+          },
+        ),
       ),
     );
   }

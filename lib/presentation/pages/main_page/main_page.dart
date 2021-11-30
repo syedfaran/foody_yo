@@ -13,8 +13,10 @@ import 'food_panda/home_screen.dart';
 class MainPage extends StatelessWidget {
   final Animation animation;
   final AnimationController animationController;
+  final bool guest;
 
-  const MainPage(this.animation, this.animationController, {Key? key})
+  const MainPage(this.animation, this.animationController, this.guest,
+      {Key? key})
       : super(key: key);
 
   @override
@@ -33,49 +35,88 @@ class MainPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColor.whiteColor,
         appBar: MainAppBar(animationController: animationController),
-        body: CustomScrollView(
-          slivers: [
-            SliverList(
-                delegate: SliverChildListDelegate([
-               true?Padding(
-                 padding: const EdgeInsets.only(left: 40),
-                 child: Column(
-                   crossAxisAlignment: CrossAxisAlignment.start,
-                   children: const [
-
-                     SimpleText(
-                       AppString.pickUpAndSave,
-                       enumText: EnumText.extraBold,
-                       fontSize: 24,
-                     ),
-                     SimpleText(
-                       AppString.selfCollect,
-                       enumText: EnumText.light,
-                     ),
-                     SimpleText(
-                       AppString.discount,
-
-                       enumText: EnumText.light,
-
-                     ),
-                   ],
-                 ),
-               ):const SizedBox.shrink(),
-            ])),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) => MainCard(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomeScreen()));
-                  },
+        body: Stack(
+          children: [
+            CustomScrollView(
+              slivers: [
+                SliverList(
+                    delegate: SliverChildListDelegate([
+                  true
+                      ? Padding(
+                          padding: const EdgeInsets.only(left: 40),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              SimpleText(
+                                AppString.pickUpAndSave,
+                                enumText: EnumText.extraBold,
+                                fontSize: 24,
+                              ),
+                              SimpleText(
+                                AppString.selfCollect,
+                                enumText: EnumText.light,
+                                fontSize: 14.5,
+                              ),
+                              SimpleText(
+                                AppString.discount,
+                                enumText: EnumText.light,
+                                fontSize: 14.5,
+                              ),
+                            ],
+                          ),
+                        )
+                      : const SizedBox.shrink(),
+                ])),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                      (context, index) => MainCard(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => PandaScreen(guest)));
+                            },
+                          ),
+                      childCount: 3),
                 ),
-              ),
+              ],
+            ),
+            const Align(
+              alignment: Alignment.centerRight,
+              heightFactor: 1,
+              widthFactor: 5.3,
+              child: FilterButton(),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class FilterButton extends StatelessWidget {
+  const FilterButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        height: 80,
+        width: 80,
+        padding: const EdgeInsets.only(top: 10,left: 5),
+        alignment: Alignment.center,
+        child: const Image(
+          image: ImageString.filter,
+          width: 60,height: 60,
+        ),
+        decoration: const BoxDecoration(color: AppColor.whiteColor,shape: BoxShape.circle, boxShadow: [
+          BoxShadow(
+            color: Colors.black54,
+            blurRadius: 5.0,
+            offset: Offset(0, 3.0),
+          )
+        ]),
       ),
     );
   }

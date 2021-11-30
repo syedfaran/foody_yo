@@ -7,11 +7,12 @@ class BigButton extends StatelessWidget {
   final double height;
   final double width;
   final double fontSize;
-
+  final FontWeight fontWeight;
   const BigButton(
       {Key? key,
       required this.text,
       required this.onPressed,
+        this.fontWeight = FontWeight.w900,
       this.width = 380,
       this.height = 75,
       this.fontSize = 24})
@@ -28,11 +29,11 @@ class BigButton extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyText1!.copyWith(
                 color: AppColor.whiteTextColor,
                 fontSize: fontSize,
-                fontWeight: FontWeight.w900)),
+                fontWeight: fontWeight)),
         style: ElevatedButton.styleFrom(
             elevation: 0.0,
             shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
             // padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
             primary: AppColor.mainGreen),
       ),

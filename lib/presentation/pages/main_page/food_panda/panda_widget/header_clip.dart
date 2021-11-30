@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:foody_yo/constants/app_string.dart';
+import 'package:foody_yo/presentation/theme/app_color.dart';
+import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
+import '../../../enums.dart';
 import '../colors.dart';
 import '../example_data.dart';
 import 'custom_shape.dart';
@@ -23,7 +27,7 @@ Widget build(BuildContext _) {
       children: [
         Container(
           height: 275,
-          color: scheme.primary,
+          color: AppColor.mainGreen,
           child: FadeInImage.assetNetwork(
             placeholder: 'assets/images/transparent.png',
             image: data.backgroundUrl,
@@ -54,16 +58,15 @@ Widget build(BuildContext _) {
                 child: Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 16.0,
-                    vertical: 4.0,
+                    vertical: 6.0,
                   ),
                   decoration: BoxDecoration(
                     border: Border.all(color: scheme.surface),
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  child: Text(
-                    "ដឹកជញ្ឌូន: " + data.deliverTime,
-                    style: textTheme.caption?.copyWith(color: scheme.surface),
-                    strutStyle: StrutStyle(forceStrutHeight: true),
+                  child: const SimpleText(
+                    'Delivery' + ' 20 min',fontSize: 14,color: AppColor.whiteTextColor,
+                    enumText: EnumText.light,
                   ),
                 ),
               ),

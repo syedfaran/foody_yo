@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
+import 'package:foody_yo/presentation/pages/enums.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/profile_page/credit_card.dart';
+import 'package:foody_yo/presentation/pages/main_page/food_panda/panda_widget/category_section.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:foody_yo/presentation/widgets/big_button.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
@@ -13,20 +16,31 @@ class PaymentMethodLayout extends StatelessWidget {
       children: [
         Expanded(
             child: Container(
-          color: Colors.grey[350],
-          padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 20),
-          child: CustomScrollView(
-            slivers: [
-              SliverList(
-                  delegate: SliverChildListDelegate([
-                const Align(
-                    alignment: Alignment.centerLeft,
-                    child: SimpleText(AppString.myCards)),
-                const SizedBox(height: 10),
-              ])),
-              // SliverList(
-              //     delegate: SliverChildBuilderDelegate(
-              //         (context, index) => Text('dada'))),
+          color: Colors.grey[300],
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
+          child: Column(
+            children: [
+              const Align(
+                  alignment: Alignment.centerLeft,
+                  child: SimpleText(AppString.myCards,enumText: EnumText.extraBold,vertical: 10,)),
+
+              Expanded(
+                child: CustomScrollView(
+                  scrollDirection: Axis.horizontal,
+                  slivers: [
+                    SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                              (context, index) => CreditCard(),childCount: 1
+                      ),
+                    ),
+                    SliverList(
+                        delegate: SliverChildListDelegate([
+                          CircularButton(onPressed: (){}, iconData: Icons.add)
+                        ])),
+
+                  ],
+                ),
+              ),
             ],
           ),
         )),
