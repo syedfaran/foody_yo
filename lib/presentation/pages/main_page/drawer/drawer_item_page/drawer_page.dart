@@ -79,7 +79,7 @@ class DrawerScreen extends StatelessWidget {
           guest
               ? DrawerItem(
                   text: AppString.order,
-                  image: ImageString.heart,
+                  image: ImageString.order,
                   onTap: () =>
                       Navigator.pushNamed(context, RouteString.orderHistory),
                 )
@@ -91,12 +91,14 @@ class DrawerScreen extends StatelessWidget {
           },)
               : const SizedBox.shrink(),
           guest
-              ? const DrawerItem(
-                  text: AppString.address, image: ImageString.address)
+              ?  DrawerItem(
+                  text: AppString.address, image: ImageString.address,onTap: (){
+                    Navigator.pushNamed(context, RouteString.address);
+          },)
               : const SizedBox.shrink(),
           guest
-              ? const DrawerItem(
-                  text: AppString.reward, image: ImageString.reward)
+              ?  DrawerItem(
+                  text: AppString.challengeAndReward, image: ImageString.reward,onTap: ()=>Navigator.pushNamed(context, RouteString.challengeAndReward),)
               : const SizedBox.shrink(),
           guest
               ? DrawerItem(
@@ -115,8 +117,10 @@ class DrawerScreen extends StatelessWidget {
                 )
               : const SizedBox.shrink(),
           const Spacer(),
-          const DrawerItem(text: AppString.settings),
-          const DrawerItem(text: AppString.termsAndCondition),
+           DrawerItem(text: AppString.settings,onTap: () =>
+               Navigator.pushNamed(context, RouteString.settings),),
+           DrawerItem(text: AppString.termsAndCondition,onTap: () =>
+              Navigator.pushNamed(context, RouteString.termAndCondition),),
           DrawerItem(
             text: !guest ? AppString.login : AppString.logOut,
             onTap: () => !guest

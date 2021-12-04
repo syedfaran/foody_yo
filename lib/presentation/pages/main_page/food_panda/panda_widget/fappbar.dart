@@ -93,7 +93,7 @@ class FAppBar extends SliverAppBar {
           unselectedLabelColor: scheme.onSurface,
           indicatorWeight: 3.0,
           tabs: data.categories.map((e) {
-            return Tab(child: SimpleText(e.title,fontSize: 20,enumText: EnumText.regular));
+            return Tab(child: SimpleText(e.title,fontSize: 20,enumText: EnumText.regular),);
           }).toList(),
           onTap: onTap,
         ),

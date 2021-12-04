@@ -122,7 +122,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                           image: ImageString.orderCheck,
                           text: AppString.orderSummery),
                       CartPaymentInfo(
-                        option: 'Zinger Burger x 1',
+                        option: '1 x Zinger Burger ',
                         value: 'Rs 250.00',
                         enumText: EnumText.light,
                         fontSize: 14,

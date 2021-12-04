@@ -12,6 +12,7 @@ class AppColor{
   static const Color lightGreen = Color(0xff72885c);
   static const Color ss = Color.fromARGB(89, 26, 92, 13);
   static const Color gg = Color.fromARGB(85, 13, 94, 2);
+  static  Color grey = Colors.grey[350]!;
 
 }
 

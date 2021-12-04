@@ -84,7 +84,7 @@ class MainPage extends StatelessWidget {
             const Align(
               alignment: Alignment.centerRight,
               heightFactor: 1,
-              widthFactor: 5.3,
+              widthFactor: 5.9,
               child: FilterButton(),
             ),
           ],
@@ -102,13 +102,13 @@ class FilterButton extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        height: 80,
-        width: 80,
+        height: 70,
+        width: 70,
         padding: const EdgeInsets.only(top: 10,left: 5),
         alignment: Alignment.center,
         child: const Image(
           image: ImageString.filter,
-          width: 60,height: 60,
+          width: 50,height: 50,
         ),
         decoration: const BoxDecoration(color: AppColor.whiteColor,shape: BoxShape.circle, boxShadow: [
           BoxShadow(

@@ -35,7 +35,7 @@ class AppString {
   static const order = 'Orders';
   static const profile = 'Profile';
   static const address = 'Addresses';
-  static const reward = 'Challenge & Reward';
+  static const challengeAndReward = 'Challenge & Reward';
   static const vouchers = 'Vouchers';
   static const helpCenter = 'help Center';
   static const logOut = 'Log out';
@@ -115,6 +115,23 @@ class AppString {
   static const addNow = 'Add Now';
   static const discount = 'discount';
   static const selfCollect = 'Self-collect for guaranteed';
-
+  static const applyChanges = 'Apply Changes';
+  static const editYourAddress = 'edit your Address';
+  static const addALabel = 'Add a label';
+  static const changeLanguage = 'Change Language';
+  static const receivePushNotifications = 'Receive push Notifications';
+  static const receiveOffersByEmail = 'Receive offers  by email';
+  static const challenges = 'Challenges';
+  static const badge = 'Badges';
+  static const rewardsShop = 'Rewards Shop';
+  static const howsItWorks = 'How it works';
+  static const step1 = 'Place orders to play Challenges';
+  static const step2 = 'Challenges unlock badges and points';
+  static const step3 = 'Use points for deals in the reward shop';
+  static const backToTop = 'Back To Top';
+  static const taskDesc1 = 'Breakfast like a champ with 2x early order';
+  static const getPoint = '100 Points';
+  static const dayLeft = '19 days left';
+  static const badgeDesc = 'Complete challenges\n to collect more\n badges!';
 
 }

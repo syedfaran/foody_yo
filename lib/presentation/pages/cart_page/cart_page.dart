@@ -3,7 +3,6 @@ import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/constants/image_string.dart';
 import 'package:foody_yo/constants/route_string.dart';
 import 'package:foody_yo/presentation/pages/enums.dart';
-import 'package:foody_yo/presentation/pages/main_page/food_panda/panda_widget/category_section.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:foody_yo/presentation/widgets/big_button.dart';
 import 'package:foody_yo/presentation/widgets/cart_payment_info.dart';
@@ -47,10 +46,9 @@ class CardPage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: const [
-                        Icon(Icons.remove,size: 15),
+                        Icon(Icons.remove, size: 15),
                         SimpleText('1'),
-
-                        Icon(Icons.add,size: 15),
+                        Icon(Icons.add, size: 15),
                       ],
                     ),
                   ),
@@ -72,7 +70,7 @@ class CardPage extends StatelessWidget {
                   itemCount: 10,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) =>
-                  const  Align(child:  CartQuickItemCard())),
+                      const Align(child: CartQuickItemCard())),
             ),
             const CartPaymentInfo(
               option: AppString.subtotal,
@@ -92,7 +90,8 @@ class CardPage extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            const CartPaymentInfoVouch(value: 'Rs. 250.00',option: AppString.subtotal),
+            const CartPaymentInfoVouch(
+                value: 'Rs. 300.00', option: AppString.total, vertical: 15),
             BigButton(
                 text: AppString.reviewPaymentAndAddress,
                 onPressed: () {
@@ -108,25 +107,33 @@ class CardPage extends StatelessWidget {
   }
 }
 
-
-
 class _EstimatedDelivery extends StatelessWidget {
   const _EstimatedDelivery({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Container(
-          margin: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-          height: 80,
-          width: 80,
-          color: AppColor.mainGreen,
+    return Stack(
+      //mainAxisAlignment: MainAxisAlignment.start,
+      children: const [
+        Align(
+          alignment: Alignment.center,
+          widthFactor: 1,
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            child: PhysicalModel(
+                elevation: 8.0,
+                color: Colors.black,
+                child: Image(
+                  image: ImageString.cartImage,
+                  height: 80,
+                  width: 80,
+                  fit: BoxFit.fill,
+                )),
+          ),
         ),
-        const Spacer(),
-        const SimpleText('${AppString.estimatedDelivery}\n 20 mins'),
-        const Spacer(flex: 2,),
+        Align(
+            alignment: Alignment.center,
+            child: SimpleText('${AppString.estimatedDelivery}\n\n 20 mins')),
       ],
     );
   }

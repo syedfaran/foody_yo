@@ -11,7 +11,7 @@ class CartQuickItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 140,
+      height: 130,
       width: 240,
       margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
@@ -28,7 +28,7 @@ class CartQuickItemCard extends StatelessWidget {
       child: Row(
         children: [
           Container(
-              height: 110,
+              height: 100,
               width: 90,
               margin: const EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(

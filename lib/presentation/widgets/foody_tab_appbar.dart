@@ -8,8 +8,11 @@ import 'package:foody_yo/presentation/widgets/simple_text.dart';
 class FoodyTabAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget> tabBar;
   final String? title;
-
-  const FoodyTabAppBar({Key? key, required this.tabBar, this.title})
+  final double fontSize;
+  final Widget? leading;
+  final double appbarSize;
+  final bool isScrollable;
+  const FoodyTabAppBar({Key? key, required this.tabBar, this.title,this.fontSize=34,this.leading,this.appbarSize=220,this.isScrollable=false})
       : super(key: key);
 
   @override
@@ -18,6 +21,7 @@ class FoodyTabAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 10,
       automaticallyImplyLeading: false,
       bottom: TabBar(
+        isScrollable: isScrollable,
         tabs: tabBar,
         indicatorSize: TabBarIndicatorSize.label,
         indicatorWeight: 4,
@@ -35,8 +39,9 @@ class FoodyTabAppBar extends StatelessWidget implements PreferredSizeWidget {
                   title == null
                       ? const SizedBox.shrink()
                       : SimpleText(title!,
-                          fontSize: 34, enumText: EnumText.extraBold),
+                          fontSize: fontSize, enumText: EnumText.extraBold,color: AppColor.mainGreen,vertical: 40.0),
                   const Spacer(flex: 3),
+                  leading!=null?leading!:const SizedBox.shrink(),
                 ],
               )
             : Align(
@@ -49,7 +54,7 @@ class FoodyTabAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ),
               ),
-        alignment: Alignment.center,
+        alignment: Alignment.topCenter,
         decoration: BoxDecoration(
           color: AppColor.whiteColor,
           image: title == null
@@ -67,7 +72,8 @@ class FoodyTabAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => const Size(double.infinity, 220);
+  //220
+  Size get preferredSize =>  Size(double.infinity, appbarSize);
 }
 
 class ProfileTabAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -100,6 +106,7 @@ class ProfileTabAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       leading: const ArrowBack(),
       bottom: TabBar(
+        isScrollable: true,
         tabs: tabBar,
         indicatorSize: TabBarIndicatorSize.label,
         indicatorWeight: 4,

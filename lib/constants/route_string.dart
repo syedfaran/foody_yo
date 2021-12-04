@@ -17,4 +17,10 @@ class RouteString{
   static const String paymentMethod ='/paymentMethod';
   static const String yourOrder ='/yourOrder';
   static const String profile ='/profile';
+  static const String address ='/address';
+  static const String challengeAndReward ='/challengeAndReward';
+  static const String termAndCondition ='/termAndCondition';
+  static const String addressEdit ='/addressEdit';
+  static const String settings ='/settings';
+
 }

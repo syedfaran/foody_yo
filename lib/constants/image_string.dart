@@ -45,6 +45,11 @@ class ImageString{
   static const ImageProvider card = AssetImage('assets/images/card.png');
 
   static const ImageProvider cvc = AssetImage('assets/images/cvc.png');
+  static const ImageProvider order = AssetImage('assets/images/order.png');
+  static const ImageProvider starOutline = AssetImage('assets/images/star_outline.png');
+  static const ImageProvider clock = AssetImage('assets/images/clock.png');
+  static const ImageProvider cartImage = AssetImage('assets/images/cart_image.jpg');
+  static const ImageProvider vg = AssetImage('assets/images/vg.png');
   // static const ImageProvider helpCenter = AssetImage('assets/images/heart.png');
   // static const ImageProvider order = AssetImage('assets/images/heart.png');
 }

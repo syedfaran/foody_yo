@@ -3,21 +3,24 @@ import 'package:foody_yo/presentation/pages/cart_page/cart_page.dart';
 import 'package:foody_yo/presentation/pages/location_walk_through/location_walk_through.dart';
 import 'package:foody_yo/presentation/pages/login_signup/login_signup.dart';
 import 'package:foody_yo/presentation/pages/main_page/apply_a_voucher_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/address_page/address_edit_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/challenge_reward_page/challenge_reward_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/favourite_page/favourite_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/help_center_page/cancel_order_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/help_center_page/help_center_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/order_page/order_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/profile_page/profile_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/setting_page/setting_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/term_and_cond_page/terms_cond_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/voucher_page/voucher_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/check_out_page.dart';
-
 import 'package:foody_yo/presentation/pages/main_page/main_layout.dart';
 import 'package:foody_yo/presentation/pages/main_page/payment_method_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/your_order/your_order_page.dart';
 import 'package:foody_yo/presentation/pages/map_page/map_page.dart';
 import 'package:foody_yo/presentation/pages/welcome/welcome_page.dart';
-
 import 'constants/route_string.dart';
+import 'presentation/pages/main_page/drawer/drawer_item_page/address_page/address_page.dart';
 import 'presentation/pages/splash/splash_screen.dart';
 
 class RouteGenerator {
@@ -27,7 +30,7 @@ class RouteGenerator {
 
     switch (settings.name) {
       case RouteString.initial:
-      return MaterialPageRoute(builder: (context)=>const SplashScreen());
+      return MaterialPageRoute(builder: (context)=>const ChallengeAndRewardPage());
        return MaterialPageRoute(builder: (context)=>const ProfilePage());
         return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
       case RouteString.walkThrough:
@@ -57,8 +60,18 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context)=>const OrderPage());
       case RouteString.voucher:
         return MaterialPageRoute(builder: (context)=>const VoucherPage());
+      case RouteString.challengeAndReward:
+        return MaterialPageRoute(builder: (context)=>const ChallengeAndRewardPage());
       case RouteString.favourite:
         return MaterialPageRoute(builder: (context)=>const FavouritePage());
+      case RouteString.address:
+        return MaterialPageRoute(builder: (context)=>const AddressPage());
+      case RouteString.addressEdit:
+        return MaterialPageRoute(builder: (context)=>const AddressEditPage());
+      case RouteString.settings:
+        return MaterialPageRoute(builder: (context)=>const SettingsPage());
+      case RouteString.termAndCondition:
+        return MaterialPageRoute(builder: (context)=>const TermsAndCondition());
 
       case RouteString.profile:
         return MaterialPageRoute(builder: (context)=>const ProfilePage());
