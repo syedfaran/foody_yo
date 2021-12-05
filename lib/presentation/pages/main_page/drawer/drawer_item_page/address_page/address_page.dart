@@ -16,7 +16,7 @@ class AddressPage extends StatelessWidget {
        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
            AddressTile(onTap: (){
-             Navigator.popAndPushNamed(context, RouteString.addressEdit);
+             Navigator.pushNamed(context, RouteString.addressEdit);
            },),
           const Divider(
             thickness: 2,
@@ -35,31 +35,34 @@ class AddressTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: onTap,
-      leading: const Icon(Icons.location_on),
-      title: Row(
-        children: const [
-          Expanded(
-            child: Text(
-              'Home',
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
+    return Padding(
+      padding: const EdgeInsets.only(top: 35),
+      child: ListTile(
+        onTap: onTap,
+        leading: const Icon(Icons.location_on),
+        title: Row(
+          children: const [
+            Expanded(
+              child: Text(
+                'Home',
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                ),
+                overflow: TextOverflow.ellipsis,
+                softWrap: true,
               ),
-              overflow: TextOverflow.ellipsis,
-              softWrap: true,
             ),
-          ),
-          Icon(Icons.edit_outlined),
-          Icon(Icons.delete_outline),
-        ],
-      ),
-      subtitle: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          SimpleText('Karachi'),
-          SimpleText('Note To Rider: fayyaz Center')
-        ],
+            Icon(Icons.edit_outlined),
+            Icon(Icons.delete_outline),
+          ],
+        ),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            SimpleText('Karachi'),
+            SimpleText('Note To Rider: fayyaz Center')
+          ],
+        ),
       ),
     );
   }

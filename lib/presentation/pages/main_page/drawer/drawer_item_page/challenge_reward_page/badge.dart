@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/constants/image_string.dart';
+import 'package:foody_yo/presentation/pages/enums.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
@@ -10,26 +11,24 @@ class Badge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  CustomScrollView(
+    return CustomScrollView(
       slivers: [
         SliverList(
             delegate: SliverChildListDelegate([
-              const SimpleText(AppString.badgeDesc)
-            ])),
+          const SimpleText(
+            AppString.badgeDesc,
+            enumText: EnumText.extraBold,
+            vertical: 15,
+          )
+        ])),
         SliverGrid(
-          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 200.0,
-            mainAxisSpacing: 10.0,
-            crossAxisSpacing: 10.0,
-            childAspectRatio: 4.0,
-          ),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2),
           delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-              return BadgeAvatar(
-
-              );
+            (BuildContext context, int index) {
+              return const Align(child: BadgeAvatar());
             },
-            childCount: 20,
+            childCount: 6,
           ),
         )
       ],
@@ -42,10 +41,16 @@ class BadgeAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CircleAvatar(
-      backgroundColor: AppColor.whiteColor,
-      radius: 90,
-      backgroundImage: ImageString.vg,
+    return PhysicalModel(
+      color: AppColor.grey,
+      shape: BoxShape.circle,
+      shadowColor: AppColor.blackColor,
+      elevation: 8.0,
+      child: const CircleAvatar(
+        backgroundColor: AppColor.whiteColor,
+        radius: 85,
+        backgroundImage: ImageString.vg,
+      ),
     );
   }
 }

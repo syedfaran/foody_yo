@@ -10,7 +10,7 @@ import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:foody_yo/presentation/widgets/foody_tab_appbar.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
-class ChallengeAndRewardPage extends StatelessWidget{
+class ChallengeAndRewardPage extends StatelessWidget {
   const ChallengeAndRewardPage({Key? key}) : super(key: key);
 
   @override
@@ -30,9 +30,12 @@ class ChallengeAndRewardPage extends StatelessWidget{
                     Navigator.pushNamed(context, RouteString.helpCenter),
                 child: const SimpleText(AppString.help)),
             tabBar: const [
-              SimpleText(AppString.challenges, enumText: EnumText.extraBold,vertical: 5),
-              SimpleText(AppString.badge, enumText: EnumText.extraBold,vertical: 5),
-              SimpleText(AppString.rewardsShop, enumText: EnumText.extraBold,vertical: 5),
+              SimpleText(AppString.challenges,
+                  enumText: EnumText.extraBold, vertical: 5),
+              SimpleText(AppString.badge,
+                  enumText: EnumText.extraBold, vertical: 5),
+              SimpleText(AppString.rewardsShop,
+                  enumText: EnumText.extraBold, vertical: 5),
             ],
           ),
           body: const TabBarView(
@@ -53,32 +56,102 @@ class ChallengeAndRewardPage extends StatelessWidget{
 class Points extends StatelessWidget {
   const Points({Key? key}) : super(key: key);
 
+  Future<void> _showModal(BuildContext context) async {
+    return showModalBottomSheet(
+        backgroundColor: AppColor.whiteColor,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        context: context,
+        builder: (context) => Padding(
+              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      const SimpleText(
+                        'Point earned',
+                        fontSize: 28,
+                        enumText: EnumText.extraBold,
+                      ),
+                      const Spacer(),
+                      IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(
+                          Icons.close_rounded,
+                          size: 30,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: const [
+                      SimpleText(
+                        'Your past activities',
+                        fontSize: 14,
+                        enumText: EnumText.extraBold,
+                      ),
+                      Spacer(),
+                      Image(
+                        image: ImageString.starOutline,
+                        height: 30,
+                        width: 30,
+                      ),
+                      SimpleText(
+                        '0',
+                        fontSize: 14,
+                        enumText: EnumText.extraBold,
+                        horizontal: 10,
+                        vertical: 10,
+                      ),
+                    ],
+                  ),
+                  const Divider(thickness: 2.5,color: Colors.black54,),
+                  const    Spacer(
+                    flex: 3,
+                  ),
+                  const   SimpleText(
+                    'Let\'s play!',
+                    fontSize: 28,
+                    enumText: EnumText.extraBold,
+                  ),
+                  const  Spacer(),
+                ],
+              ),
+            ));
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      width: 180,
-      padding: const EdgeInsets.all(5.0),
-      decoration: BoxDecoration(boxShadow: const [
-        BoxShadow(
-          color: Colors.black26,
-          blurRadius: 5.0,
-          offset: Offset(0, 3.0),
-        )
-      ], borderRadius: BorderRadius.circular(20), color: AppColor.whiteColor),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          CircleAvatar(
-            child: const Image(
-              image: ImageString.starOutline,
-              height: 30,
+    return GestureDetector(
+      onTap: () async {
+        _showModal(context);
+      },
+      child: Container(
+        height: 60,
+        width: 180,
+        padding: const EdgeInsets.all(5.0),
+        decoration: BoxDecoration(boxShadow: const [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 5.0,
+            offset: Offset(0, 3.0),
+          )
+        ], borderRadius: BorderRadius.circular(20), color: AppColor.whiteColor),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            CircleAvatar(
+              child: const Image(
+                image: ImageString.starOutline,
+                height: 30,
+              ),
+              backgroundColor: AppColor.grey,
             ),
-            backgroundColor: AppColor.grey,
-          ),
-          const SimpleText('0 Points'),
-          const Icon(Icons.keyboard_arrow_right)
-        ],
+            const SimpleText('0 Points'),
+            const Icon(Icons.keyboard_arrow_right)
+          ],
+        ),
       ),
     );
   }
@@ -158,12 +231,17 @@ class TaskContainer extends StatelessWidget {
             enumText: EnumText.bold,
           ),
           Row(
-            children:
-                _taskCount.map((e) => Expanded(child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 2,vertical: 16),
-                  height: 8,
-                  decoration: BoxDecoration(color: AppColor.lightGreen,borderRadius: BorderRadius.circular(10)),
-                ))).toList(),
+            children: _taskCount
+                .map((e) => Expanded(
+                        child: Container(
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 2, vertical: 16),
+                      height: 8,
+                      decoration: BoxDecoration(
+                          color: AppColor.lightGreen,
+                          borderRadius: BorderRadius.circular(10)),
+                    )))
+                .toList(),
           ),
           Row(
             children: [

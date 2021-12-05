@@ -116,7 +116,7 @@ class AppString {
   static const discount = 'discount';
   static const selfCollect = 'Self-collect for guaranteed';
   static const applyChanges = 'Apply Changes';
-  static const editYourAddress = 'edit your Address';
+  static const editYourAddress = 'Edit your Address';
   static const addALabel = 'Add a label';
   static const changeLanguage = 'Change Language';
   static const receivePushNotifications = 'Receive push Notifications';
@@ -133,5 +133,14 @@ class AppString {
   static const getPoint = '100 Points';
   static const dayLeft = '19 days left';
   static const badgeDesc = 'Complete challenges\n to collect more\n badges!';
+  static const rewardShopDesc = 'Guaranteed rewards are waiting! Scratch to Reveal';
+  static const claimYourPrize = 'Claim your prize';
+  static const street = 'Street';
+  static const floor = 'Floor/Unit#';
+  static const note = '(Optional)Note to Rider';
+  static const home = 'Home';
+  static const work = 'Work';
+  static const partner = 'Partner';
+
 
 }

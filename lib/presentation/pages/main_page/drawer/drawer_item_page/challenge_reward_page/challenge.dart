@@ -36,7 +36,6 @@ class _ChallengeState extends State<Challenge> {
     return Column(
       children: [
         Container(
-
           width: double.infinity * 0.6,
           height: MediaQuery.of(context).size.height * 0.46,
           child: ValueListenableBuilder<int>(
@@ -70,7 +69,8 @@ class _ChallengeState extends State<Challenge> {
                                 horizontal: 10, vertical: 10),
                             height: 10,
                             width: 10,
-                            duration: const Duration(milliseconds: 800),
+                            duration: const Duration(milliseconds: 500),
+                            curve: Curves.easeOut,
                             decoration: BoxDecoration(
                               color: value == i
                                   ? AppColor.mainGreen

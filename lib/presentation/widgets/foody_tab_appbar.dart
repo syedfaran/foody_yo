@@ -39,7 +39,7 @@ class FoodyTabAppBar extends StatelessWidget implements PreferredSizeWidget {
                   title == null
                       ? const SizedBox.shrink()
                       : SimpleText(title!,
-                          fontSize: fontSize, enumText: EnumText.extraBold,color: AppColor.mainGreen,vertical: 40.0),
+                          fontSize: fontSize, enumText: EnumText.extraBold,color: AppColor.mainGreen,vertical: 15.0),
                   const Spacer(flex: 3),
                   leading!=null?leading!:const SizedBox.shrink(),
                 ],
