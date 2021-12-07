@@ -13,9 +13,9 @@ import 'food_panda/home_screen.dart';
 class MainPage extends StatelessWidget {
   final Animation animation;
   final AnimationController animationController;
-  final bool guest;
-
-  const MainPage(this.animation, this.animationController, this.guest,
+  final TempAuth auth;
+  final ValueNotifier<bool> valueNotifier;
+  const MainPage(this.animation, this.animationController, this.auth,this.valueNotifier,
       {Key? key})
       : super(key: key);
 
@@ -32,63 +32,130 @@ class MainPage extends StatelessWidget {
           child: child,
         );
       },
-      child: Scaffold(
-        backgroundColor: AppColor.whiteColor,
-        appBar: MainAppBar(animationController: animationController),
-        body: Stack(
-          children: [
-            CustomScrollView(
-              slivers: [
-                SliverList(
-                    delegate: SliverChildListDelegate([
-                  true
-                      ? Padding(
-                          padding: const EdgeInsets.only(left: 40),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              SimpleText(
-                                AppString.pickUpAndSave,
-                                enumText: EnumText.extraBold,
-                                fontSize: 24,
-                              ),
-                              SimpleText(
-                                AppString.selfCollect,
-                                enumText: EnumText.light,
-                                fontSize: 14.5,
-                              ),
-                              SimpleText(
-                                AppString.discount,
-                                enumText: EnumText.light,
-                                fontSize: 14.5,
-                              ),
-                            ],
-                          ),
-                        )
-                      : const SizedBox.shrink(),
-                ])),
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                      (context, index) => MainCard(
+      child: ValueListenableBuilder<bool>(
+        valueListenable: valueNotifier,
+        builder: (context,value,child)=>AbsorbPointer(
+          absorbing: value,
+          child: Scaffold(
+            backgroundColor: AppColor.whiteColor,
+            appBar: MainAppBar(animationController: animationController),
+            body: Stack(
+              children: [
+                CustomScrollView(
+                  slivers: [
+                    SliverList(
+                        delegate: SliverChildListDelegate([
+                          auth.enumCraving==EnumCraving.pickUp
+                              ? Padding(
+                            padding: const EdgeInsets.only(left: 40),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                SimpleText(
+                                  AppString.pickUpAndSave,
+                                  enumText: EnumText.extraBold,
+                                  fontSize: 24,
+                                ),
+                                SimpleText(
+                                  AppString.selfCollect,
+                                  enumText: EnumText.light,
+                                  fontSize: 14.5,
+                                ),
+                                SimpleText(
+                                  AppString.discount,
+                                  enumText: EnumText.light,
+                                  fontSize: 14.5,
+                                ),
+                              ],
+                            ),
+                          )
+                              : const SizedBox.shrink(),
+                        ])),
+                    SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                              (context, index) => MainCard(
                             onTap: () {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => PandaScreen(guest)));
+                                      builder: (context) => PandaScreen(auth.guest)));
                             },
                           ),
-                      childCount: 3),
+                          childCount: 3),
+                    ),
+                  ],
+                ),
+                const Align(
+                  alignment: Alignment.centerRight,
+                  heightFactor: 1,
+                  widthFactor: 5.9,
+                  child: FilterButton(),
                 ),
               ],
             ),
-            const Align(
-              alignment: Alignment.centerRight,
-              heightFactor: 1,
-              widthFactor: 5.9,
-              child: FilterButton(),
-            ),
-          ],
+          ),
         ),
+        // child: AbsorbPointer(
+        //   absorbing: absorb,
+        //   child: Scaffold(
+        //     backgroundColor: AppColor.whiteColor,
+        //     appBar: MainAppBar(animationController: animationController),
+        //     body: Stack(
+        //       children: [
+        //         CustomScrollView(
+        //           slivers: [
+        //             SliverList(
+        //                 delegate: SliverChildListDelegate([
+        //               true
+        //                   ? Padding(
+        //                       padding: const EdgeInsets.only(left: 40),
+        //                       child: Column(
+        //                         crossAxisAlignment: CrossAxisAlignment.start,
+        //                         children: const [
+        //                           SimpleText(
+        //                             AppString.pickUpAndSave,
+        //                             enumText: EnumText.extraBold,
+        //                             fontSize: 24,
+        //                           ),
+        //                           SimpleText(
+        //                             AppString.selfCollect,
+        //                             enumText: EnumText.light,
+        //                             fontSize: 14.5,
+        //                           ),
+        //                           SimpleText(
+        //                             AppString.discount,
+        //                             enumText: EnumText.light,
+        //                             fontSize: 14.5,
+        //                           ),
+        //                         ],
+        //                       ),
+        //                     )
+        //                   : const SizedBox.shrink(),
+        //             ])),
+        //             SliverList(
+        //               delegate: SliverChildBuilderDelegate(
+        //                   (context, index) => MainCard(
+        //                         onTap: () {
+        //                           Navigator.push(
+        //                               context,
+        //                               MaterialPageRoute(
+        //                                   builder: (context) => PandaScreen(guest)));
+        //                         },
+        //                       ),
+        //                   childCount: 3),
+        //             ),
+        //           ],
+        //         ),
+        //         const Align(
+        //           alignment: Alignment.centerRight,
+        //           heightFactor: 1,
+        //           widthFactor: 5.9,
+        //           child: FilterButton(),
+        //         ),
+        //       ],
+        //     ),
+        //   ),
+        // ),
       ),
     );
   }

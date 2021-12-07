@@ -39,7 +39,7 @@ class LoginLayout extends StatelessWidget {
         ),
         const Spacer(flex: 1),
         BigButton(text: AppString.login, onPressed: () {
-          Navigator.pushNamed(context, RouteString.main,arguments: true);
+          Navigator.pushNamed(context, RouteString.main,arguments: const TempAuth(true,EnumCraving.delivery));
         }),
         const Spacer(flex: 2),
       ],

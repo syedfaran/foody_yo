@@ -26,7 +26,7 @@ class _CreditCardState extends State<CreditCard> {
           ..rotateY(pi / 180 * horizontalDrag),
         alignment: Alignment.center,
         child: Container(
-          width: 300,
+          width: 310,
           height: 200,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),

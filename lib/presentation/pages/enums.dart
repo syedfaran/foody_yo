@@ -11,3 +11,11 @@ enum EnumCancelOrderOption {
 }
 
 enum EnumCraving { pickUp, delivery }
+
+
+
+class TempAuth{
+  final bool guest;
+  final EnumCraving enumCraving;
+  const TempAuth(this.guest,this.enumCraving);
+}

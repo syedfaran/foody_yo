@@ -17,6 +17,7 @@ class FavouritePage extends StatelessWidget {
       child: SafeArea(
         child: Scaffold(
           appBar:  FoodyTabAppBar(
+            appbarSize: 150,
             title: AppString.favourites,
             tabBar: [
               SimpleText(AppString.restaurant, fontSize: 26),

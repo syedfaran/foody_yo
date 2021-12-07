@@ -12,7 +12,15 @@ class FoodyTabAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? leading;
   final double appbarSize;
   final bool isScrollable;
-  const FoodyTabAppBar({Key? key, required this.tabBar, this.title,this.fontSize=34,this.leading,this.appbarSize=220,this.isScrollable=false})
+
+  const FoodyTabAppBar(
+      {Key? key,
+      required this.tabBar,
+      this.title,
+      this.fontSize = 34,
+      this.leading,
+      this.appbarSize = 220,
+      this.isScrollable = false})
       : super(key: key);
 
   @override
@@ -35,13 +43,19 @@ class FoodyTabAppBar extends StatelessWidget implements PreferredSizeWidget {
                   IconButton(
                       onPressed: () => Navigator.pop(context),
                       icon: const Icon(Icons.arrow_back)),
-                  const Spacer(),
+                  // const Spacer(),
                   title == null
                       ? const SizedBox.shrink()
-                      : SimpleText(title!,
-                          fontSize: fontSize, enumText: EnumText.extraBold,color: AppColor.mainGreen,vertical: 15.0),
-                  const Spacer(flex: 3),
-                  leading!=null?leading!:const SizedBox.shrink(),
+                      : SimpleText(
+                          title!,
+                          fontSize: fontSize,
+                          enumText: EnumText.extraBold,
+                          color: AppColor.mainGreen,
+                          horizontal: 45,
+                    vertical: appbarSize/4,
+                        ),
+                  //  const Spacer(flex: 3),
+                  leading != null ? leading! : const SizedBox.shrink(),
                 ],
               )
             : Align(
@@ -73,7 +87,7 @@ class FoodyTabAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   // TODO: implement preferredSize
   //220
-  Size get preferredSize =>  Size(double.infinity, appbarSize);
+  Size get preferredSize => Size(double.infinity, appbarSize);
 }
 
 class ProfileTabAppBar extends StatelessWidget implements PreferredSizeWidget {

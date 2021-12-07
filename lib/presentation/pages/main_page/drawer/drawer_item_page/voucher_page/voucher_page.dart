@@ -15,7 +15,7 @@ class VoucherPage extends StatelessWidget {
       length: 2,
       child: SafeArea(
         child: Scaffold(
-          appBar:  FoodyTabAppBar(
+          appBar:  FoodyTabAppBar(appbarSize: 150,
             title: AppString.vouchers,
             tabBar: [
               SimpleText(AppString.current, fontSize: 26),

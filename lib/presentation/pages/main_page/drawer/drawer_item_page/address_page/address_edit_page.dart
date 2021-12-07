@@ -32,6 +32,7 @@ class _AddressEditPageState extends State<AddressEditPage> {
     WidgetsBinding.instance!.addPostFrameCallback((_) {});
     super.initState();
   }
+
   Widget knob() => Container(
         margin: const EdgeInsets.symmetric(vertical: 15),
         height: 8,
@@ -39,7 +40,6 @@ class _AddressEditPageState extends State<AddressEditPage> {
         decoration: BoxDecoration(
             color: AppColor.mainGreen, borderRadius: BorderRadius.circular(10)),
       );
-
 
   @override
   Widget build(BuildContext context) {
@@ -96,11 +96,14 @@ class _AddressEditPageState extends State<AddressEditPage> {
                                     ),
                                     const Spacer(),
                                     ActionChip(
-                                      pressElevation: 1,
-                                      labelPadding: const EdgeInsets.symmetric(horizontal: 15),
-                                        label: const SimpleText(AppString.apply),
+                                        pressElevation: 1,
+                                        labelPadding:
+                                            const EdgeInsets.symmetric(
+                                                horizontal: 15),
+                                        label:
+                                            const SimpleText(AppString.apply),
                                         onPressed: () {
-                                        Navigator.pop(context);
+                                          Navigator.pop(context);
                                         }),
                                   ],
                                 ),
@@ -145,6 +148,7 @@ class _AddressEditPageState extends State<AddressEditPage> {
                                     ],
                                   ),
                                 ),
+
                               ],
                             ),
                           ])),

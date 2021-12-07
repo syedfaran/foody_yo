@@ -12,7 +12,70 @@ import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
 class ChallengeAndRewardPage extends StatelessWidget {
   const ChallengeAndRewardPage({Key? key}) : super(key: key);
-
+  Future<void> _showModal(BuildContext context) async {
+    return showModalBottomSheet(
+        backgroundColor: AppColor.whiteColor,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        context: context,
+        builder: (context) => Padding(
+          padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  const SimpleText(
+                    'Point earned',
+                    fontSize: 28,
+                    enumText: EnumText.extraBold,
+                  ),
+                  const Spacer(),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(
+                      Icons.close_rounded,
+                      size: 30,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: const [
+                  SimpleText(
+                    'Your past activities',
+                    fontSize: 14,
+                    enumText: EnumText.extraBold,
+                  ),
+                  Spacer(),
+                  Image(
+                    image: ImageString.starOutline,
+                    height: 30,
+                    width: 30,
+                  ),
+                  SimpleText(
+                    '0',
+                    fontSize: 14,
+                    enumText: EnumText.extraBold,
+                    horizontal: 10,
+                    vertical: 10,
+                  ),
+                ],
+              ),
+              const Divider(thickness: 2.5,color: Colors.black54,),
+              const    Spacer(
+                flex: 3,
+              ),
+              const   SimpleText(
+                'Let\'s play!',
+                fontSize: 28,
+                enumText: EnumText.extraBold,
+              ),
+              const  Spacer(),
+            ],
+          ),
+        ));
+  }
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -26,9 +89,8 @@ class ChallengeAndRewardPage extends StatelessWidget {
             isScrollable: true,
             fontSize: 26,
             leading: TextButton(
-                onPressed: () =>
-                    Navigator.pushNamed(context, RouteString.helpCenter),
-                child: const SimpleText(AppString.help)),
+                onPressed: () => _showModal(context),
+                child: const SimpleText(AppString.help,)),
             tabBar: const [
               SimpleText(AppString.challenges,
                   enumText: EnumText.extraBold, vertical: 5),

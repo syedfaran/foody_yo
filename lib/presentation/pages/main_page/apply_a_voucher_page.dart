@@ -15,32 +15,35 @@ class ApplyAVoucher extends StatelessWidget {
       appBar: const SimpleAppBar(
         title: AppString.applyAVoucher,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              height: 90,
-              width: 350,
-              margin: const EdgeInsets.symmetric(vertical: 45),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  border: Border.all(color: AppColor.mainGreen,width: 1.5),
-                  borderRadius: BorderRadius.circular(20)),
-              child: const TextField(
-                textAlign: TextAlign.center,
-                style: TextStyle(fontWeight: FontWeight.w900,fontSize: 34),
-                decoration: InputDecoration(
-                  hintText: AppString.voucherCode,
-                  border: InputBorder.none,
-                  contentPadding:  EdgeInsets.symmetric(horizontal: 15),
-                  hintStyle: TextStyle(fontWeight: FontWeight.w900,fontSize: 34)
+      body: Padding(
+        padding: const EdgeInsets.only(top: 150),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                height: 80,
+                width: 330,
+                margin: const EdgeInsets.symmetric(vertical: 45),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    border: Border.all(color: AppColor.mainGreen,width: 1.5),
+                    borderRadius: BorderRadius.circular(20)),
+                child: const TextField(
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.w900,fontSize: 30),
+                  decoration: InputDecoration(
+                    hintText: AppString.voucherCode,
+                    border: InputBorder.none,
+                    contentPadding:  EdgeInsets.symmetric(horizontal: 15),
+                    hintStyle: TextStyle(fontWeight: FontWeight.w900,fontSize: 30)
 
+                  ),
                 ),
               ),
-            ),
-            BigButton(text: AppString.apply, onPressed: (){}),
-          ],
+              BigButton(width: 330,text: AppString.apply, onPressed: (){}),
+            ],
+          ),
         ),
       ),
     ));

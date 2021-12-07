@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/constants/route_string.dart';
+import 'package:foody_yo/presentation/widgets/big_button.dart';
 import 'package:foody_yo/presentation/widgets/simple_appbar.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
@@ -23,6 +24,11 @@ class AddressPage extends StatelessWidget {
             endIndent: 20,
             indent: 20,
           ),
+          const   Spacer(flex: 8),
+          BigButton(text: 'Add New Address', onPressed: (){
+            Navigator.pushNamed(context, RouteString.addressEdit);
+          }),
+          const   Spacer(),
         ],
       ),
     ));

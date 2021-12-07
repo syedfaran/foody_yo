@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/presentation/pages/cart_page/cart_page.dart';
+import 'package:foody_yo/presentation/pages/enums.dart';
 import 'package:foody_yo/presentation/pages/location_walk_through/location_walk_through.dart';
 import 'package:foody_yo/presentation/pages/login_signup/login_signup.dart';
 import 'package:foody_yo/presentation/pages/main_page/apply_a_voucher_page.dart';
@@ -30,7 +31,7 @@ class RouteGenerator {
 
     switch (settings.name) {
       case RouteString.initial:
-      return MaterialPageRoute(builder: (context)=>const ChallengeAndRewardPage());
+      return MaterialPageRoute(builder: (context)=>const SplashScreen());
        return MaterialPageRoute(builder: (context)=>const ProfilePage());
         return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
       case RouteString.walkThrough:
@@ -49,7 +50,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context)=>const WelcomePage());
       case RouteString.main:
 
-        return MaterialPageRoute(builder: (context)=> MainLayout(args as bool));
+        return MaterialPageRoute(builder: (context)=> MainLayout(args as TempAuth));
       case RouteString.loginOrSignUp:
         return MaterialPageRoute(builder: (context)=>const LoginORSignup());
       case RouteString.helpCenter:

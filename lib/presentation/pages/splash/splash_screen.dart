@@ -14,9 +14,8 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Timer(
-       const Duration(seconds: 3),
-            () => Navigator.pushReplacementNamed(context, RouteString.walkThrough));
+    Timer(const Duration(seconds: 3),
+        () => Navigator.pushReplacementNamed(context, RouteString.walkThrough));
     super.initState();
   }
 
@@ -30,16 +29,18 @@ class _SplashScreenState extends State<SplashScreen> {
           image:
               DecorationImage(image: ImageString.splash, fit: BoxFit.fitHeight),
         ),
-        // foregroundDecoration: const BoxDecoration(
-        //   image:
-        //   DecorationImage(image: ImageString.splashGif,fit: F),
-        // ),
-        child:  Center(
-          child: Transform.scale(
-            scale: 1.3,
-            child: const SizedBox(
-              child: Image(
-                image: ImageString.splashGif,
+
+        child: Center(
+          child: SizedBox(
+            child: Container(
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: ImageString.map, fit: BoxFit.fill)),
+              child: Transform.scale(
+                scale: 1.3,
+                child: const Image(
+                  image: ImageString.splashGif,
+                ),
               ),
             ),
           ),
