@@ -130,6 +130,7 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                          SizedBox(width: 25.0),
                          Expanded(child: PaymentTextField(
                           hintText: AppString.cvc,
+                          image: ImageString.cvc,
                           textAlign: TextAlign.center,)),
 
                       ],
@@ -158,7 +159,6 @@ class _PaymentMethodPageState extends State<PaymentMethodPage> {
                         const SizedBox(height: 25.0),
                       ],
                     ),
-
                     const Spacer(flex: 3),
                     BigButton(text: AppString.done, onPressed: (){Navigator.pop(context);}),
                     const SimpleText(AppString.wellKeepYourPaymentDetailsSafe,enumText: EnumText.bold,),
@@ -174,8 +174,9 @@ class PaymentTextField extends StatelessWidget {
   final TextAlign textAlign;
   final double vertical;
   final double horizontal;
+  final ImageProvider? image;
   const PaymentTextField(
-      {Key? key, this.hintText, this.textAlign = TextAlign.start,this.horizontal=0,this.vertical=12})
+      {Key? key, this.hintText, this.textAlign = TextAlign.start,this.horizontal=0,this.vertical=12,this.image})
       : super(key: key);
 
   @override
@@ -188,8 +189,11 @@ class PaymentTextField extends StatelessWidget {
           .bodyText1!
           .copyWith(fontSize: 28,),
       decoration: InputDecoration(
-        //suffix: const Image(image: ImageString.card,height: 30,width: 30),
-        contentPadding: EdgeInsets.only(top: vertical,bottom: vertical,left: horizontal),
+        suffixIcon: image==null? null: Padding(
+          padding: const EdgeInsets.only(right: 8.0),
+          child: Image(image: image!,height: 30,width: 30),
+        ),
+        contentPadding: EdgeInsets.only(top: vertical,bottom: vertical,left: horizontal,right: horizontal),
         hintText: hintText,
         hintStyle:  Theme
             .of(context)
