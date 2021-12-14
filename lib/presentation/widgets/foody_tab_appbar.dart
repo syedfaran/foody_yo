@@ -12,10 +12,11 @@ class FoodyTabAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? leading;
   final double appbarSize;
   final bool isScrollable;
-
+  final TabController? tabController;
   const FoodyTabAppBar(
       {Key? key,
       required this.tabBar,
+        this.tabController,
       this.title,
       this.fontSize = 34,
       this.leading,
@@ -29,6 +30,7 @@ class FoodyTabAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 10,
       automaticallyImplyLeading: false,
       bottom: TabBar(
+        controller: tabController,
         isScrollable: isScrollable,
         tabs: tabBar,
         indicatorSize: TabBarIndicatorSize.label,

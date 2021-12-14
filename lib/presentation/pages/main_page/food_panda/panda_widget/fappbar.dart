@@ -24,7 +24,7 @@ class FAppBar extends SliverAppBar {
   final void Function(bool isCollapsed) onCollapsed;
   final void Function(int index) onTap;
 
-  FAppBar({
+   FAppBar({
     required this.data,
     required this.context,
     required this.isCollapsed,

@@ -15,36 +15,15 @@ class SortBody extends StatefulWidget {
 class _SortBodyState extends State<SortBody> {
   final _sizedBox = const SizedBox(height: 30);
   ValueNotifier<EnumFilterOption> valueNotifier =
-  ValueNotifier(EnumFilterOption.optionOne);
+      ValueNotifier(EnumFilterOption.optionOne);
 
   @override
   void dispose() {
     valueNotifier.dispose();
     super.dispose();
   }
-
-
-
-  Widget filterChip(bool isSelected, String dollar) =>
-      ChoiceChip(
-        label: SimpleText(dollar,
-          enumText: EnumText.extraBold,
-          fontSize: 20,
-        ),
-        selected: isSelected,
-        backgroundColor: AppColor.transparent,
-        selectedColor: AppColor.mainGreen,
-        shape:const  StadiumBorder(side: BorderSide()),
-        onSelected: (value) {
-          print('$dollar $value');
-          setState(() {
-
-            isSelected = !value;
-          });
-        },
-        padding: const EdgeInsets.symmetric(horizontal: 38, vertical: 12),
-      );
-
+  bool choice = false;
+  List<String> list = [];
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -101,19 +80,71 @@ class _SortBodyState extends State<SortBody> {
               enumText: EnumText.semiBold, fontSize: 28),
           _sizedBox,
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: FilterClass.list.map((e) => filterChip(e.isSelected,e.string)).toList(),
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: FilterClass.list.map((e) {
+              return ChoiceChip(
+                label: SimpleText(
+                  e.string,
+                  enumText: EnumText.extraBold,
+                  fontSize: 20,
+                  color: e.isSelected
+                      ? AppColor.whiteTextColor
+                      : AppColor.blackTextColor,
+                ),
+                selected: e.isSelected,
+                backgroundColor: AppColor.transparent,
+                selectedColor: AppColor.mainGreen,
+                shape: const StadiumBorder(side: BorderSide()),
+                onSelected: (value) => setState(() {
+                  e.isSelected = value;
+                  if(e.isSelected) {
+                    list.add(e.string);
+                  }else{
+                    list.remove(e.string);
+                  }
+
+                }),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 38, vertical: 12),
+              );
+            }).toList(),
           ),
           const Spacer(),
           Align(
             alignment: Alignment.center,
-            child: BigButton(
+            child: list.isEmpty?BigButton(
                 width: 250,
                 height: 60,
                 text: AppString.apply,
                 onPressed: () {
                   //Navigator.pop(context);
+                }):Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+            TextButton(
+                onPressed: () {
+                    list.removeRange(0, list.length);
+                    //update values
+                    for(var i in FilterClass.list){
+                      setState(() {
+                        i.isSelected=false;
+                      });
+                    }
+                },
+                child: const SimpleText(
+                  'Clear All',
+                  fontSize: 30,
+                  enumText: EnumText.extraBold,
+                )),
+            BigButton(
+                width: 250,
+                height: 60,
+                text: ' ( ${list.length.toString()} ) '+AppString.apply,
+                onPressed: () {
+                  //Navigator.pop(context);
                 }),
+            ],
+          ),
           ),
         ],
       ),
@@ -127,11 +158,12 @@ class FoodyRadioButtonTrailing<T> extends StatelessWidget {
   final T? groupValue;
   final ValueChanged<T?>? onChanged;
 
-  const FoodyRadioButtonTrailing({Key? key,
-    required this.value,
-    required this.text,
-    this.groupValue,
-    this.onChanged})
+  const FoodyRadioButtonTrailing(
+      {Key? key,
+      required this.value,
+      required this.text,
+      this.groupValue,
+      this.onChanged})
       : super(key: key);
 
   @override
@@ -152,13 +184,14 @@ class FoodyRadioButtonTrailing<T> extends StatelessWidget {
 
 class FilterClass {
   final String string;
-  final bool isSelected;
+  bool isSelected;
 
-  const FilterClass(this.string, this.isSelected);
+  FilterClass({required this.string, required this.isSelected});
 
-  static const List<FilterClass> list = [
-    FilterClass('\$', false),
-    FilterClass('\$\$', false),
-    FilterClass('\$\$\$', false)
+  static List<FilterClass> list = [
+    FilterClass(isSelected: false, string: '\$'),
+    FilterClass(isSelected: false, string: '\$\$'),
+    FilterClass(isSelected: false, string: '\$\$\$')
   ];
+
 }

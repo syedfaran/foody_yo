@@ -8,7 +8,7 @@ import 'package:foody_yo/presentation/widgets/main_appbar.dart';
 import 'package:foody_yo/presentation/widgets/main_card.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
-import 'food_panda/home_screen.dart';
+import 'food_panda/panda_screen.dart';
 
 class MainPage extends StatelessWidget {
   final Animation animation;
