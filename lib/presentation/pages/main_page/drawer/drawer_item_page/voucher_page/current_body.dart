@@ -3,8 +3,8 @@ import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/presentation/pages/enums.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
-class Past extends StatelessWidget {
-  const Past({Key? key}) : super(key: key);
+class CurrentBody extends StatelessWidget {
+  const CurrentBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

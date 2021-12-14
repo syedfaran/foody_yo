@@ -15,6 +15,7 @@ import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/se
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/term_and_cond_page/terms_cond_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/voucher_page/voucher_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/check_out_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/filter_page/filter_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/main_layout.dart';
 import 'package:foody_yo/presentation/pages/main_page/payment_method_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/your_order/your_order_page.dart';
@@ -31,13 +32,15 @@ class RouteGenerator {
 
     switch (settings.name) {
       case RouteString.initial:
-      return MaterialPageRoute(builder: (context)=>const SplashScreen());
-       return MaterialPageRoute(builder: (context)=>const ProfilePage());
-        return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
+       // return MaterialPageRoute(builder: (context) => const SplashScreen());
+        return MaterialPageRoute(builder: (context) => const FilterPage());
+        return MaterialPageRoute(
+            builder: (context) => const LocationWalkThrough());
       case RouteString.walkThrough:
-        return MaterialPageRoute(builder: (context)=>const LocationWalkThrough());
+        return MaterialPageRoute(
+            builder: (context) => const LocationWalkThrough());
       case RouteString.map:
-      // Validation of correct data type
+        // Validation of correct data type
         if (args is bool) {
           return MaterialPageRoute(
             builder: (_) => const MapPage(),
@@ -47,50 +50,53 @@ class RouteGenerator {
         // You can also throw an exception while in development.
         return _errorRoute();
       case RouteString.welcome:
-        return MaterialPageRoute(builder: (context)=>const WelcomePage());
+        return MaterialPageRoute(builder: (context) => const WelcomePage());
       case RouteString.main:
-
-        return MaterialPageRoute(builder: (context)=> MainLayout(args as TempAuth));
+        return MaterialPageRoute(
+            builder: (context) => MainLayout(args as TempAuth));
       case RouteString.loginOrSignUp:
-        return MaterialPageRoute(builder: (context)=>const LoginORSignup());
+        return MaterialPageRoute(builder: (context) => const LoginORSignup());
       case RouteString.helpCenter:
-        return MaterialPageRoute(builder: (context)=>const HelpCenterPage());
+        return MaterialPageRoute(builder: (context) => const HelpCenterPage());
       case RouteString.cancelOrder:
-        return MaterialPageRoute(builder: (context)=>const CancelOrderPage());
+        return MaterialPageRoute(builder: (context) => const CancelOrderPage());
       case RouteString.orderHistory:
-        return MaterialPageRoute(builder: (context)=>const OrderPage());
+        return MaterialPageRoute(builder: (context) => const OrderPage());
       case RouteString.voucher:
-        return MaterialPageRoute(builder: (context)=>const VoucherPage());
+        return MaterialPageRoute(builder: (context) => const VoucherPage());
       case RouteString.challengeAndReward:
-        return MaterialPageRoute(builder: (context)=>const ChallengeAndRewardPage());
+        return MaterialPageRoute(
+            builder: (context) => const ChallengeAndRewardPage());
       case RouteString.favourite:
-        return MaterialPageRoute(builder: (context)=>const FavouritePage());
+        return MaterialPageRoute(builder: (context) => const FavouritePage());
       case RouteString.address:
-        return MaterialPageRoute(builder: (context)=>const AddressPage());
+        return MaterialPageRoute(builder: (context) => const AddressPage());
       case RouteString.addressEdit:
-        return MaterialPageRoute(builder: (context)=>const AddressEditPage());
+        return MaterialPageRoute(builder: (context) => const AddressEditPage());
       case RouteString.settings:
-        return MaterialPageRoute(builder: (context)=>const SettingsPage());
+        return MaterialPageRoute(builder: (context) => const SettingsPage());
       case RouteString.termAndCondition:
-        return MaterialPageRoute(builder: (context)=>const TermsAndCondition());
+        return MaterialPageRoute(
+            builder: (context) => const TermsAndCondition());
 
       case RouteString.profile:
-        return MaterialPageRoute(builder: (context)=>const ProfilePage());
+        return MaterialPageRoute(builder: (context) => const ProfilePage());
       case RouteString.applyAVoucher:
-        return MaterialPageRoute(builder: (context)=>const ApplyAVoucher());
+        return MaterialPageRoute(builder: (context) => const ApplyAVoucher());
       case RouteString.cart:
-        return MaterialPageRoute(builder: (context)=>const CardPage());
+        return MaterialPageRoute(builder: (context) => const CardPage());
       case RouteString.checkOut:
-        return MaterialPageRoute(builder: (context)=>const  CheckOutPage());
-
+        return MaterialPageRoute(builder: (context) => const CheckOutPage());
       case RouteString.paymentMethod:
-        return MaterialPageRoute(builder: (context)=>const  PaymentMethodPage());
+        return MaterialPageRoute(
+            builder: (context) => const PaymentMethodPage());
       case RouteString.yourOrder:
-        return MaterialPageRoute(builder: (context)=>const  YourOrderPage());
-
+        return MaterialPageRoute(builder: (context) => const YourOrderPage());
+      case RouteString.filter:
+        return MaterialPageRoute(builder: (context) => const FilterPage());
 
       default:
-      // If there is no such named route in the switch statement, e.g. /third
+        // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();
     }
   }
@@ -167,4 +173,3 @@ class RouteGenerator {
 //         this.secondData,
 //         this.flag});
 // }
-

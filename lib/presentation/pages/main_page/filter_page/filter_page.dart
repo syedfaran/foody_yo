@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
-import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/voucher_page/current_body.dart';
-import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/voucher_page/past_body.dart';
+import 'package:foody_yo/presentation/pages/main_page/filter_page/price_body.dart';
+import 'package:foody_yo/presentation/pages/main_page/filter_page/sort_body.dart';
 
 import 'package:foody_yo/presentation/widgets/foody_tab_appbar.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
-class VoucherPage extends StatelessWidget {
-  const VoucherPage({Key? key}) : super(key: key);
+class FilterPage extends StatelessWidget {
+  const FilterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +16,16 @@ class VoucherPage extends StatelessWidget {
       child: SafeArea(
         child: Scaffold(
           appBar:  FoodyTabAppBar(appbarSize: 150,
-            title: AppString.vouchers,
+            title: AppString.filter,
             tabBar: [
-              SimpleText(AppString.current, fontSize: 26),
-              SimpleText(AppString.past, fontSize: 26)
+              SimpleText(AppString.sort, fontSize: 26),
+              SimpleText(AppString.price, fontSize: 26)
             ],
           ),
           body: TabBarView(
             children: [
-              CurrentBody(),
-              PastBody(),
+              SortBody(),
+              PriceBody(),
             ],
           ),
         ),

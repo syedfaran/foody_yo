@@ -141,6 +141,13 @@ class AppString {
   static const home = 'Home';
   static const work = 'Work';
   static const partner = 'Partner';
+  static const filter = 'Filter';
+  static const sort = 'Sort';
+  static const price = 'Price';
+  static const recommended = 'Recommended(default)';
+  static const topRated = 'Top Rated';
+  static const fastestDelivery = 'Fastest Delivery';
+  static const distance = 'Distance';
 
 
 }

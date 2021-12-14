@@ -51,6 +51,6 @@ class ImageString{
   static const ImageProvider cartImage = AssetImage('assets/images/cart_image.jpg');
   static const ImageProvider vg = AssetImage('assets/images/vg.png');
   static const ImageProvider map = AssetImage('assets/images/map.png');
-  // static const ImageProvider helpCenter = AssetImage('assets/images/heart.png');
+   static const ImageProvider helpCenter = AssetImage('assets/images/help_center.png');
   // static const ImageProvider order = AssetImage('assets/images/heart.png');
 }

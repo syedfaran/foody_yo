@@ -111,7 +111,7 @@ class DrawerScreen extends StatelessWidget {
           guest
               ? DrawerItem(
                   text: AppString.helpCenter,
-                  image: ImageString.reward,
+                  image: ImageString.helpCenter,
                   onTap: () =>
                       Navigator.pushNamed(context, RouteString.helpCenter),
                 )
