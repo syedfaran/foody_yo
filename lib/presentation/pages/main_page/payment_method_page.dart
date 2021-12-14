@@ -191,7 +191,7 @@ class PaymentTextField extends StatelessWidget {
       decoration: InputDecoration(
         suffixIcon: image==null? null: Padding(
           padding: const EdgeInsets.only(right: 8.0),
-          child: Image(image: image!,height: 30,width: 30),
+          child: Image(image: image!,height: 30,width: 30), 
         ),
         contentPadding: EdgeInsets.only(top: vertical,bottom: vertical,left: horizontal,right: horizontal),
         hintText: hintText,
