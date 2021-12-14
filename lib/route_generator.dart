@@ -32,8 +32,8 @@ class RouteGenerator {
 
     switch (settings.name) {
       case RouteString.initial:
-       // return MaterialPageRoute(builder: (context) => const SplashScreen());
-        return MaterialPageRoute(builder: (context) => const FilterPage());
+        return MaterialPageRoute(builder: (context) => const SplashScreen());
+        return MaterialPageRoute(builder: (context) => const WelcomePage());
         return MaterialPageRoute(
             builder: (context) => const LocationWalkThrough());
       case RouteString.walkThrough:

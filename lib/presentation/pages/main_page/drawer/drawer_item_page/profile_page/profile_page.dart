@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/presentation/pages/enums.dart';
-import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/profile_page/payment_method_layout.dart';
+import 'package:foody_yo/presentation/pages/main_page/drawer/drawer_item_page/profile_page/payment_body.dart';
 import 'package:foody_yo/presentation/widgets/foody_tab_appbar.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
-import 'account_layout.dart';
+import 'account_body.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -32,8 +32,8 @@ class ProfilePage extends StatelessWidget {
         ),
             body: TabBarView(
               children: [
-                AccountLayout(),
-                PaymentMethodLayout(),
+                AccountBody(),
+                PaymentBody(),
                 Center(child: Text('History'))
               ],
             ),

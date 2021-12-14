@@ -5,8 +5,8 @@ import 'package:foody_yo/presentation/pages/enums.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:foody_yo/presentation/widgets/simple_text.dart';
 
-class AccountLayout extends StatelessWidget {
-  const AccountLayout({Key? key}) : super(key: key);
+class AccountBody extends StatelessWidget {
+  const AccountBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

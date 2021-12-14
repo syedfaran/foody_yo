@@ -10,7 +10,8 @@ class ImageString{
   static const ImageProvider cart = AssetImage('assets/images/cart.png');
   static const ImageProvider heart = AssetImage('assets/images/heart.png');
   static const ImageProvider navigation = AssetImage('assets/images/navigation.png');
-  static const ImageProvider appBarBackGround = AssetImage('assets/images/appbar_background.jpg');
+  static const ImageProvider appBarBackGround = AssetImage('assets/images/appbar_background_pixel.jpg');
+  static const ImageProvider creditCard = AssetImage('assets/images/credit_card.png');
 
   static const ImageProvider profile = AssetImage('assets/images/profile.png');
   static const ImageProvider address = AssetImage('assets/images/navigation.png');
