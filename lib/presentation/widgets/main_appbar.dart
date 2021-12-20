@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foody_yo/constants/app_string.dart';
 import 'package:foody_yo/constants/image_string.dart';
+import 'package:foody_yo/constants/route_string.dart';
 import 'package:foody_yo/presentation/pages/enums.dart';
 import 'package:foody_yo/presentation/theme/app_color.dart';
 import 'package:foody_yo/presentation/widgets/rounded_textfield.dart';
@@ -38,7 +39,13 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                     },
                     child: const Image(image: ImageString.menu, width: 26)),
                 const Spacer(),
-                const Image(image: ImageString.navigation, width: 26),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, RouteString.map,
+                          arguments: true);
+                    },
+                    child:
+                        const Image(image: ImageString.navigation, width: 26)),
                 const Spacer(),
                 const Padding(
                   padding: EdgeInsets.only(top: 4.0),
@@ -51,9 +58,17 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ),
                 const Spacer(),
-                const Image(image: ImageString.heart, width: 26),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, RouteString.favourite);
+                    },
+                    child: const Image(image: ImageString.heart, width: 26)),
                 const Spacer(),
-                const Image(image: ImageString.cart, width: 26),
+                GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, RouteString.cart);
+                    },
+                    child: const Image(image: ImageString.cart, width: 26)),
               ],
             ),
             const Spacer(flex: 3),

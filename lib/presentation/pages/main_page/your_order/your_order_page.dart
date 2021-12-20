@@ -33,6 +33,7 @@ class _YourOrderPageState extends State<YourOrderPage> {
       if (progress.value >= 1.0) {
         t.cancel();
         progress.dispose();
+        Navigator.pushNamed(context, RouteString.rating);
       }
     });
     super.initState();
@@ -47,12 +48,14 @@ class _YourOrderPageState extends State<YourOrderPage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      appBar:  SimpleAppBar(
+      appBar: SimpleAppBar(
         title: AppString.yourOrder,
         subtitle: AppString.alHajAkhtar,
-        action: TextButton(onPressed: (){
-          Navigator.pushNamed(context, RouteString.helpCenter);
-        }, child: const SimpleText(AppString.help)),
+        action: TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, RouteString.helpCenter);
+            },
+            child: const SimpleText(AppString.help)),
       ),
       body: ValueListenableBuilder<double>(
         valueListenable: progress,
@@ -84,7 +87,11 @@ class _YourOrderPageState extends State<YourOrderPage> {
                   ),
                 ),
                 _sizedBox,
-                value >= 0.50?const SimpleText(AppString.gotYourOrder):SizedBox(height: 25,),
+                value >= 0.50
+                    ? const SimpleText(AppString.gotYourOrder)
+                    : SizedBox(
+                        height: 25,
+                      ),
                 _sizedBox,
                 OrderProgressLoadingAnimation(progress.value),
                 _sizedBox,
@@ -132,7 +139,7 @@ class _YourOrderPageState extends State<YourOrderPage> {
                   valueSize: 18,
                   vertical: 4,
                 ),
-                value >= 0.50?const MainItem():const SizedBox.shrink(),
+                value >= 0.50 ? const MainItem() : const SizedBox.shrink(),
                 value >= 0.50
                     ? const CartPaymentInfo(
                         option: AppString.subtotal,
@@ -140,12 +147,12 @@ class _YourOrderPageState extends State<YourOrderPage> {
                         value: 'Rs. 250.00',
                         valueEnum: EnumText.extraBold,
                         valueSize: 18,
-                  vertical: 4,
+                        vertical: 4,
                       )
                     : const SizedBox.shrink(),
                 value >= 0.50
                     ? const CartPaymentInfo(
-                  vertical: 4,
+                        vertical: 4,
                         option: AppString.deliveryFee,
                         value: 'Rs. 55.00',
                         valueEnum: EnumText.light,
@@ -156,7 +163,7 @@ class _YourOrderPageState extends State<YourOrderPage> {
                     : const SizedBox.shrink(),
                 value >= 0.50
                     ? const CartPaymentInfoVouch(
-                  vertical: 4,
+                        vertical: 4,
                         option: AppString.total,
                         value: 'Rs, 300.00',
                       )

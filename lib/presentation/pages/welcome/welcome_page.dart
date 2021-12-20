@@ -40,7 +40,8 @@ class WelcomePage extends StatelessWidget {
               _sizedBox,
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, RouteString.main,arguments: const TempAuth(false,EnumCraving.delivery));
+                  Navigator.pushNamed(context, RouteString.main,
+                      arguments: const TempAuth(false, EnumCraving.delivery));
                 },
                 child: Container(
                   height: 150,
@@ -70,7 +71,8 @@ class WelcomePage extends StatelessWidget {
               _sizedBox,
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, RouteString.main,arguments: const TempAuth(false,EnumCraving.pickUp));
+                  Navigator.pushNamed(context, RouteString.main,
+                      arguments: const TempAuth(false, EnumCraving.pickUp));
                 },
                 child: Container(
                   margin: const EdgeInsets.only(right: 150),
@@ -106,5 +108,3 @@ class WelcomePage extends StatelessWidget {
     );
   }
 }
-
-

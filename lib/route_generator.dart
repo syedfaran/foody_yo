@@ -18,6 +18,7 @@ import 'package:foody_yo/presentation/pages/main_page/check_out_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/filter_page/filter_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/main_layout.dart';
 import 'package:foody_yo/presentation/pages/main_page/payment_method_page.dart';
+import 'package:foody_yo/presentation/pages/main_page/rating_page/rating_page.dart';
 import 'package:foody_yo/presentation/pages/main_page/your_order/your_order_page.dart';
 import 'package:foody_yo/presentation/pages/map_page/map_page.dart';
 import 'package:foody_yo/presentation/pages/welcome/welcome_page.dart';
@@ -94,7 +95,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context) => const YourOrderPage());
       case RouteString.filter:
         return MaterialPageRoute(builder: (context) => const FilterPage());
-
+      case RouteString.rating:
+        return MaterialPageRoute(builder: (context) => const RatingPage());
       default:
         // If there is no such named route in the switch statement, e.g. /third
         return _errorRoute();

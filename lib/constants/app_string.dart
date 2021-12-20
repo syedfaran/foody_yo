@@ -37,6 +37,7 @@ class AppString {
   static const address = 'Addresses';
   static const challengeAndReward = 'Challenge & Reward';
   static const vouchers = 'Vouchers';
+  static const ratings = 'Ratings';
   static const helpCenter = 'help Center';
   static const logOut = 'Log out';
   static const next = 'next';
@@ -59,6 +60,8 @@ class AppString {
   static const noVoucher ='No Vouchers Yet';
   static const current = 'Current';
   static const past = 'Past';
+  static const rest = 'Restaurant';
+  static const rider = 'Rider';
   static const restaurant = 'Restaurants';
   static const shop = 'Shops';
 
@@ -112,6 +115,8 @@ class AppString {
   static const name = 'Name';
   static const mobileNumber = 'Mobile number';
   static const verified = 'Verified';
+  static const dismiss = 'Dismiss';
+  static const submit = 'Submit';
   static const addNow = 'Add Now';
   static const discount = 'discount';
   static const selfCollect = 'Self-collect for guaranteed';

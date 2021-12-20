@@ -23,5 +23,6 @@ class RouteString{
   static const String addressEdit ='/addressEdit';
   static const String settings ='/settings';
   static const String filter ='/filter';
+  static const String rating ='/rating';
 
 }
